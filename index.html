@@ -77,6 +77,7 @@
   }
   body.light .hero-title{background: linear-gradient(90deg, #ff4b4b 0%, #8458ff 52%, #0096ff 100%);}
 
+  .hero-sub{margin-top:8px;color:var(--muted);font-weight:600}
   .hero-lead{margin-top:12px;color:var(--muted);max-width:68ch}
   .badges{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
   .badge{padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.06);font-weight:700;background:transparent;color:var(--text);font-size:13px}
@@ -117,6 +118,12 @@
   .cert-item strong{font-size:14px}
   .cert-item .meta{color:var(--muted);font-size:13px;margin-left:10px}
 
+  /* Education */
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+  .edu-card{background:var(--glass);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:6px}
+  .edu-card h4{margin:0;font-size:15px}
+  .edu-meta{color:var(--muted);font-size:13px}
+
   /* Contact improvements */
   .contact-grid{display:grid;grid-template-columns:1fr 380px;gap:16px;margin-top:20px}
   .contact-card{display:flex;flex-direction:column;gap:12px}
@@ -135,6 +142,7 @@
     .nav-links{display:none}
     .avatar-frame{width:220px;height:220px}
     .case-card{min-width:86vw;max-width:86vw}
+    .edu-grid{grid-template-columns:1fr}
   }
 
   footer{text-align:center;color:var(--muted);margin:36px 0;font-size:14px}
@@ -176,6 +184,7 @@
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#timeline">Experience</a>
+      <a href="#education">Education</a>
       <a href="#certifications">Certifications</a>
       <a href="#contact">Contact</a>
     </div>
@@ -188,6 +197,8 @@
   <section id="home" class="hero-grid">
     <div class="card">
       <div class="hero-title">Transforming complex data into actionable intelligence</div>
+      <div class="hero-sub">Graduation: <strong>Bachelor of Engineering (Computer Science)</strong> — (Replace with your degree & institute)</div>
+
       <div class="hero-lead">
         I'm Vipul G Patil — Senior Data Engineer & Data Professional specializing in Power BI, SQL, ETL and Python automation.
         As a Senior Data Engineer, I focus on designing analytics solutions that drive measurable outcomes — faster reporting, cleaner pipelines and smarter decisions. I specialize in building automated ETL frameworks, optimizing SQL workloads, crafting intuitive Power BI dashboards and ensuring data quality at scale. My work has reduced reporting latency, eliminated manual processes and provided leaders with real-time visibility into performance trends. I believe in building systems that are efficient, transparent and dependable.
@@ -314,6 +325,28 @@
           <li>Worked on data modules for multiple products (STEPS and CCS), handling data preparation and integration.</li>
           <li>Analyzed and formatted Excel data for database integration using SQL queries, ensuring data quality for downstream reporting.</li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" style="margin-top:32px;">
+    <h2 class="skills-title">Education</h2>
+    <div class="card" style="margin-top:12px">
+      <p class="small" style="color:var(--muted)">Academic background and formal qualifications:</p>
+
+      <div class="edu-grid" role="list">
+        <div class="edu-card" role="listitem">
+          <h4>Bachelor of Engineering (Computer Science)</h4>
+          <div class="edu-meta">ABC University — Year of graduation: 2018</div>
+          <div class="small" style="margin-top:6px;color:var(--muted)">Relevant coursework: Database Systems, Data Structures, Statistics. (Replace with your actual college & year)</div>
+        </div>
+
+        <div class="edu-card" role="listitem">
+          <h4>Higher Secondary (Science)</h4>
+          <div class="edu-meta">XYZ Junior College — Year of completion: 2014</div>
+          <div class="small" style="margin-top:6px;color:var(--muted)">Focus: Mathematics & Physics. (Replace with your actual school & year)</div>
+        </div>
       </div>
     </div>
   </section>
@@ -609,6 +642,3 @@
 </script>
 </body>
 </html>
-
-
-
