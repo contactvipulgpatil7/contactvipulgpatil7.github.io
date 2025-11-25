@@ -89,6 +89,12 @@
   /* subtle dark shadow so text still reads on busy backgrounds */
   text-shadow: 0 1px 0 rgba(0,0,0,0.45);
 }
+body.light .hero-title{
+  background: linear-gradient(90deg, #ff7b7b 0%, #8458ff 52%, #13cbe6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
   .hero-lead{margin-top:12px;color:var(--muted);max-width:68ch}
   .badges{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
@@ -577,6 +583,7 @@
 </script>
 </body>
 </html>
+
 
 
 
