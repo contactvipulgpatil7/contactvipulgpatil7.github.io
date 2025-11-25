@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Vipul G Patil — Portfolio</title>
-<meta name="description" content="Vipul G Patil — Senior Date Engineer & Data Professional | Power BI, SQL, ETL, Python Automation." />
+<meta name="description" content="Vipul G Patil — Senior Data Engineer & Data Professional | Power BI, SQL, ETL, Python Automation." />
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
@@ -102,10 +102,23 @@
 
   /* SKILLS */
   .skills-grid{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:22px}
-  .skill-row{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+  .skill-row{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    margin-bottom:12px;
+  }
   .skill-name{width:150px;color:var(--muted)}
-  .skill-track{flex:1;height:12px;border-radius:999px;background:rgba(255,255,255,0.06);overflow:hidden}
+  .skill-track{flex:1;height:12px;border-radius:999px;background:rgba(255,255,255,0.06);overflow:hidden;position:relative}
   .skill-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent-b),var(--accent-c));transition:width 1.2s}
+  /* Percentage value at the right */
+  .skill-val{
+    width:56px;
+    text-align:right;
+    font-weight:800;
+    color:var(--accent-c);
+    font-size:13px;
+  }
 
   /* TIMELINE */
   .timeline{margin-top:22px;padding-left:16px;border-left:4px solid rgba(255,255,255,0.08)}
@@ -118,7 +131,7 @@
   .cert-badge{display:inline-block;margin-top:8px;padding:6px 10px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);font-weight:700;color:var(--text);margin-right:8px}
 
   /* SLIDESHOW (NO IMAGES) */
-  .slideshow{margin-top:26px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.05);}
+  .slideshow{margin-top:26px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.05);;}
   .slides{display:flex;transition:transform .5s}
   .slide{min-width:100%;padding:22px;background:linear-gradient(135deg,rgba(255,107,107,0.08),rgba(124,92,255,0.14))}
   .slide h4{margin:0 0 6px 0}
@@ -176,7 +189,7 @@
     <div class="card">
       <div class="hero-title">Transforming complex data into actionable intelligence.</div>
       <div class="hero-lead">
-        I'm Vipul G Patil — Senior Date Engineer & Data Professional specializing in Power BI, SQL, ETL and Python automation.
+        I'm Vipul G Patil — Senior Data Engineer & Data Professional specializing in Power BI, SQL, ETL and Python automation.
         I build high-impact dashboards, automate workflows, and optimize data systems for performance and accuracy.
       </div>
 
@@ -232,11 +245,35 @@
 
     <div class="skills-grid">
       <div class="card">
-        <div class="skill-row"><div class="skill-name">Power BI</div><div class="skill-track"><div class="skill-fill" data-fill="92"></div></div><div class="skill-val">90%</div></div>
-        <div class="skill-row"><div class="skill-name">SQL & Optimization</div><div class="skill-track"><div class="skill-fill" data-fill="95"></div></div><div class="skill-val">90%</div></div>
-        <div class="skill-row"><div class="skill-name">SSIS / ETL</div><div class="skill-track"><div class="skill-fill" data-fill="90"></div></div><div class="skill-val">90%</div></div>
-        <div class="skill-row"><div class="skill-name">Python</div><div class="skill-track"><div class="skill-fill" data-fill="82"></div></div><div class="skill-val">90%</div></div>
-        <div class="skill-row"><div class="skill-name">Automation</div><div class="skill-track"><div class="skill-fill" data-fill="88"></div></div><div class="skill-val">90%</div></div>
+        <div class="skill-row">
+          <div class="skill-name">Power BI</div>
+          <div class="skill-track"><div class="skill-fill" data-fill="92"></div></div>
+          <div class="skill-val">92%</div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-name">SQL & Optimization</div>
+          <div class="skill-track"><div class="skill-fill" data-fill="95"></div></div>
+          <div class="skill-val">95%</div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-name">SSIS / ETL</div>
+          <div class="skill-track"><div class="skill-fill" data-fill="90"></div></div>
+          <div class="skill-val">90%</div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-name">Python</div>
+          <div class="skill-track"><div class="skill-fill" data-fill="82"></div></div>
+          <div class="skill-val">82%</div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-name">Automation</div>
+          <div class="skill-track"><div class="skill-fill" data-fill="88"></div></div>
+          <div class="skill-val">88%</div>
+        </div>
       </div>
 
       <div class="card">
@@ -260,7 +297,7 @@
       <div class="timeline-item">
         <h4>Senior Systems Analyst — Altera Digital Health</h4>
         <div class="date">2024 — Present</div>
-        <p class="small">Leading BI development, ETL pipelines, and enterprise healthcare analytics implementations.</p>
+        <p class="small">Leading BI development, ETL pipelines, and enterprise analytics implementations.</p>
       </div>
 
       <div class="timeline-item">
@@ -272,7 +309,7 @@
       <div class="timeline-item">
         <h4>Associate Systems Analyst — Altera Digital Health</h4>
         <div class="date">2019 — 2021</div>
-        <p class="small">Designed SSIS packages, SQL jobs and supported clinicians with data insights.</p>
+        <p class="small">Designed SSIS packages, SQL jobs and supported teams with data insights.</p>
       </div>
 
     </div>
@@ -361,7 +398,7 @@
   <img src="avatar.png" alt="Vipul">
   <div>
     <strong>Vipul G Patil</strong><br>
-    <span class="small">Senior Date Engineer & Data Professional</span><br>
+    <span class="small">Senior Data Engineer & Data Professional</span><br>
     <div style="margin-top:6px;display:flex;gap:8px">
       <a class="btn-primary" href="mailto:contactvipulgpatil@gmail.com" style="padding:6px 10px;font-size:13px">Email</a>
       <a class="btn-outline" href="resume.pdf" download style="padding:6px 10px;font-size:13px">Resume</a>
@@ -434,17 +471,16 @@
   })();
 
   /* ===== Improved resume download behavior =====
-     Uses the uploaded file path: /mnt/data/resume.pdf
+     Uses the uploaded file path: resume.pdf
      Attempts to fetch and download via JS; if unavailable, falls back to href download.
   */
   (function(){
-    const url = 'resume.pdf'; // path to uploaded resume (from conversation)
+    const url = 'resume.pdf'; // path to uploaded resume (repo root)
     const btn = document.getElementById('downloadResume');
     const fallbackHref = btn.getAttribute('href');
 
     async function fetchAndDownload(){
       try {
-        // Try to fetch the file — if hosting transforms the path this will succeed when served.
         const resp = await fetch(url, { method: 'GET' });
         if (!resp.ok) throw new Error('File not found on server (status ' + resp.status + ')');
         const blob = await resp.blob();
@@ -457,16 +493,12 @@
         a.remove();
         URL.revokeObjectURL(blobUrl);
       } catch (err) {
-        // If fetch fails, try the plain href download (browser will attempt) and show a helpful note.
         console.warn('Resume fetch failed:', err);
-        // Show user-friendly alert and fallback
-        alert('Could not fetch resume from the site path. The page will try the direct download link — if that also fails, make sure "resume.pdf" is uploaded to your site root or contact me and I will provide the file.');
-        // attempt fallback by opening the link (this will rely on hosting)
+        alert('Could not fetch resume from the site path. The page will try the direct download link — if that also fails, make sure "resume.pdf" is uploaded to your site root.');
         window.open(fallbackHref, '_blank');
       }
     }
 
-    // Intercept click to use JS download with better error feedback
     btn.addEventListener('click', function(e){
       e.preventDefault();
       fetchAndDownload();
@@ -490,8 +522,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
