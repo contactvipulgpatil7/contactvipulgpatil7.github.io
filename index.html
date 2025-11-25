@@ -1,20 +1,21 @@
+<!-- Source resume (used to craft content): :contentReference[oaicite:0]{index=0} -->
 <!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Vipul Patil — Data Analyst</title>
-<meta name="description" content="Vipul Patil | Data Analyst — Power BI, SQL, Python. Portfolio & Projects." />
+<title>Vipul G Patil — Senior Systems Analyst & Data Professional</title>
+<meta name="description" content="Vipul G Patil — Senior Systems Analyst experienced in healthcare analytics, Power BI, SQL, ETL and automation. Portfolio & resume." />
 <style>
   :root{
     --bg:#071022;
     --card: rgba(255,255,255,0.02);
-    --muted:#94a3b8;
+    --muted:#9bb0c1;
     --accent1:#06b6d4;
     --accent2:#00c2b3;
     --glass: rgba(255,255,255,0.03);
     --maxw:1100px;
-    --nav-h:70px;
+    --nav-h:72px;
   }
   *{box-sizing:border-box}
   html,body{height:100%}
@@ -22,140 +23,107 @@
     margin:0;
     font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background: linear-gradient(180deg,#071022 0%, #041523 70%);
-    color:#e6eef6;
+    color:#e8f0f8;
     line-height:1.5;
     scroll-behavior: smooth;
-    padding-top: var(--nav-h); /* reserve space for fixed navbar */
+    padding-top: var(--nav-h);
   }
 
   /* NAV */
   .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: var(--nav-h);
-    z-index: 999;
+    position: fixed; top:0; left:0; width:100%; height:var(--nav-h); z-index:999;
     background: linear-gradient(180deg, rgba(7,16,35,0.98), rgba(7,16,35,0.92));
     border-bottom: 1px solid rgba(255,255,255,0.03);
-    display:flex; align-items:center;
-    backdrop-filter: blur(6px);
+    display:flex; align-items:center; backdrop-filter: blur(6px);
   }
-  .nav .container {
-    max-width: var(--maxw); margin:0 auto; width:100%;
-    padding: 8px 20px; display:flex; gap:16px; align-items:center;
-  }
-  .brand { font-weight:800; letter-spacing:-0.2px; font-size:18px; color:white; text-decoration:none; }
-  .nav-links { margin-left:auto; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
-  .nav-links a {
-    color:var(--muted); text-decoration:none; padding:8px 10px; border-radius:8px; font-weight:600; font-size:14px;
-  }
-  .nav-links a:hover { color:#fff; background: rgba(255,255,255,0.04); }
-  .nav-links a.active { color:#fff; background: rgba(6,182,212,0.12); }
+  .nav .container { max-width:var(--maxw); margin:0 auto; width:100%; padding:8px 20px; display:flex; gap:16px; align-items:center; }
+  .brand { font-weight:800; color:#fff; text-decoration:none; font-size:18px; }
+  .nav-links { margin-left:auto; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+  .nav-links a { color:var(--muted); text-decoration:none; padding:8px 10px; border-radius:8px; font-weight:600; font-size:14px }
+  .nav-links a:hover { color:#fff; background: rgba(255,255,255,0.04) }
+  .nav-links a.active { color:#fff; background: rgba(6,182,212,0.12) }
 
-  /* wrapper */
+  /* Layout */
   .wrap{max-width:var(--maxw); margin:26px auto; padding:18px;}
-  .top{
-    display:grid; grid-template-columns: 1fr 360px; gap:24px; align-items:stretch;
-  }
+  .top{ display:grid; grid-template-columns: 1fr 380px; gap:24px; align-items:stretch; }
 
   .card{
     background: var(--card);
     border:1px solid rgba(255,255,255,0.04);
-    padding:22px; border-radius:12px;
-    box-shadow: 0 6px 30px rgba(2,6,23,0.55);
+    padding:26px; border-radius:12px;
+    box-shadow: 0 8px 34px rgba(2,6,23,0.55);
     overflow:hidden;
     display:flex; flex-direction:column; justify-content:center;
   }
 
-  /* ensure equal height and nice sizing */
-  .hero { min-height:360px; padding:28px; position:relative; }
-  .top aside.card { min-height:360px; padding:28px; display:flex; align-items:center; justify-content:center; }
-
-  .hero h1{margin:0; font-size:30px; line-height:1.05}
-  .hero p{color:var(--muted); margin:10px 0 16px}
-  .chips{display:flex; gap:8px; flex-wrap:wrap}
+  /* Left hero */
+  .hero { min-height:380px; padding:28px; }
+  .hero h1{margin:0; font-size:32px; line-height:1.02}
+  .hero .sub { color:var(--muted); margin-top:10px; font-size:15px }
+  .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
   .chip{background:var(--glass); color:var(--accent1); padding:6px 10px; border-radius:999px; font-size:13px; border:1px solid rgba(6,182,212,0.08)}
-  .cta{display:flex; gap:12px; margin-top:18px; align-items:center}
-  .cta .left{display:flex; gap:12px; align-items:center}
-  .cta .right{margin-left:auto}
-  .btn{background:linear-gradient(90deg,var(--accent1),var(--accent2)); color:#062021; padding:12px 18px; border-radius:12px; font-weight:800; text-decoration:none; display:inline-flex; align-items:center; gap:10px; box-shadow: 0 6px 18px rgba(2,6,23,0.45)}
-  .btn.ghost{background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted); font-weight:700; padding:10px 16px; border-radius:10px}
-  .btn.resume { padding:12px 18px; }
 
-  /* PHOTO CARD - premium effects + animation */
-  .photo { text-align:center; width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; }
+  .cta { display:flex; gap:12px; margin-top:20px; align-items:center; }
+  .cta .left { display:flex; gap:12px; align-items:center }
+  .btn {
+    background: linear-gradient(90deg,var(--accent1),var(--accent2));
+    color:#062021; padding:12px 18px; border-radius:12px; font-weight:800;
+    text-decoration:none; display:inline-flex; align-items:center; gap:10px; box-shadow: 0 8px 22px rgba(2,6,23,0.46);
+  }
+  .btn.ghost{background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted); padding:10px 16px; border-radius:10px; font-weight:700}
+
+  /* Right photo card matching size & premium look */
+  .top aside.card { min-height:380px; padding:28px; display:flex; flex-direction:column; justify-content:center; align-items:center; }
+  .photo { text-align:center; width:100%; display:flex; flex-direction:column; align-items:center; gap:12px; }
   .avatar-wrap {
-    position:relative;
-    width:240px;
-    height:240px;
-    border-radius:18px;
-    padding:6px; /* outer ring thickness */
+    position:relative; width:260px; height:260px; border-radius:18px; padding:8px;
     background: linear-gradient(135deg, rgba(6,182,212,0.12), rgba(0,194,179,0.06));
-    box-shadow: 0 12px 40px rgba(2,6,23,0.6);
-    transition: transform .36s cubic-bezier(.2,.9,.2,1), box-shadow .36s;
+    box-shadow: 0 18px 50px rgba(2,6,23,0.6); transition:transform .36s, box-shadow .36s;
   }
   .avatar {
-    width:100%; height:100%;
-    border-radius:12px;
-    overflow:hidden;
-    background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border-radius:12px;
-    transform: translateZ(0);
+    width:100%; height:100%; border-radius:14px; overflow:hidden; background:linear-gradient(135deg, rgba(0,0,0,0.04), rgba(255,255,255,0.01));
   }
-  .avatar img{ width:100%; height:100%; object-fit:cover; display:block; transition: transform .6s cubic-bezier(.2,.9,.2,1); }
+  .avatar img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s; }
 
-  /* subtle glow overlay */
-  .avatar::after {
-    content:"";
-    position:absolute; inset:0; border-radius:12px;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.02), inset 0 -10px 40px rgba(0,0,0,0.25);
-    pointer-events:none;
-  }
+  .avatar-wrap:hover{ transform:translateY(-8px) scale(1.02); box-shadow: 0 26px 70px rgba(2,6,23,0.72); }
+  .avatar-wrap:hover .avatar img{ transform:scale(1.06); }
+  .photo .title { color:var(--muted); font-size:14px; margin-top:8px; text-align:center; }
 
-  /* hover/interaction */
-  .avatar-wrap:hover{ transform: translateY(-6px) scale(1.02); box-shadow: 0 20px 50px rgba(2,6,23,0.7); }
-  .avatar-wrap:hover .avatar img{ transform: scale(1.06); }
-
-  /* profile label */
-  .photo .title { color:var(--muted); font-size:14px; margin-top:6px; text-align:center; }
-
-  /* sections */
+  /* sections styling */
   section{margin-top:20px}
   .two-col { display:grid; grid-template-columns: 1fr 1fr; gap:18px; }
-  .projects-grid{display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap:12px}
-  .project{background:rgba(255,255,255,0.02); padding:14px; border-radius:10px; border:1px solid rgba(255,255,255,0.03)}
-  .project h4{margin:6px 0 6px}
+  .projects-grid{display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap:14px}
+  .project{background:rgba(255,255,255,0.02); padding:16px; border-radius:10px; border:1px solid rgba(255,255,255,0.03)}
+  .project h4{margin:6px 0 8px}
   .meta{color:var(--muted); font-size:13px}
   h2.section-title { margin:0 0 10px 0; font-size:20px; border-left:4px solid var(--accent1); padding-left:12px; }
 
-  footer{margin-top:26px; color:var(--muted); text-align:center; font-size:14px}
-
-  /* animations: fade-up for sections */
-  .fade-up { opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s cubic-bezier(.2,.9,.2,1); }
-  .fade-up.visible { opacity:1; transform:none; }
-
-  /* small helpers */
+  /* lists and small text */
   .small { color:var(--muted); font-size:14px; }
-  .list { margin:8px 0 0 16px; color:var(--muted); }
+  .list { margin:8px 0 0 18px; color:var(--muted); }
 
-  /* active nav highlight */
-  .nav-links a.active { color: #fff; background: rgba(6,182,212,0.12); }
+  footer{margin-top:30px; color:var(--muted); text-align:center; font-size:14px}
+
+  /* animations & reveal */
+  .fade-up { opacity:0; transform:translateY(10px); transition:opacity .6s ease, transform .6s cubic-bezier(.2,.9,.2,1) }
+  .fade-up.visible { opacity:1; transform:none }
+
+  /* nav active style */
+  .nav-links a.active { color:#fff; background: rgba(6,182,212,0.12) }
 
   /* responsive */
   @media (max-width:980px){
-    .top{ grid-template-columns: 1fr; }
-    .nav .container{ padding:8px 14px; }
-    .avatar-wrap { width:180px; height:180px; }
-    .hero { padding:20px; min-height: auto; }
-    .top aside.card { padding:20px; min-height: auto; }
-    .cta { flex-direction:row; gap:8px; }
-    .nav-links { display: none; } /* simplified mobile: hide links (you can add hamburger later) */
+    .wrap{padding:14px}
+    .top{grid-template-columns:1fr; gap:16px}
+    .top aside.card{min-height:auto; padding:20px}
+    .avatar-wrap{width:180px;height:180px;padding:6px}
+    .chips{gap:6px}
+    .nav-links{display:none} /* can replace with hamburger if desired */
   }
 
-  /* reduce motion for users who prefer it */
+  /* reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    .avatar, .avatar-wrap, .avatar img, .fade-up { transition:none; transform:none !important; }
+    .avatar, .avatar-wrap, .fade-up { transition:none; transform:none !important; }
   }
 </style>
 </head>
@@ -164,12 +132,12 @@
   <!-- NAV -->
   <nav class="nav" aria-label="Main navigation">
     <div class="container">
-      <a href="#about" class="brand">Vipul Patil</a>
+      <a class="brand" href="#about">Vipul G Patil</a>
       <div class="nav-links" id="navLinks">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
-        <a href="#graduation">Graduation</a>
+        <a href="#education">Education</a>
         <a href="#certifications">Certifications</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
@@ -179,62 +147,69 @@
 
   <main class="wrap">
     <div class="top">
+      <!-- ABOUT / HERO -->
       <div class="card hero" id="about">
-        <h1 class="fade-up">👋 Hi, I'm <strong>Vipul Patil</strong></h1>
-        <p class="fade-up" style="transition-delay:.06s">Data Analyst — SQL · Power BI · Python · DAX · SSRS. I build dashboards & reports for healthcare and business analytics.</p>
+        <h1 class="fade-up">👋 Hi — I'm <strong>Vipul G Patil</strong></h1>
+        <p class="sub fade-up" style="transition-delay:.04s">
+          Senior Systems Analyst focused on healthcare analytics and enterprise reporting. I design automated ETL workflows, optimize SQL-driven solutions,
+          and deliver Power BI dashboards that convert complex data into clear operational insights.
+        </p>
 
-        <div class="chips fade-up" style="transition-delay:.12s; margin-top:6px" aria-hidden="true">
+        <div class="chips fade-up" style="transition-delay:.08s" aria-hidden="true">
           <span class="chip">Power BI</span>
-          <span class="chip">SQL</span>
+          <span class="chip">SQL Server</span>
+          <span class="chip">SSIS / ETL</span>
           <span class="chip">Python</span>
-          <span class="chip">DAX</span>
-          <span class="chip">Excel</span>
+          <span class="chip">Data Migration</span>
         </div>
 
-        <!-- Combined CTA: left actions + right resume button -->
-        <div class="cta fade-up" style="transition-delay:.18s" role="toolbar" aria-label="Quick actions">
+        <div class="cta fade-up" style="transition-delay:.12s" role="toolbar" aria-label="Quick actions">
           <div class="left">
             <a class="btn" href="#projects">View Projects</a>
             <a class="btn ghost" href="#contact">Contact / Hire</a>
           </div>
 
           <div class="right">
-            <a class="btn resume" href="resume.pdf" download aria-label="Download Resume">📄 Download Resume</a>
+            <!-- Resume link points to uploaded resume file path; your deployment may convert this path to a public URL -->
+            <a class="btn" href="/mnt/data/resume.pdf" download aria-label="Download Resume">📄 Download Resume</a>
           </div>
+        </div>
+
+        <div style="margin-top:20px" class="small fade-up" style="transition-delay:.16s">
+          Based in India • Proven in multi-client healthcare environments • Awarded for consistent top performance (2021–2024)
         </div>
       </div>
 
-      <aside class="card photo fade-up" style="transition-delay:.24s" aria-labelledby="photo-title">
-        <div class="photo">
-          <div class="avatar-wrap" aria-hidden="true">
-            <div class="avatar">
-              <!-- Use provided local file path as image src (will be converted to URL by your deployment) -->
-              <img src="avatar.png" alt="Vipul Patil">
-            </div>
+      <!-- PHOTO card (equal size & premium) -->
+      <aside class="card photo fade-up" style="transition-delay:.20s" aria-labelledby="photo-title">
+        <div class="avatar-wrap" aria-hidden="true">
+          <div class="avatar">
+            <!-- Replace with your repository image path (avatar.png) if preferred -->
+            <img src="/mnt/data/1b603ea4-67d7-48b0-b6d2-abc579c2d0a7.png" alt="Vipul G Patil">
           </div>
-          <div class="title" id="photo-title">Data Analyst</div>
         </div>
+        <div id="photo-title" class="title">Senior Systems Analyst — Altera Digital Health</div>
       </aside>
     </div>
 
     <!-- SKILLS -->
     <section class="card fade-up" id="skills" aria-labelledby="skills-title">
-      <h2 class="section-title" id="skills-title">Skills</h2>
-      <div class="two-col" style="margin-top:12px;">
+      <h2 class="section-title" id="skills-title">Technical Skills</h2>
+      <div class="two-col" style="margin-top:12px">
         <div>
-          <h4>Core</h4>
+          <h4>Data & Database</h4>
           <ul class="list">
-            <li>SQL (T-SQL, performance tuning)</li>
-            <li>Power BI (Data modelling, DAX, reports)</li>
-            <li>Python (pandas, automation)</li>
+            <li>SQL Server (T-SQL, query tuning, stored procedures)</li>
+            <li>SSIS / ETL development, SSRS reporting, SSAS basics</li>
+            <li>Data modeling, warehousing and data migration</li>
           </ul>
         </div>
         <div>
-          <h4>Tools & Others</h4>
+          <h4>Analytics & Tools</h4>
           <ul class="list">
-            <li>Excel (advanced), SSRS</li>
-            <li>Git / GitHub</li>
-            <li>Data cleaning & ETL</li>
+            <li>Power BI (data models, DAX, dashboards)</li>
+            <li>Python for automation and data processing</li>
+            <li>Cognos, SAP BO, Crystal Reports, Excel (advanced)</li>
           </ul>
         </div>
       </div>
@@ -242,60 +217,95 @@
 
     <!-- EXPERIENCE -->
     <section class="card fade-up" id="experience" aria-labelledby="exp-title">
-      <h2 class="section-title" id="exp-title">Experience</h2>
-      <div style="margin-top:12px;">
-        <div style="margin-bottom:10px">
-          <strong>Senior Data Analyst — ABC Healthcare</strong>
-          <div class="small">Jan 2023 — Present</div>
-          <div class="small" style="margin-top:6px">Led Power BI initiatives for clinical operations: designed EHR dashboards, improved KPIs, and automated weekly reporting.</div>
+      <h2 class="section-title" id="exp-title">Professional Experience</h2>
+
+      <div style="margin-top:12px">
+        <div style="margin-bottom:14px">
+          <strong>Senior Systems Analyst — Altera Digital Health</strong>
+          <div class="small">Feb 2024 — Present</div>
+          <ul class="list">
+            <li>Lead analytics and reporting programs for healthcare clients; ensure compliance, data integrity and timely delivery of insights.</li>
+            <li>Design and maintain ETL pipelines (SSIS), stored procedures and SQL solutions for robust data ingestion and transformation.</li>
+            <li>Develop and optimize Power BI dashboards to improve operations and clinical KPIs; coach stakeholders on analytics adoption.</li>
+            <li>Drive automation to reduce manual effort and accelerate reporting cycles, improving SLA adherence.</li>
+          </ul>
         </div>
 
-        <div style="margin-bottom:10px">
-          <strong>Data Analyst — XYZ Solutions</strong>
-          <div class="small">Jul 2019 — Dec 2022</div>
-          <div class="small" style="margin-top:6px">Built sales and finance dashboards, wrote reusable SQL models and reduced manual reporting time by automating ETL pipelines.</div>
+        <div style="margin-bottom:14px">
+          <strong>Systems Analyst — Altera Digital Health</strong>
+          <div class="small">Aug 2021 — Feb 2024</div>
+          <ul class="list">
+            <li>Maintained client data warehouses and automated ETL processes to increase reliability and reduce errors.</li>
+            <li>Performed data profiling and ongoing analytics to guarantee data quality for downstream reporting.</li>
+            <li>Provided BI architectural support, optimized reporting frameworks and automated Cognos cube refreshes.</li>
+          </ul>
+        </div>
+
+        <div style="margin-bottom:14px">
+          <strong>Associate Systems Analyst — Altera Digital Health</strong>
+          <div class="small">Oct 2019 — Aug 2021</div>
+          <ul class="list">
+            <li>Built SSIS packages and SQL Jobs to automate recurring healthcare reporting processes.</li>
+            <li>Developed SSRS and Crystal Reports for high-volume clinical reporting workloads.</li>
+          </ul>
+        </div>
+
+        <div style="margin-bottom:6px">
+          <strong>Data Analyst — Exxat Systems Pvt. Ltd.</strong>
+          <div class="small">Jun 2018 — Oct 2019</div>
+          <ul class="list">
+            <li>Prepared, analyzed and transformed product data for integration; coordinated cross-functional OT domain activities and led a small team.</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- GRADUATION -->
-    <section class="card fade-up" id="graduation" aria-labelledby="grad-title">
-      <h2 class="section-title" id="grad-title">Graduation</h2>
-      <div style="margin-top:12px;">
-        <p class="small"><strong>Bachelor of Science (B.Sc.) in Computer Science</strong><br>University Name — Graduated: 2018</p>
+    <!-- EDUCATION -->
+    <section class="card fade-up" id="education" aria-labelledby="edu-title">
+      <h2 class="section-title" id="edu-title">Education</h2>
+      <div style="margin-top:12px">
+        <p class="small"><strong>Bachelor of Engineering — Electronics & Communication</strong><br>G H Patel College of Engineering & Technology, Vallabh Vidyanagar — 2015–2018</p>
+        <p class="small" style="margin-top:8px"><strong>Diploma — Electronics & Communication</strong><br>Bhailalbhai & Bhikhabhai Institute of Technology — 2011–2014</p>
+        <p class="small" style="margin-top:8px"><strong>High School</strong><br>D.N. High School — 2011</p>
       </div>
     </section>
 
-    <!-- CERTIFICATIONS -->
+    <!-- CERTIFICATIONS & AWARDS -->
     <section class="card fade-up" id="certifications" aria-labelledby="cert-title">
-      <h2 class="section-title" id="cert-title">Certifications</h2>
-      <ul class="list" style="margin-top:12px;">
-        <li>Microsoft Certified: Power BI Data Analyst Associate</li>
-        <li>Advanced SQL & Database Performance (Certificate)</li>
-        <li>Python for Data Analysis (Certificate)</li>
+      <h2 class="section-title" id="cert-title">Certifications & Recognition</h2>
+      <ul class="list" style="margin-top:12px">
+        <li>Microsoft Power BI Data Analyst (PL-300) — 2022</li>
+        <li>Azure Fundamentals (AZ-900) — 2023</li>
+        <li>Microsoft SQL Server — 70-761 & 70-762 (Querying & Developing) — 2020</li>
+        <li>Microsoft Certified Solutions Associate (MCSA) — 2020</li>
       </ul>
+
+      <div style="margin-top:12px">
+        <h4 style="margin:6px 0">Awards</h4>
+        <p class="small">Top Quarterly Performer — 2021, 2022, 2023, 2024</p>
+      </div>
     </section>
 
     <!-- PROJECTS -->
     <section class="card fade-up" id="projects" aria-labelledby="proj-title">
-      <h2 class="section-title" id="proj-title">Projects</h2>
-      <div class="projects-grid" style="margin-top:10px">
+      <h2 class="section-title" id="proj-title">Selected Projects</h2>
+      <div class="projects-grid" style="margin-top:12px">
         <div class="project">
-          <h4>TouchWorks EHR Dashboard</h4>
-          <div class="meta">Power BI • Healthcare Analytics</div>
-          <p class="small" style="margin-top:8px">Interactive patient flow & KPI dashboard with drill-through and custom visuals.</p>
+          <h4>TouchWorks Application — BI Developer</h4>
+          <div class="meta">SSIS, SSRS, Power BI • Ongoing since 2019</div>
+          <p class="small" style="margin-top:8px">Designed and managed ETL flows, created SSRS reports, and implemented Power BI dashboards. Led data conversion projects to migrate and validate critical healthcare data for multiple clients.</p>
         </div>
 
         <div class="project">
-          <h4>Sales Analytics Dashboard</h4>
-          <div class="meta">SQL • Power BI</div>
-          <p class="small" style="margin-top:8px">Cohort & funnel analysis that supported product decisions.</p>
+          <h4>Data Migration & Conversion (Major Clients)</h4>
+          <div class="meta">Data Migration • Validation • Testing</div>
+          <p class="small" style="margin-top:8px">Executed large-scale conversions (2020–2021 / 2023–2024), ensuring accurate transformation & validation across disparate healthcare systems.</p>
         </div>
 
         <div class="project">
-          <h4>SQL Automation Tool</h4>
-          <div class="meta">Python • SQL</div>
-          <p class="small" style="margin-top:8px">Automated ETL & data cleaning pipeline for recurring reports.</p>
+          <h4>Reporting Automation & ETL Optimization</h4>
+          <div class="meta">Automation • Performance</div>
+          <p class="small" style="margin-top:8px">Streamlined recurring reporting by automating ETL tasks and SQL jobs, reducing manual effort and improving delivery speed and accuracy.</p>
         </div>
       </div>
     </section>
@@ -303,65 +313,65 @@
     <!-- CONTACT -->
     <section class="card fade-up" id="contact" aria-labelledby="contact-title">
       <h2 class="section-title" id="contact-title">Contact</h2>
-      <div style="margin-top:12px;">
-        <p class="small">Feel free to reach out for work or collaboration.</p>
-        <p style="margin-top:8px">
-          <strong>Email:</strong> <a href="mailto:vipul@example.com" style="color:var(--accent1); text-decoration:none">vipul@example.com</a><br>
-          <strong>Mobile:</strong> <a href="tel:+91-XXXXXXXXXX" style="color:var(--accent1); text-decoration:none">+91-XXXXXXXXXX</a><br>
-          <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vipulpatil" target="_blank" rel="noopener" style="color:var(--accent1); text-decoration:none">linkedin.com/in/vipulpatil</a>
+      <div style="margin-top:12px">
+        <p class="small">I’m available for analytics, BI leadership, and data engineering projects. Please reach out for collaboration or opportunities.</p>
+        <p style="margin-top:10px">
+          <strong>Email:</strong> <a href="mailto:contactvipulgpatil@gmail.com" style="color:var(--accent1); text-decoration:none">contactvipulgpatil@gmail.com</a><br>
+          <strong>Mobile:</strong> <a href="tel:+919601291584" style="color:var(--accent1); text-decoration:none">+91-96012-91584</a><br>
+          <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vipul-patil-a95349159" target="_blank" rel="noopener" style="color:var(--accent1); text-decoration:none">linkedin.com/in/vipul-patil-a95349159</a>
         </p>
-        <p class="small" style="margin-top:6px">Tip: Replace the mobile number (+91-XXXXXXXXXX) with your real phone number in the HTML.</p>
+        <p class="small" style="margin-top:6px">Resume: <a href="/mnt/data/resume.pdf" download style="color:var(--accent1)">Download PDF</a></p>
       </div>
     </section>
 
-    <footer>© 2025 Vipul Patil — Growing, Learning & Building Every Day❤️</footer>
+    <footer class="small">© 2025 Vipul G Patil — Turning healthcare data into operational clarity.</footer>
   </main>
 
 <script>
-/* ========== Intersection observer to reveal fade-up elements ========== */
+/* Reveal animations using IntersectionObserver */
 (function(){
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
         e.target.classList.add('visible');
-        observer.unobserve(e.target);
+        io.unobserve(e.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.12 });
 
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
 })();
 
-/* ========== active nav highlight on scroll ========== */
+/* Active nav highlight based on scroll */
 (function(){
   const sections = Array.from(document.querySelectorAll('main section, main .card#about'));
-  const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+  const links = Array.from(document.querySelectorAll('.nav-links a'));
 
-  function getCurrentSection(){
-    const offset = window.scrollY + (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 70) + 10;
+  function sectionIdInView(){
+    const offset = window.scrollY + (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 72) + 10;
     let current = 'about';
     sections.forEach(s => {
-      if (s.offsetTop <= offset) current = s.id || current;
+      if(s.offsetTop <= offset) current = s.id || current;
     });
     return current;
   }
 
   function updateNav(){
-    const id = getCurrentSection();
-    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    const id = sectionIdInView();
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
   }
 
   window.addEventListener('scroll', updateNav, {passive:true});
   window.addEventListener('resize', updateNav);
   updateNav();
 
-  // focus handling for accessibility after anchor click
-  document.querySelectorAll('.nav-links a, .brand').forEach(el=>{
+  // accessibility: focus after clicking anchor
+  document.querySelectorAll('.nav-links a, .brand').forEach(el => {
     el.addEventListener('click', (e) => {
       const href = el.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        const target = document.querySelector(href);
-        if (target) setTimeout(()=> { target.setAttribute('tabindex','-1'); target.focus(); }, 300);
+      if(href && href.startsWith('#')){
+        const t = document.querySelector(href);
+        if(t) setTimeout(()=> { t.setAttribute('tabindex','-1'); t.focus(); }, 300);
       }
     });
   });
@@ -370,4 +380,3 @@
 
 </body>
 </html>
-
