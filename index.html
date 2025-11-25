@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Vipul G Patil — Portfolio</title>
-<meta name="description" content="Vipul G Patil — Senior Date Engineer & Data Professional | Power BI, SQL, ETL, Python Automation." />
+<meta name="description" content="Vipul G Patil — Senior Systems Analyst | Power BI, SQL, ETL, Python Automation." />
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
@@ -113,6 +113,10 @@
   .timeline-item h4{margin:0}
   .timeline-item .date{font-size:13px;color:var(--muted)}
 
+  /* CERTIFICATIONS */
+  .cert-list{margin-top:12px;padding-left:18px;color:var(--muted);line-height:1.8}
+  .cert-badge{display:inline-block;margin-top:8px;padding:6px 10px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);font-weight:700;color:var(--text);margin-right:8px}
+
   /* SLIDESHOW (NO IMAGES) */
   .slideshow{margin-top:26px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.05);}
   .slides{display:flex;transition:transform .5s}
@@ -120,12 +124,7 @@
   .slide h4{margin:0 0 6px 0}
   .slide p{color:var(--muted)}
 
-  .color-box{
-    margin-top:12px;
-    height:220px;
-    border-radius:12px;
-    background:linear-gradient(120deg,rgba(255,107,107,0.35),rgba(124,92,255,0.35));
-  }
+  .color-box{margin-top:12px;height:220px;border-radius:12px;background:linear-gradient(120deg,rgba(255,107,107,0.35),rgba(124,92,255,0.35))}
 
   .slide-dots{display:flex;gap:8px;justify-content:center;padding:12px}
   .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.08);cursor:pointer}
@@ -145,6 +144,7 @@
     .hero-grid{grid-template-columns:1fr;}
     .skills-grid{grid-template-columns:1fr}
     .contact-grid{grid-template-columns:1fr}
+    .nav-links{display:none}
   }
 </style>
 </head>
@@ -161,10 +161,11 @@
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#timeline">Experience</a>
+      <a href="#certifications">Certifications</a>
       <a href="#contact">Contact</a>
     </div>
 
-    <div class="toggle" id="themeToggle"><div class="knob"></div></div>
+    <div class="toggle" id="themeToggle" role="button" tabindex="0" aria-label="Toggle theme"><div class="knob"></div></div>
   </div>
 </nav>
 
@@ -173,9 +174,9 @@
   <!-- HERO -->
   <section id="home" class="hero-grid">
     <div class="card">
-      <div class="hero-title">I turn data into operational clarity.</div>
+      <div class="hero-title">I turn healthcare data into operational clarity.</div>
       <div class="hero-lead">
-        I'm Vipul G Patil — Senior Date Engineer & Data Professional specializing in Power BI, SQL, ETL and Python automation.
+        I'm Vipul G Patil — Senior Systems Analyst specializing in Power BI, SQL, ETL and Python automation.
         I build high-impact dashboards, automate workflows, and optimize data systems for performance and accuracy.
       </div>
 
@@ -188,7 +189,8 @@
 
       <div class="hero-cta">
         <a class="btn-primary" href="#projects">View Work</a>
-        <a class="btn-outline" href="/mnt/data/resume.pdf" download>Download Resume</a>
+        <!-- Primary resume download link triggers JS download which uses the uploaded file path -->
+        <a id="resumeBtn" class="btn-outline" href="/mnt/data/resume.pdf" download>Download Resume</a>
       </div>
     </div>
 
@@ -210,13 +212,13 @@
         <p>Complete analytics suite for clinicians: automated reporting, KPI dashboards and drill-through insights. Reduced reporting latency by 60%.</p>
       </div>
 
-      <div class="project">
+      <div class="project" style="background: linear-gradient(150deg, rgba(124,92,255,0.08), rgba(0,212,255,0.06));">
         <h3>Enterprise Data Migration</h3>
         <div class="meta">Mapping • Validation • ETL</div>
         <p>Managed large-scale data conversions with automated validation and reconciliation processes ensuring zero major defects at go-live.</p>
       </div>
 
-      <div class="project">
+      <div class="project" style="background: linear-gradient(150deg, rgba(0,212,255,0.06), rgba(255,107,107,0.03));">
         <h3>Reporting Automation Framework</h3>
         <div class="meta">Python • SQL Jobs</div>
         <p>Automated recurring reporting cycles and created monitoring dashboards—reducing manual effort by more than 70%.</p>
@@ -250,7 +252,7 @@
     </div>
   </section>
 
-  <!-- EXPERIENCE TIMELINE -->
+  <!-- TIMELINE -->
   <section id="timeline" style="margin-top:32px;">
     <h2 class="section-title">Experience Timeline</h2>
     <div class="timeline">
@@ -276,7 +278,25 @@
     </div>
   </section>
 
-  <!-- SLIDESHOW (NO IMAGES) -->
+  <!-- CERTIFICATIONS -->
+  <section id="certifications" style="margin-top:32px;">
+    <h2 class="section-title">Certifications & Recognition</h2>
+
+    <div class="card" style="margin-top:12px">
+      <p class="small" style="color:var(--muted)">Professional certifications and accomplishments relevant to analytics, BI and cloud fundamentals.</p>
+
+      <div class="cert-list" aria-hidden="false">
+        <span class="cert-badge">Microsoft Power BI Data Analyst (PL-300)</span>
+        <span class="cert-badge">Azure Fundamentals (AZ-900)</span>
+        <span class="cert-badge">SQL Server Exams (70-761 &amp; 70-762)</span>
+        <span class="cert-badge">MCSA (Microsoft Certified Solutions Associate)</span>
+      </div>
+
+      <p class="small" style="margin-top:12px">Awards: <strong>Top Quarterly Performer — 2021, 2022, 2023, 2024</strong></p>
+    </div>
+  </section>
+
+  <!-- SLIDESHOW -->
   <section style="margin-top:32px;">
     <h2 class="section-title">Project Slideshow</h2>
     <div class="slideshow card">
@@ -290,13 +310,13 @@
         <div class="slide">
           <h4>Data Migration — Validation Suite</h4>
           <p class="small">Automated data checks and reconciliation tools.</p>
-          <div class="color-box"></div>
+          <div class="color-box" style="background:linear-gradient(120deg, rgba(124,92,255,0.35), rgba(0,212,255,0.25))"></div>
         </div>
 
         <div class="slide">
           <h4>Automation Engine — Scheduler</h4>
           <p class="small">Job monitoring, alerts and health checks.</p>
-          <div class="color-box"></div>
+          <div class="color-box" style="background:linear-gradient(120deg, rgba(0,212,255,0.35), rgba(255,107,107,0.22))"></div>
         </div>
       </div>
 
@@ -327,7 +347,9 @@
       <div class="card">
         <h3 style="margin:0">Resume</h3>
         <p class="small">Click below to download my resume.</p>
-        <a class="btn-primary" href="/mnt/data/resume.pdf" download style="margin-top:12px;display:inline-block">Download Resume</a>
+        <!-- Use a JS-driven download to attempt fetching the uploaded file path and provide better error feedback -->
+        <a id="downloadResume" class="btn-primary" href="/mnt/data/resume.pdf" download style="display:inline-block;margin-top:12px">Download Resume</a>
+        <p id="downloadHint" class="small" style="margin-top:10px;color:var(--muted);">If the file doesn't download, please ensure <code>resume.pdf</code> is uploaded to your site root or contact me to send a copy.</p>
       </div>
     </div>
   </section>
@@ -335,12 +357,12 @@
   <footer>© 2025 Vipul G Patil — Turning healthcare data into operational clarity.</footer>
 </div>
 
-<!-- FLOATING CONTACT CARD -->
-<div class="floating">
-  <img src="avatar.png" alt="">
+<!-- FLOATING CONTACT -->
+<div class="floating" aria-hidden="false">
+  <img src="avatar.png" alt="Vipul">
   <div>
     <strong>Vipul G Patil</strong><br>
-    <span class="small">Senior Date Engineer & Data Professional</span><br>
+    <span class="small">Senior Systems Analyst</span><br>
     <div style="margin-top:6px;display:flex;gap:8px">
       <a class="btn-primary" href="mailto:contactvipulgpatil@gmail.com" style="padding:6px 10px;font-size:13px">Email</a>
       <a class="btn-outline" href="/mnt/data/resume.pdf" download style="padding:6px 10px;font-size:13px">Resume</a>
@@ -349,49 +371,123 @@
 </div>
 
 <script>
-  // Theme toggle
-  document.getElementById("themeToggle").onclick = () => {
-    document.body.classList.toggle("light");
-  };
-
-  // Skill bar animation
-  const fills = document.querySelectorAll(".skill-fill");
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if(e.isIntersecting){
-        const el = e.target;
-        el.style.width = el.dataset.fill + "%";
-        io.unobserve(el);
-      }
+  /* ===== Theme toggle ===== */
+  (function(){
+    const toggle = document.getElementById('themeToggle');
+    const knob = toggle.querySelector('.knob');
+    const saved = localStorage.getItem('site-theme');
+    if (saved === 'light') document.body.classList.add('light'), knob.style.transform='translateX(20px)';
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('light');
+      const isLight = document.body.classList.contains('light');
+      knob.style.transform = isLight ? 'translateX(20px)' : 'translateX(0)';
+      localStorage.setItem('site-theme', isLight ? 'light' : 'dark');
     });
-  }, {threshold:0.3});
-  fills.forEach(f => io.observe(f));
+    toggle.addEventListener('keydown', (e) => { if(e.key === 'Enter') toggle.click(); });
+  })();
 
-  // Slideshow
-  const slides = document.querySelector("#slides");
-  const dots = [...document.querySelectorAll(".dot")];
-  let idx = 0;
-  function show(i){
-    idx = i;
-    slides.style.transform = `translateX(-${i*100}%)`;
-    dots.forEach(d => d.classList.toggle("active", +d.dataset.i === i));
-  }
-  dots.forEach(d => d.onclick = () => show(+d.dataset.i));
-  setInterval(() => show((idx+1)%3), 7000);
-  show(0);
+  /* ===== Skill bars animation ===== */
+  (function(){
+    const fills = document.querySelectorAll('.skill-fill');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          const el = en.target;
+          const val = el.dataset.fill || '0';
+          el.style.width = val + '%';
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.35 });
+    fills.forEach(f => io.observe(f));
+  })();
 
-  // Active nav highlight
-  const navLinks = document.querySelectorAll(".nav-links a");
-  const sections = [...document.querySelectorAll("section[id]")];
-  window.addEventListener("scroll", () => {
-    const pos = window.scrollY + 150;
-    let id = "home";
-    sections.forEach(s => { if(s.offsetTop <= pos) id = s.id; });
-    navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + id));
-  });
+  /* ===== Slideshow simple ===== */
+  (function(){
+    const slides = document.getElementById('slides');
+    const dots = Array.from(document.querySelectorAll('.dot'));
+    let idx = 0;
+    function show(i){
+      const total = slides.children.length;
+      idx = (i + total) % total;
+      slides.style.transform = `translateX(-${idx*100}%)`;
+      dots.forEach(d => d.classList.toggle('active', +d.dataset.i === idx));
+    }
+    dots.forEach(d => d.addEventListener('click', () => show(+d.dataset.i)));
+    let timer = setInterval(() => show(idx+1), 6000);
+    slides.addEventListener('mouseenter', () => clearInterval(timer));
+    slides.addEventListener('mouseleave', () => timer = setInterval(()=> show(idx+1), 6000));
+    show(0);
+  })();
+
+  /* ===== Active nav highlighting ===== */
+  (function(){
+    const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    function update(){
+      const offset = window.scrollY + 140;
+      let current = 'home';
+      sections.forEach(s => { if(s.offsetTop <= offset) current = s.id; });
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+    }
+    window.addEventListener('scroll', update, {passive:true});
+    update();
+  })();
+
+  /* ===== Improved resume download behavior =====
+     Uses the uploaded file path: /mnt/data/resume.pdf
+     Attempts to fetch and download via JS; if unavailable, falls back to href download.
+  */
+  (function(){
+    const url = '/mnt/data/resume.pdf'; // path to uploaded resume (from conversation)
+    const btn = document.getElementById('downloadResume');
+    const fallbackHref = btn.getAttribute('href');
+
+    async function fetchAndDownload(){
+      try {
+        // Try to fetch the file — if hosting transforms the path this will succeed when served.
+        const resp = await fetch(url, { method: 'GET' });
+        if (!resp.ok) throw new Error('File not found on server (status ' + resp.status + ')');
+        const blob = await resp.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = 'Vipul_Patil_Resume.pdf';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(blobUrl);
+      } catch (err) {
+        // If fetch fails, try the plain href download (browser will attempt) and show a helpful note.
+        console.warn('Resume fetch failed:', err);
+        // Show user-friendly alert and fallback
+        alert('Could not fetch resume from the site path. The page will try the direct download link — if that also fails, make sure "resume.pdf" is uploaded to your site root or contact me and I will provide the file.');
+        // attempt fallback by opening the link (this will rely on hosting)
+        window.open(fallbackHref, '_blank');
+      }
+    }
+
+    // Intercept click to use JS download with better error feedback
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      fetchAndDownload();
+    });
+  })();
+
+  /* ===== Smooth anchor scrolling (offset for fixed nav) ===== */
+  (function(){
+    const anchors = document.querySelectorAll('a[href^="#"]');
+    anchors.forEach(a => {
+      a.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const y = target.getBoundingClientRect().top + window.scrollY - 84;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      });
+    });
+  })();
 </script>
-
 </body>
 </html>
-
-
