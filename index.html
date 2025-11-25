@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Vipul Patil — Senior Data Engineer</title>
+<title>Vipul Patil — Data Analyst</title>
 <meta name="description" content="Vipul Patil | Data Analyst — Power BI, SQL, Python. Portfolio & Projects." />
 <style>
   :root{
@@ -14,11 +14,26 @@
   *{box-sizing:border-box}
   html,body{height:100%}
   body{
-    margin:0; font-family:Inter, system-ui, Arial;
+    margin:0; font-family:Inter, system-ui, Arial, sans-serif;
     background: linear-gradient(180deg,#071023 0%, #071827 60%);
     color:#e6eef6; line-height:1.5;
+    scroll-behavior: smooth;
   }
-  .wrap{max-width:var(--maxw); margin:40px auto; padding:28px;}
+
+  /* Top nav */
+  .nav {
+    position:sticky; top:0; z-index:40;
+    background: linear-gradient(180deg, rgba(7,16,35,0.9), rgba(7,16,35,0.7));
+    border-bottom:1px solid rgba(255,255,255,0.02);
+    backdrop-filter: blur(6px);
+  }
+  .nav .container { max-width:var(--maxw); margin:0 auto; padding:10px 20px; display:flex; gap:16px; align-items:center; }
+  .brand { font-weight:800; letter-spacing:-0.2px; }
+  .nav-links { margin-left:auto; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+  .nav-links a { color:var(--muted); text-decoration:none; padding:8px 10px; border-radius:8px; font-weight:600; font-size:14px; }
+  .nav-links a:hover { color:white; background: rgba(255,255,255,0.02); }
+
+  .wrap{max-width:var(--maxw); margin:26px auto; padding:18px;}
   .top{
     display:grid; grid-template-columns: 1fr 320px; gap:24px; align-items:start;
   }
@@ -42,32 +57,57 @@
   .avatar{
     width:140px; height:140px; border-radius:12px; overflow:hidden; margin:0 auto;
     border:2px solid rgba(255,255,255,0.05);
+    background: linear-gradient(135deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
   }
   .avatar img{width:100%; height:100%; object-fit:cover; display:block}
 
+  /* main sections layout */
   section{margin-top:20px}
+  .two-col { display:grid; grid-template-columns: 1fr 1fr; gap:18px; }
   .projects-grid{display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap:12px}
   .project{background:rgba(255,255,255,0.03); padding:12px; border-radius:10px; border:1px solid rgba(255,255,255,0.05)}
   .project h4{margin:6px 0 4px}
   .meta{color:var(--muted); font-size:13px}
+  h2.section-title { margin:0 0 10px 0; font-size:20px; border-left:4px solid var(--accent); padding-left:12px; }
 
   footer{margin-top:26px; color:var(--muted); text-align:center; font-size:14px}
 
-  @media(max-width:880px){
+  /* small helpers */
+  .small { color:var(--muted); font-size:14px; }
+  .list { margin:8px 0 0 16px; color:var(--muted); }
+
+  @media(max-width:980px){
     .top{grid-template-columns:1fr}
-    .cta{flex-direction:column; align-items:flex-start}
-    .cta .right{margin-left:0}
+    .two-col{grid-template-columns:1fr}
+    .nav .container{padding:8px 12px}
   }
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="top">
-      <div class="card hero">
-        <h1>👋 Hi, I'm <strong>Vipul Patil</strong></h1>
-        <p>Senior Data Engineer — SQL · Power BI · Python · DAX · SSRS. I build dashboards & reports for healthcare and business analytics.</p>
 
-        <div class="chips">
+  <!-- NAV -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container">
+      <div class="brand">Vipul Patil</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#graduation">Graduation</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <div class="top">
+      <div class="card hero" id="about">
+        <h1>👋 Hi, I'm <strong>Vipul Patil</strong></h1>
+        <p>Data Analyst — SQL · Power BI · Python · DAX · SSRS. I build dashboards & reports for healthcare and business analytics.</p>
+
+        <div class="chips" aria-hidden="true">
           <span class="chip">Power BI</span>
           <span class="chip">SQL</span>
           <span class="chip">Python</span>
@@ -76,7 +116,7 @@
         </div>
 
         <!-- Combined CTA: left actions + right resume button -->
-        <div class="cta">
+        <div class="cta" role="toolbar" aria-label="Quick actions">
           <div class="left">
             <a class="btn" href="#projects">View Projects</a>
             <a class="btn ghost" href="#contact">Contact / Hire</a>
@@ -89,61 +129,117 @@
         </div>
       </div>
 
-      <aside class="card photo">
-        <div class="avatar">
-          <!-- Using the uploaded image path; replace if needed -->
+      <aside class="card photo" aria-labelledby="photo-title">
+        <div class="avatar" role="img" aria-label="Vipul Patil photo">
+          <!-- Using the uploaded image path (assistant-provided path). Replace if you want to use repo image name. -->
           <img src="avatar.png" alt="Vipul Patil">
         </div>
-        <p style="color:#94a3b8; margin-top:10px;">Senior Data Engineer</p>
+        <p id="photo-title" class="small" style="margin-top:10px;">Data Analyst</p>
       </aside>
     </div>
 
-    <section class="card" id="about">
-      <h3>About Me</h3>
-      <p style="color:#94a3b8">
-        I design interactive dashboards, write SQL queries, automate reports and build insights
-        for data-driven decisions. Specialized in healthcare & business analytics.
-      </p>
+    <!-- SKILLS -->
+    <section class="card" id="skills" aria-labelledby="skills-title">
+      <h2 class="section-title" id="skills-title">Skills</h2>
+      <div class="two-col" style="margin-top:12px;">
+        <div>
+          <h4>Core</h4>
+          <ul class="list">
+            <li>SQL (T-SQL, performance tuning)</li>
+            <li>Power BI (Data modelling, DAX, reports)</li>
+            <li>Python (pandas, automation)</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Tools & Others</h4>
+          <ul class="list">
+            <li>Excel (advanced), SSRS</li>
+            <li>Git / GitHub</li>
+            <li>Data cleaning & ETL</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section class="card" id="projects">
-      <h3>Projects</h3>
-      <div class="projects-grid">
+    <!-- EXPERIENCE -->
+    <section class="card" id="experience" aria-labelledby="exp-title">
+      <h2 class="section-title" id="exp-title">Experience</h2>
+      <div style="margin-top:12px;">
+        <!-- Sample entries: replace with your real roles -->
+        <div style="margin-bottom:10px">
+          <strong>Senior Data Analyst — ABC Healthcare</strong>
+          <div class="small">Jan 2023 — Present</div>
+          <div class="small" style="margin-top:6px">Led Power BI initiatives for clinical operations: designed EHR dashboards, improved KPIs, and automated weekly reporting.</div>
+        </div>
 
+        <div style="margin-bottom:10px">
+          <strong>Data Analyst — XYZ Solutions</strong>
+          <div class="small">Jul 2019 — Dec 2022</div>
+          <div class="small" style="margin-top:6px">Built sales and finance dashboards, wrote reusable SQL models and reduced manual reporting time by automating ETL pipelines.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRADUATION -->
+    <section class="card" id="graduation" aria-labelledby="grad-title">
+      <h2 class="section-title" id="grad-title">Graduation</h2>
+      <div style="margin-top:12px;">
+        <!-- Replace with your actual degree and year -->
+        <p class="small"><strong>Bachelor of Science (B.Sc.) in Computer Science</strong><br>University Name — Graduated: 2018</p>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="card" id="certifications" aria-labelledby="cert-title">
+      <h2 class="section-title" id="cert-title">Certifications</h2>
+      <ul class="list" style="margin-top:12px;">
+        <!-- Replace with your actual certifications -->
+        <li>Microsoft Certified: Power BI Data Analyst Associate</li>
+        <li>Advanced SQL & Database Performance (Certificate)</li>
+        <li>Python for Data Analysis (Certificate)</li>
+      </ul>
+    </section>
+
+    <!-- PROJECTS (kept) -->
+    <section class="card" id="projects" aria-labelledby="proj-title">
+      <h2 class="section-title" id="proj-title">Projects</h2>
+      <div class="projects-grid" style="margin-top:10px">
         <div class="project">
           <h4>TouchWorks EHR Dashboard</h4>
           <div class="meta">Power BI • Healthcare Analytics</div>
-          <p style="color:#94a3b8">Patient flow insights, drill-through & KPI monitoring.</p>
+          <p class="small" style="margin-top:8px">Interactive patient flow & KPI dashboard with drill-through and custom visuals.</p>
         </div>
 
         <div class="project">
           <h4>Sales Analytics Dashboard</h4>
           <div class="meta">SQL • Power BI</div>
-          <p style="color:#94a3b8">Sales forecasting and performance tracking.</p>
+          <p class="small" style="margin-top:8px">Cohort & funnel analysis that supported product decisions.</p>
         </div>
 
         <div class="project">
           <h4>SQL Automation Tool</h4>
           <div class="meta">Python • SQL</div>
-          <p style="color:#94a3b8">Automated ETL & data cleaning pipeline.</p>
+          <p class="small" style="margin-top:8px">Automated ETL & data cleaning pipeline for recurring reports.</p>
         </div>
-
       </div>
     </section>
 
-    <section class="card" id="contact">
-      <h3>Contact</h3>
-      <p style="color:#94a3b8">Feel free to reach out for work or collaboration.</p>
-      <p>
-        <strong>Email:</strong> vipul@example.com<br>
-        <strong>LinkedIn:</strong> linkedin.com/in/vipulpatil
-      </p>
+    <!-- CONTACT -->
+    <section class="card" id="contact" aria-labelledby="contact-title">
+      <h2 class="section-title" id="contact-title">Contact</h2>
+      <div style="margin-top:12px;">
+        <p class="small">Feel free to reach out for work or collaboration.</p>
+        <p style="margin-top:8px">
+          <strong>Email:</strong> <a href="mailto:vipul@example.com" style="color:var(--accent); text-decoration:none">vipul@example.com</a><br>
+          <strong>Mobile:</strong> <a href="tel:+91-XXXXXXXXXX" style="color:var(--accent); text-decoration:none">+91-XXXXXXXXXX</a><br>
+          <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vipulpatil" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none">linkedin.com/in/vipulpatil</a>
+        </p>
+        <p class="small" style="margin-top:6px">Tip: Replace the mobile number (+91-XXXXXXXXXX) with your real phone number in the HTML.</p>
+      </div>
     </section>
 
     <footer>© 2025 Vipul Patil — Built with ❤️ using GitHub Pages</footer>
-  </div>
+  </main>
+
 </body>
 </html>
-
-
-
