@@ -35,7 +35,7 @@
     background:
       radial-gradient(800px 400px at 6% 8%, rgba(124,92,255,0.08), transparent 12%),
       linear-gradient(180deg,var(--bg-1),var(--bg-2));
-    font-family:Inter, system-ui, Arial;
+    font-family:Inter, system-ui, Arial, sans-serif;
     color:var(--text);
     padding-top:var(--nav-h);
     transition:all .28s ease;
@@ -79,26 +79,26 @@
 
   .wrap{max-width:1200px;margin:36px auto;padding:18px;}
 
-  /* HERO gradient title for both themes */
+  /* HERO title gradient for both themes */
   .hero-title{
     font-size: 34px;
     font-weight: 800;
     line-height: 1.05;
-    background: linear-gradient(90deg, #ff6b6b 0%, #7c5cff 50%, #00d4ff 100%);
+    background: linear-gradient(90deg, #ff6b6b 0%, #7c5cff 52%, #00d4ff 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     text-shadow: 0 2px 4px rgba(0,0,0,0.35);
   }
   body.light .hero-title{
-    background: linear-gradient(90deg, #ff4b4b 0%, #8458ff 50%, #0096ff 100%);
+    background: linear-gradient(90deg, #ff4b4b 0%, #8458ff 52%, #0096ff 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     text-shadow: 0 1px 2px rgba(255,255,255,0.25);
   }
 
-  /* Basic layout */
+  /* HERO & layout */
   .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:26px;align-items:center}
   .card{
     background:var(--panel);
@@ -107,11 +107,12 @@
     border:1px solid rgba(255,255,255,0.05);
     box-shadow:0 18px 50px rgba(0,0,0,0.45);
   }
+
   .hero-lead{margin-top:12px;color:var(--muted);max-width:68ch}
   .badges{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
   .badge{padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.05);font-weight:700;background:transparent;color:var(--text);font-size:13px}
   .hero-cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
-  .btn-primary{background:linear-gradient(90deg,var(--accent-a),var(--accent-b));padding:12px 18px;border-radius:12px;color:#071022;font-weight:900;text-decoration:none}
+  .btn-primary{background:linear-gradient(90deg,var(--accent-a),var(--accent-b));padding:12px 18px;border-radius:12px;color:#071022;font-weight:900;text-decoration:none;display:inline-block}
   .btn-outline{padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);font-weight:700;color:var(--text);text-decoration:none}
 
   .photo-panel{display:flex;justify-content:center;align-items:center}
@@ -119,8 +120,9 @@
   .avatar{width:100%;height:100%;border-radius:14px;overflow:hidden}
   .avatar img{width:100%;height:100%;object-fit:cover}
 
-  /* Projects */
+  /* Projects (grid) */
   .projects{margin-top:32px}
+  .projects .skills-title{margin-bottom:12px}
   .project-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:14px}
   .project h3{margin:0;font-size:18px}
   .meta{font-size:13px;color:var(--muted);margin-top:6px}
@@ -139,7 +141,28 @@
   .skill-val{width:56px;text-align:right;font-weight:800;color:var(--accent-c)}
   .skill-card.right .skill-name{color:#d5eefc}
 
-  /* Slideshow (upgraded with arrows) */
+  /* NEW: Featured Case Studies horizontal slider */
+  .case-section{margin-top:28px}
+  .case-header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .case-header h2{margin:0}
+  .case-wrapper{overflow:hidden;position:relative;margin-top:12px}
+  .case-track{display:flex;gap:16px;transition:transform .48s cubic-bezier(.2,.9,.2,1)}
+  .case-card{min-width:340px;max-width:340px;flex-shrink:0;border-radius:12px;padding:18px;background:linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.03)}
+  .case-card h3{margin:0 0 6px 0}
+  .case-nav{display:flex;gap:8px;align-items:center}
+  .case-arrow{
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border:1px solid rgba(255,255,255,0.04);
+    color:var(--text);
+    width:44px;height:44px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;
+    cursor:pointer;backdrop-filter:blur(6px);
+  }
+  .case-arrow:active{transform:translateY(1px)}
+  .case-dots{display:flex;gap:8px;align-items:center}
+  .case-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.05);opacity:0.5}
+  .case-dot.active{background:linear-gradient(90deg,var(--accent-a),var(--accent-b));opacity:1}
+
+  /* Slideshow (bottom) */
   .slideshow{margin-top:22px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);position:relative}
   .slides{display:flex;transition:transform .45s}
   .slide{min-width:100%;padding:18px;box-sizing:border-box}
@@ -149,11 +172,8 @@
   .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.06);cursor:pointer;opacity:0.45}
   .dot.active{opacity:1;background:linear-gradient(90deg,var(--accent-a),var(--accent-b))}
 
-  /* arrows */
-  .slide-arrow{
-    position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;
-    background:rgba(0,0,0,0.35);backdrop-filter:blur(4px);cursor:pointer;border:1px solid rgba(255,255,255,0.04);
-  }
+  .slide-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+    background:rgba(0,0,0,0.35);backdrop-filter:blur(4px);cursor:pointer;border:1px solid rgba(255,255,255,0.04)}
   .slide-arrow.left{left:12px}
   .slide-arrow.right{right:12px}
   .slide-arrow svg{width:18px;height:18px;fill:var(--text);opacity:0.95}
@@ -165,7 +185,6 @@
   .floating img{width:48px;height:48px;border-radius:10px;object-fit:cover}
   footer{text-align:center;color:var(--muted);margin:36px 0;font-size:14px}
 
-  /* responsive */
   @media(max-width:980px){
     .hero-grid{grid-template-columns:1fr;}
     .skills-grid{grid-template-columns:1fr}
@@ -173,6 +192,7 @@
     .nav-links{display:none}
     .skill-name{width:140px}
     .avatar-frame{width:220px;height:220px}
+    .case-card{min-width:86vw;max-width:86vw}
   }
 </style>
 </head>
@@ -190,7 +210,7 @@
       <a href="#certifications">Certifications</a>
       <a href="#contact">Contact</a>
     </div>
-    <div class="toggle" id="themeToggle"><div class="knob"></div></div>
+    <div class="toggle" id="themeToggle" role="button" tabindex="0" aria-label="Toggle theme"><div class="knob"></div></div>
   </div>
 </nav>
 
@@ -202,12 +222,11 @@
       <div class="hero-title">Transforming complex data into actionable intelligence.</div>
 
       <div class="hero-lead">
-        I'm Vipul G Patil — Senior Data Engineer & Data Professional specializing in Power BI,
-        SQL, ETL and Python automation. I build high-impact dashboards, automate workflows,
-        and optimize data systems for performance and accuracy.
+        I'm Vipul G Patil — Senior Data Engineer & Data Professional specializing in Power BI, SQL, ETL and Python automation.
+        I build high-impact dashboards, automate workflows, and optimize data systems for performance and accuracy.
       </div>
 
-      <div class="badges">
+      <div class="badges" aria-hidden="false">
         <span class="badge">Power BI</span>
         <span class="badge">SQL Server</span>
         <span class="badge">SSIS / ETL</span>
@@ -218,7 +237,7 @@
 
       <div class="hero-cta">
         <a class="btn-primary" href="#projects">View Work</a>
-        <a class="btn-outline" href="resume.pdf" download>Download Resume</a>
+        <a class="btn-outline" id="resumeBtn" href="resume.pdf" download>Download Resume</a>
       </div>
     </div>
 
@@ -229,51 +248,60 @@
     </div>
   </section>
 
-  <!-- Projects (added more case studies) -->
-  <section id="projects" class="projects">
-    <h2 class="skills-title">Featured Case Studies</h2>
-
-    <div class="project-row">
-      <div class="project card">
-        <h3>TouchWorks Analytics — KPI & Workflow Dashboards</h3>
-        <div class="meta">Power BI • SSIS • SQL</div>
-        <p>Built interactive KPI dashboards with drill-through and row-level filters. Automated nightly ETL that reduced reporting latency by 60% and improved decision speed.</p>
-      </div>
-
-      <div class="project card">
-        <h3>Enterprise Data Migration & Validation</h3>
-        <div class="meta">ETL • Mapping • Data Quality</div>
-        <p>Led migration of legacy datasets with validation pipelines and reconciliation reports. Introduced automated checks that caught 98% of inconsistent records before go-live.</p>
-      </div>
-
-      <div class="project card">
-        <h3>Reporting Automation Framework</h3>
-        <div class="meta">Python • SQL Jobs • Monitoring</div>
-        <p>Designed scheduler & monitoring for recurring reporting jobs, including alerts and data-quality dashboards—cutting manual effort by 70%.</p>
-      </div>
-
-      <!-- New additional case studies -->
-      <div class="project card">
-        <h3>Sales Performance & Forecasting</h3>
-        <div class="meta">Power BI • Time Series • SQL</div>
-        <p>Developed a sales dashboard with month-over-month and rolling forecasts, enabling the business to identify underperforming regions and optimize inventory.</p>
-      </div>
-
-      <div class="project card">
-        <h3>ETL Optimization & SQL Tuning</h3>
-        <div class="meta">T-SQL • Indexing • Query Tuning</div>
-        <p>Rewrote heavy queries, added targeted indexing, and parallelized ETL steps—improving ETL runtime by 55% and lowering DB CPU usage.</p>
-      </div>
-
-      <div class="project card">
-        <h3>Casebook (PDF)</h3>
-        <div class="meta">Compiled deliverables • Reports</div>
-        <p>Download a consolidated casebook & sample deliverables (PDF). <a href="/mnt/data/resume.pdf" target="_blank" style="color:var(--accent-c)">Open PDF</a></p>
+  <!-- Featured Case Studies (horizontal slider with arrows) -->
+  <section id="projects" class="case-section">
+    <div class="case-header">
+      <h2 class="skills-title">Featured Case Studies</h2>
+      <div class="case-nav">
+        <button class="case-arrow" id="casePrev" aria-label="Previous case">&#10094;</button>
+        <button class="case-arrow" id="caseNext" aria-label="Next case">&#10095;</button>
       </div>
     </div>
+
+    <div class="case-wrapper">
+      <div class="case-track" id="caseTrack">
+        <div class="case-card card">
+          <h3>TouchWorks Analytics — KPI & Workflow Dashboards</h3>
+          <div class="meta">Power BI • SSIS • SQL</div>
+          <p>Built interactive KPI dashboards with drill-through and row-level filters. Automated nightly ETL that reduced reporting latency by 60% and improved decision speed.</p>
+        </div>
+
+        <div class="case-card card">
+          <h3>Enterprise Data Migration & Validation</h3>
+          <div class="meta">ETL • Mapping • Data Quality</div>
+          <p>Led migration of legacy datasets with validation pipelines and reconciliation reports. Introduced automated checks that caught 98% of inconsistent records before go-live.</p>
+        </div>
+
+        <div class="case-card card">
+          <h3>Reporting Automation Framework</h3>
+          <div class="meta">Python • SQL Jobs • Monitoring</div>
+          <p>Designed scheduler & monitoring for recurring reporting jobs, including alerts and data-quality dashboards—cutting manual effort by 70%.</p>
+        </div>
+
+        <div class="case-card card">
+          <h3>Sales Performance & Forecasting</h3>
+          <div class="meta">Power BI • Time Series • SQL</div>
+          <p>Developed a sales dashboard with month-over-month and rolling forecasts, enabling the business to identify underperforming regions and optimize inventory.</p>
+        </div>
+
+        <div class="case-card card">
+          <h3>ETL Optimization & SQL Tuning</h3>
+          <div class="meta">T-SQL • Indexing • Query Tuning</div>
+          <p>Rewrote heavy queries, added targeted indexing, and parallelized ETL steps—improving ETL runtime by 55% and lowering DB CPU usage.</p>
+        </div>
+
+        <div class="case-card card">
+          <h3>Casebook (PDF)</h3>
+          <div class="meta">Compiled deliverables • Reports</div>
+          <p>Download a consolidated casebook & sample deliverables (PDF). <a href="/mnt/data/resume.pdf" target="_blank" style="color:var(--accent-c)">Open PDF</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:center;margin-top:12px;gap:8px" id="caseDots"></div>
   </section>
 
-  <!-- SKILLS -->
+  <!-- Skills -->
   <section id="skills" class="skills-section">
     <div class="skills-title">Skills & Tools (with proficiency)</div>
     <div class="skills-grid">
@@ -301,7 +329,7 @@
     </div>
   </section>
 
-  <!-- Slideshow with arrows (prev/next) -->
+  <!-- Slideshow (kept for larger hero samples) -->
   <section style="margin-top:32px;">
     <h2 class="skills-title">Project Slideshow</h2>
     <div class="slideshow card" id="slideshowWrap">
@@ -323,21 +351,8 @@
           <p class="small">Scheduler, monitoring and alerting for recurring reports.</p>
           <div class="color-box" style="background:linear-gradient(120deg, rgba(0,212,255,0.2), rgba(255,107,107,0.12))"></div>
         </div>
-
-        <div class="slide">
-          <h4>Sales Forecasting — Predictive Model</h4>
-          <p class="small">Forecasting, trend analysis and visual KPI tracking.</p>
-          <div class="color-box" style="background:linear-gradient(120deg, rgba(255,107,107,0.2), rgba(124,92,255,0.12))"></div>
-        </div>
-
-        <div class="slide">
-          <h4>ETL Performance Optimization</h4>
-          <p class="small">Tuning, indexing and pipeline redesign to speed up ETL.</p>
-          <div class="color-box" style="background:linear-gradient(120deg, rgba(0,212,255,0.22), rgba(124,92,255,0.1))"></div>
-        </div>
       </div>
 
-      <!-- Arrows -->
       <div class="slide-arrow left" id="slidePrev" title="Previous">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
       </div>
@@ -349,8 +364,6 @@
         <div class="dot" data-i="0"></div>
         <div class="dot" data-i="1"></div>
         <div class="dot" data-i="2"></div>
-        <div class="dot" data-i="3"></div>
-        <div class="dot" data-i="4"></div>
       </div>
     </div>
   </section>
@@ -379,7 +392,7 @@
     </div>
   </section>
 
-  <!-- Certs -->
+  <!-- Certifications -->
   <section id="certifications" style="margin-top:32px;">
     <h2 class="skills-title">Certifications & Recognition</h2>
     <div class="card" style="margin-top:12px">
@@ -432,7 +445,7 @@
 </div>
 
 <script>
-  /* Theme toggle */
+  /* ===== Theme toggle ===== */
   (function(){
     const toggle = document.getElementById('themeToggle');
     const knob = toggle && toggle.querySelector('.knob');
@@ -447,23 +460,143 @@
     toggle && toggle.addEventListener('keydown', (e) => { if(e.key === 'Enter') toggle.click(); });
   })();
 
-  /* Skill bars animation */
+  /* ===== Skill bars animation ===== */
   (function(){
     const fills = document.querySelectorAll('.skill-fill');
     const io = new IntersectionObserver(entries => {
       entries.forEach(en => {
-        if(en.isIntersecting){
+        if (en.isIntersecting) {
           const el = en.target;
           const val = el.dataset.fill || '0';
           el.style.width = val + '%';
           io.unobserve(el);
         }
       });
-    }, {threshold:0.25});
+    }, { threshold: 0.25 });
     fills.forEach(f => io.observe(f));
   })();
 
-  /* Slideshow with prev/next arrows + dots + autoplay */
+  /* ===== Case Studies slider (horizontal cards) ===== */
+  (function(){
+    const track = document.getElementById('caseTrack');
+    const cards = track ? Array.from(track.querySelectorAll('.case-card')) : [];
+    const prevBtn = document.getElementById('casePrev');
+    const nextBtn = document.getElementById('caseNext');
+    const dotsWrap = document.getElementById('caseDots');
+
+    if (!track || !cards.length) return;
+
+    let visibleCount = 3;
+    const resizeHandler = () => {
+      const w = window.innerWidth;
+      if (w < 600) visibleCount = 1;
+      else if (w < 980) visibleCount = 2;
+      else visibleCount = 3;
+      createDots();
+      // ensure index is in range
+      index = Math.max(0, Math.min(index, Math.max(0, cards.length - visibleCount)));
+      update();
+    };
+
+    let index = 0;
+    const cardGap = 16;
+    let cardWidth = cards[0].getBoundingClientRect().width;
+    function updateCardWidth(){ cardWidth = cards[0].getBoundingClientRect().width + cardGap; }
+
+    function update(){
+      updateCardWidth();
+      const x = index * cardWidth;
+      track.style.transform = `translateX(-${x}px)`;
+      updateDots();
+    }
+
+    function createDots(){
+      if (!dotsWrap) return;
+      dotsWrap.innerHTML = '';
+      const pages = Math.max(1, Math.ceil(cards.length - (visibleCount - 1)));
+      for (let i=0;i<pages;i++){
+        const d = document.createElement('div');
+        d.className = 'case-dot';
+        d.dataset.i = i;
+        d.style.cursor = 'pointer';
+        d.addEventListener('click', ()=> {
+          index = i;
+          update();
+        });
+        dotsWrap.appendChild(d);
+      }
+    }
+
+    function updateDots(){
+      if (!dotsWrap) return;
+      const dots = Array.from(dotsWrap.children);
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    }
+
+    prevBtn && prevBtn.addEventListener('click', ()=> {
+      index = Math.max(0, index - 1);
+      update();
+      restartAuto();
+    });
+    nextBtn && nextBtn.addEventListener('click', ()=> {
+      index = Math.min(cards.length - visibleCount, index + 1);
+      update();
+      restartAuto();
+    });
+
+    // swipe support
+    let startX = 0, currentX = 0, isDown = false;
+    track.addEventListener('pointerdown', (e)=>{
+      isDown = true;
+      startX = e.clientX;
+      track.style.transition = 'none';
+      track.setPointerCapture && track.setPointerCapture(e.pointerId);
+      stopAuto();
+    });
+    track.addEventListener('pointermove', (e)=>{
+      if(!isDown) return;
+      currentX = e.clientX;
+      const dx = currentX - startX;
+      track.style.transform = `translateX(-${index * cardWidth - dx}px)`;
+    });
+    track.addEventListener('pointerup', (e)=>{
+      if(!isDown) return;
+      isDown = false;
+      const dx = e.clientX - startX;
+      track.style.transition = '';
+      if (Math.abs(dx) > 60) {
+        if (dx < 0) index = Math.min(cards.length - visibleCount, index + 1);
+        else index = Math.max(0, index - 1);
+      }
+      update();
+      startAuto();
+    });
+    track.addEventListener('pointercancel', ()=>{
+      isDown = false;
+      update();
+      startAuto();
+    });
+
+    // autoplay
+    let autoTimer;
+    function startAuto(){
+      stopAuto();
+      autoTimer = setInterval(()=> {
+        index = (index + 1) > (cards.length - visibleCount) ? 0 : index + 1;
+        update();
+      }, 5500);
+    }
+    function stopAuto(){ if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
+    function restartAuto(){ stopAuto(); startAuto(); }
+
+    // init
+    window.addEventListener('resize', resizeHandler);
+    resizeHandler();
+    update();
+    startAuto();
+  })();
+
+  /* ===== Slideshow (bottom) ===== */
   (function(){
     const slides = document.getElementById('slides');
     const dots = Array.from(document.querySelectorAll('.dot'));
@@ -478,27 +611,20 @@
       slides.style.transform = `translateX(-${idx*100}%)`;
       dots.forEach((d, j) => d.classList.toggle('active', j === idx));
     }
-
     function startTimer(){ timer = setInterval(()=> show(idx+1), 5000); }
     function stopTimer(){ clearInterval(timer); }
 
-    // dots
     dots.forEach((d, j) => d.addEventListener('click', ()=> { stopTimer(); show(j); startTimer(); }));
-
-    // arrows
     prevBtn && prevBtn.addEventListener('click', ()=> { stopTimer(); show(idx-1); startTimer(); });
     nextBtn && nextBtn.addEventListener('click', ()=> { stopTimer(); show(idx+1); startTimer(); });
-
-    // pause on hover
     slides.addEventListener('mouseenter', stopTimer);
     slides.addEventListener('mouseleave', startTimer);
 
-    // init
     show(0);
     startTimer();
   })();
 
-  /* Active nav highlighting */
+  /* ===== Active nav highlighting ===== */
   (function(){
     const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
     const sections = Array.from(document.querySelectorAll('section[id]'));
@@ -512,7 +638,7 @@
     update();
   })();
 
-  /* Resume download behavior */
+  /* ===== Resume download robust behavior ===== */
   (function(){
     const primary = 'resume.pdf';
     const btn = document.getElementById('downloadResume');
@@ -547,7 +673,7 @@
     });
   })();
 
-  /* Smooth anchor scroll (offset for fixed nav) */
+  /* ===== Smooth anchor scroll (offset for fixed nav) ===== */
   (function(){
     const anchors = document.querySelectorAll('a[href^="#"]');
     anchors.forEach(a=>{
