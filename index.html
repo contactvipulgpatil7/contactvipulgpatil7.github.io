@@ -1,588 +1,519 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Vipul G Patil — Senior Data Engineer & Data Professional</title>
-<meta name="description" content="Vipul G Patil — Healthcare analytics, Power BI, SQL, ETL, automation. Portfolio, resume & projects." />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vipul G Patil — Portfolio</title>
+
 <style>
-  :root{
-    --bg:#071022; --bg-soft:#0b1a2a;
-    --card: rgba(255,255,255,0.02);
-    --muted:#9bb0c1;
-    --accent1:#06b6d4;
-    --accent2:#00c2b3;
-    --glass: rgba(255,255,255,0.03);
-    --glass-2: rgba(0,0,0,0.18);
-    --maxw:1150px;
-    --nav-h:72px;
-    --radius:14px;
-    --text:#e8f0f8;
-    --shadow: 0 12px 50px rgba(2,6,23,0.6);
-  }
+/* ---------------------------------------------------
+   COLOR SYSTEM & THEME
+--------------------------------------------------- */
+:root {
+  --bg: #0b1220;
+  --card: rgba(255,255,255,0.04);
+  --muted: #94a3b8;
+  --accent1: #06b6d4;
+  --accent2: #00c2b3;
+  --text: #e6eef6;
+  --radius: 14px;
+  --nav-h: 70px; 
+}
 
-  /* --- Dark/Light Mode variables (light overrides) --- */
-  body.light {
-    --bg: #f7fafc;
-    --bg-soft: #ffffff;
-    --card: rgba(10,20,30,0.03);
-    --muted: #475569;
-    --text: #071022;
-    --accent1:#0ea5b7;
-    --accent2:#06b6d4;
-    --glass: rgba(0,0,0,0.03);
-    --shadow: 0 10px 36px rgba(2,6,23,0.06);
-  }
+/* LIGHT MODE */
+body.light {
+  --bg: #f8fafc;
+  --card: rgba(0,0,0,0.05);
+  --text: #0b1220;
+  --muted: #475569;
+  --accent1: #0ea5b7;
+}
 
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background: linear-gradient(180deg,var(--bg) 0%, var(--bg-soft) 80%);
-    color:var(--text);
-    line-height:1.5;
-    scroll-behavior: smooth;
-    padding-top: var(--nav-h);
-    -webkit-font-smoothing:antialiased;
-  }
+/* ---------------------------------------------------
+   GLOBAL RESET
+--------------------------------------------------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* NAV */
-  .nav {
-    position: fixed; top:0; left:0; width:100%; height:var(--nav-h); z-index:1100;
-    background: linear-gradient(180deg, rgba(7,16,35,0.96), rgba(7,16,35,0.9));
-    border-bottom: 1px solid rgba(255,255,255,0.03);
-    display:flex; align-items:center; backdrop-filter: blur(6px);
-  }
-  body.light .nav {
-    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96));
-    border-bottom: 1px solid rgba(10,20,30,0.04);
-  }
-  .nav .container { max-width:var(--maxw); margin:0 auto; width:100%; padding:8px 20px; display:flex; gap:16px; align-items:center; }
-  .brand { font-weight:800; color:var(--text); text-decoration:none; font-size:18px; display:inline-flex; gap:8px; align-items:center; }
-  .brand .dot { width:8px; height:8px; border-radius:99px; background:linear-gradient(90deg,var(--accent1),var(--accent2)); box-shadow:0 4px 10px rgba(6,182,212,0.14) }
-  .nav-links { margin-left:auto; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
-  .nav-links a { color:var(--muted); text-decoration:none; padding:8px 10px; border-radius:8px; font-weight:600; font-size:14px }
-  .nav-links a:hover { color:var(--text); background: rgba(255,255,255,0.03) }
-  .nav-links a.active { color:var(--text); background: rgba(6,182,212,0.10); }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  padding-top: var(--nav-h);
+  line-height: 1.6;
+  transition: background .3s, color .3s;
+}
 
-  /* toggle */
-  .controls { display:flex; gap:10px; align-items:center; margin-left:12px; }
-  .toggle {
-    width:44px; height:26px; border-radius:999px; background:rgba(255,255,255,0.06); display:inline-flex; align-items:center; padding:4px; cursor:pointer;
-  }
-  .toggle .knob { width:18px; height:18px; background:white; border-radius:999px; transition:transform .25s; transform: translateX(0); }
-  body.light .toggle { background: linear-gradient(90deg,var(--accent1),var(--accent2)); }
-  body.light .toggle .knob { transform: translateX(18px); background:#062021; }
+/* ---------------------------------------------------
+   NAVBAR
+--------------------------------------------------- */
+nav {
+  position: fixed; top: 0; left: 0; width: 100%;
+  height: var(--nav-h);
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+  display: flex; align-items: center;
+  padding: 0 22px;
+  z-index: 999;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
 
-  /* main layout */
-  .wrap{max-width:var(--maxw); margin:26px auto; padding:18px;}
-  .top{ display:grid; grid-template-columns: 1fr 420px; gap:24px; align-items:stretch; }
+.nav-brand {
+  font-size: 20px; font-weight: 800; 
+  color: var(--text); text-decoration: none;
+}
 
-  .card{
-    background: var(--card);
-    border:1px solid rgba(255,255,255,0.03);
-    padding:26px; border-radius:var(--radius);
-    box-shadow: var(--shadow);
-    overflow:hidden;
-    display:flex; flex-direction:column;
-  }
+.nav-links {
+  margin-left: auto; display: flex; gap: 12px;
+}
 
-  /* HERO left */
-  .hero { min-height:420px; padding:28px; display:flex; flex-direction:column; gap:14px; justify-content:center; }
-  .hero h1{margin:0; font-size:34px; line-height:1.02}
-  .hero .sub { color:var(--muted); margin-top:6px; font-size:15px; max-width:65ch }
-  .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
-  .chip{background:var(--glass); color:var(--accent1); padding:6px 10px; border-radius:999px; font-size:13px; border:1px solid rgba(6,182,212,0.06)}
+.nav-links a {
+  color: var(--muted);
+  padding: 8px 12px;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+}
 
-  .cta { display:flex; gap:12px; margin-top:16px; align-items:center; }
-  .cta .left { display:flex; gap:12px; align-items:center }
-  .btn {
-    background: linear-gradient(90deg,var(--accent1),var(--accent2));
-    color:#062021; padding:12px 18px; border-radius:12px; font-weight:800;
-    text-decoration:none; display:inline-flex; align-items:center; gap:10px; box-shadow: 0 8px 22px rgba(2,6,23,0.35);
-  }
-  .btn.ghost{background:transparent; border:1px solid rgba(255,255,255,0.04); color:var(--muted); padding:10px 16px; border-radius:10px; font-weight:700}
+.nav-links a:hover,
+.nav-links a.active {
+  background: rgba(255,255,255,0.08);
+  color: var(--text);
+}
 
-  /* right photo card */
-  .top aside.card { min-height:420px; padding:28px; display:flex; flex-direction:column; align-items:center; justify-content:center; }
-  .photo { text-align:center; width:100%; display:flex; flex-direction:column; align-items:center; gap:12px; }
-  .avatar-wrap {
-    position:relative; width:280px; height:280px; border-radius:18px; padding:8px;
-    background: linear-gradient(135deg, rgba(6,182,212,0.12), rgba(0,194,179,0.06));
-    box-shadow: 0 22px 60px rgba(2,6,23,0.6); transition:transform .36s, box-shadow .36s;
-  }
-  .avatar {
-    width:100%; height:100%; border-radius:14px; overflow:hidden; background:linear-gradient(135deg, rgba(0,0,0,0.04), rgba(255,255,255,0.01));
-  }
-  .avatar img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s; }
-  .avatar-wrap:hover{ transform:translateY(-8px) scale(1.02); box-shadow: 0 28px 80px rgba(2,6,23,0.72); }
-  .avatar-wrap:hover .avatar img{ transform:scale(1.04); }
-  .photo .title { color:var(--muted); font-size:14px; margin-top:8px; text-align:center; }
+/* Theme Toggle */
+.toggle {
+  margin-left: 12px;
+  width: 44px; height: 24px; 
+  border-radius: 20px; cursor: pointer;
+  background: rgba(255,255,255,0.3);
+  display: flex; align-items: center;
+  padding: 3px;
+}
 
-  /* Animated skill bars */
-  .skill-row { display:flex; gap:12px; align-items:center; margin-bottom:12px; }
-  .skill-name { width:160px; color:var(--muted); font-weight:700; font-size:14px; }
-  .skill-bar { flex:1; background: rgba(255,255,255,0.03); height:14px; border-radius:999px; overflow:hidden; border:1px solid rgba(255,255,255,0.02); }
-  .skill-fill { height:100%; width:0%; background: linear-gradient(90deg,var(--accent1),var(--accent2)); transition: width 1.2s cubic-bezier(.2,.9,.2,1); }
+.knob {
+  width: 18px; height: 18px;
+  background: white; border-radius: 50%;
+  transition: transform .25s;
+}
 
-  /* Timeline (analytics timeline UI) */
-  .timeline { position:relative; padding-left:18px; margin-top:8px; }
-  .timeline::before { content:""; position:absolute; left:6px; top:0; bottom:0; width:3px; background: linear-gradient(180deg,var(--accent1),var(--accent2)); border-radius:3px; opacity:0.9; }
-  .timeline-item { position:relative; padding:14px 12px; margin-bottom:18px; background: rgba(255,255,255,0.01); border-radius:12px; border:1px solid rgba(255,255,255,0.02); }
-  .timeline-item::before { content:""; position:absolute; left:-13px; top:20px; width:12px; height:12px; border-radius:99px; background:var(--bg); border:3px solid var(--accent1); box-shadow:0 6px 16px rgba(2,6,23,0.4); }
+body.light .toggle .knob {
+  transform: translateX(20px);
+}
 
-  /* Projects slideshow */
-  .slideshow { position:relative; overflow:hidden; border-radius:12px; }
-  .slides { display:flex; transition:transform .6s cubic-bezier(.2,.9,.2,1); gap:12px; }
-  .slide { min-width:100%; box-sizing:border-box; padding:18px; background: rgba(255,255,255,0.01); border-radius:12px; border:1px solid rgba(255,255,255,0.02); }
-  .slide h4{margin:0 0 8px 0}
-  .slide-controls { display:flex; gap:8px; justify-content:center; margin-top:12px; }
-  .dot { width:10px; height:10px; border-radius:99px; background: rgba(255,255,255,0.06); cursor:pointer; }
-  .dot.active { background: linear-gradient(90deg,var(--accent1),var(--accent2)); box-shadow:0 6px 18px rgba(2,6,23,0.4); }
+/* ---------------------------------------------------
+   WRAPPER
+--------------------------------------------------- */
+.wrap {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+}
 
-  /* Floating contact card */
-  .floating-contact {
-    position: fixed; right:18px; bottom:18px; z-index:1200;
-    background: linear-gradient(180deg, rgba(6,182,212,0.08), rgba(0,194,179,0.04));
-    border-radius:14px; padding:12px; box-shadow: 0 10px 36px rgba(2,6,23,0.45);
-    backdrop-filter: blur(6px);
-    transition: transform .28s, opacity .28s;
-  }
-  .floating-contact .mini { display:flex; gap:10px; align-items:center; }
-  .floating-contact img { width:44px; height:44px; border-radius:8px; object-fit:cover; border:2px solid rgba(255,255,255,0.06); }
-  .floating-contact .me { font-weight:700; color:var(--text) }
-  .floating-contact .actions { display:flex; gap:8px; margin-top:8px; }
-  .floating-contact .actions a { background:var(--card); padding:8px 10px; border-radius:10px; text-decoration:none; color:var(--text); border:1px solid rgba(255,255,255,0.04); font-weight:700; }
+/* ---------------------------------------------------
+   HERO
+--------------------------------------------------- */
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 30px;
+}
 
-  /* multi-page nav hint (breadcrumb) */
-  .breadcrumb { font-size:13px; color:var(--muted); margin-bottom:10px; }
+.card {
+  background: var(--card);
+  padding: 30px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.04);
+}
 
-  /* small helpers */
-  .small { color:var(--muted); font-size:14px; }
-  .list { margin:8px 0 0 18px; color:var(--muted); }
+.hero-title {
+  font-size: 38px;
+  font-weight: 800;
+}
 
-  footer{margin-top:30px; color:var(--muted); text-align:center; font-size:14px}
+.hero-sub {
+  margin-top: 10px;
+  color: var(--muted);
+  max-width: 600px;
+}
 
-  /* responsive */
-  @media (max-width:1100px){
-    .top{ grid-template-columns: 1fr 360px; gap:18px; }
-    .avatar-wrap{ width:220px; height:220px }
-  }
-  @media (max-width:900px){
-    .nav-links{ display:none }
-    .top{ grid-template-columns:1fr; }
-    .top aside.card { order:-1 } /* photo appears above on small screens */
-    .avatar-wrap{ width:180px; height:180px }
-    .skill-name{ width:140px }
-    .hero .sub { max-width:100% }
-    .floating-contact { right:10px; bottom:12px; }
-  }
+.hero-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+}
 
-  @media (prefers-reduced-motion: reduce) {
-    .avatar, .avatar-wrap, .slides, .skill-fill, .fade { transition:none !important; transform:none !important; }
-  }
+.btn {
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  color: black;
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--muted);
+}
+
+.skills-badges {
+  margin-top: 14px;
+  display: flex; gap: 8px; flex-wrap: wrap;
+}
+
+.skill-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  background: rgba(255,255,255,0.06);
+  color: var(--accent1);
+}
+
+/* PHOTO */
+.photo-card {
+  display: flex; align-items: center; justify-content: center;
+}
+
+.avatar-box {
+  width: 260px; height: 260px;
+  padding: 8px; border-radius: 20px;
+  background: linear-gradient(120deg, rgba(6,182,212,0.2), rgba(0,194,179,0.12));
+  box-shadow: 0 18px 40px rgba(0,0,0,0.4);
+  transition: transform .4s;
+}
+
+.avatar-box:hover {
+  transform: scale(1.03) translateY(-5px);
+}
+
+.avatar-box img {
+  width: 100%; height: 100%; object-fit: cover;
+  border-radius: 16px;
+}
+
+/* ---------------------------------------------------
+   SECTION TITLES
+--------------------------------------------------- */
+.section-title {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  border-left: 4px solid var(--accent1);
+  padding-left: 12px;
+}
+
+/* ---------------------------------------------------
+   FEATURED PROJECTS — CASE STUDY STYLE
+--------------------------------------------------- */
+.project-box {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  transition: transform .25s;
+}
+
+.project-box:hover {
+  transform: translateY(-4px);
+}
+
+.project-title {
+  font-size: 20px; font-weight: 700;
+}
+
+.project-meta {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.project-desc {
+  margin-top: 10px; color: var(--muted);
+}
+
+/* ---------------------------------------------------
+   ANIMATED SKILL BARS
+--------------------------------------------------- */
+.skill-row {
+  display: flex; align-items: center;
+  margin-bottom: 12px;
+}
+
+.skill-name {
+  width: 150px; color: var(--muted);
+}
+
+.skill-bar {
+  flex: 1;
+  height: 12px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.1);
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  transition: width 1.2s ease-in-out;
+}
+
+/* ---------------------------------------------------
+   TIMELINE EXPERIENCE
+--------------------------------------------------- */
+.timeline {
+  border-left: 3px solid var(--accent1);
+  margin-left: 10px;
+  padding-left: 20px;
+}
+
+.timeline-item {
+  margin-bottom: 20px;
+}
+
+.timeline-item strong {
+  font-size: 18px;
+}
+
+/* ---------------------------------------------------
+   CONTACT SECTION
+--------------------------------------------------- */
+.contact-info a {
+  color: var(--accent1);
+  text-decoration: none;
+}
+
+/* ---------------------------------------------------
+   FLOATING CONTACT CARD
+--------------------------------------------------- */
+.floating-card {
+  position: fixed; bottom: 20px; right: 20px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  padding: 14px;
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.4);
+  display: flex; gap: 10px;
+}
+
+.floating-card img {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+}
+
+/* ---------------------------------------------------
+   FOOTER
+--------------------------------------------------- */
+footer {
+  margin: 40px 0;
+  color: var(--muted);
+  text-align: center;
+  font-size: 14px;
+}
+
 </style>
 </head>
+
 <body>
 
-  <!-- NAV -->
-  <nav class="nav" aria-label="Main navigation">
-    <div class="container">
-      <a class="brand" href="#about"><span class="dot" aria-hidden="true"></span> Vipul G Patil</a>
+<!-- ========================= NAVBAR ========================= -->
+<nav>
+  <a class="nav-brand" href="#home">Vipul G Patil</a>
 
-      <div class="nav-links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
+  <div class="nav-links">
+    <a href="#home" class="active">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#timeline">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
 
-      <!-- controls: theme toggle + help -->
-      <div class="controls">
-        <div class="toggle" id="themeToggle" role="button" aria-pressed="false" tabindex="0" aria-label="Toggle dark / light mode">
-          <div class="knob"></div>
-        </div>
-        <button class="btn ghost" id="multiPageBtn" style="font-weight:700; padding:8px 12px; font-size:13px">Site Map</button>
-      </div>
-    </div>
-  </nav>
+  <!-- Theme Toggle -->
+  <div class="toggle" id="themeToggle">
+    <div class="knob"></div>
+  </div>
+</nav>
 
-  <main class="wrap" id="mainWrap">
+<!-- ========================= WRAPPER ========================= -->
+<div class="wrap">
 
-    <!-- TOP: HERO & PHOTO -->
-    <div class="top">
-      <div class="card hero" id="about" tabindex="-1">
-        <div class="breadcrumb">Home / About</div>
-        <h1>👋 Hi — I'm <strong>Vipul G Patil</strong></h1>
-        <p class="sub">Senior Data Engineer specializing in healthcare analytics, enterprise reporting and data migration. I design resilient ETL pipelines (SSIS), optimize SQL solutions, and deliver intuitive Power BI dashboards that convert data into operational clarity.</p>
+<!-- ========================= HERO ========================= -->
+<section id="home" class="hero-container">
 
-        <div class="chips" aria-hidden="true">
-          <span class="chip">Power BI</span>
-          <span class="chip">SQL Server</span>
-          <span class="chip">SSIS / ETL</span>
-          <span class="chip">Python</span>
-          <span class="chip">Reporting Automation</span>
-        </div>
+  <!-- LEFT HERO -->
+  <div class="card">
+    <h1 class="hero-title">Turning Healthcare Data Into Operational Clarity.</h1>
 
-        <div class="cta" role="toolbar" aria-label="Quick actions">
-          <div class="left">
-            <a class="btn" href="#projects">View Projects</a>
-            <a class="btn ghost" href="#contact">Contact / Hire</a>
-          </div>
-          <div class="right">
-            <a class="btn" href="/mnt/data/resume.pdf" download>📄 Download Resume</a>
-          </div>
-        </div>
+    <p class="hero-sub">
+      I'm Vipul G Patil, Senior Systems Analyst who builds automated ETL workflows,
+      high-performance SQL solutions, and intuitive Power BI dashboards that help teams
+      make confident decisions.
+    </p>
 
-        <!-- Animated skill bars (summary, short) -->
-        <div style="margin-top:18px">
-          <div class="skill-row"><div class="skill-name">Power BI</div><div class="skill-bar"><div class="skill-fill" data-fill="92"></div></div></div>
-          <div class="skill-row"><div class="skill-name">SQL & ETL</div><div class="skill-bar"><div class="skill-fill" data-fill="95"></div></div></div>
-          <div class="skill-row"><div class="skill-name">Automation (Python)</div><div class="skill-bar"><div class="skill-fill" data-fill="80"></div></div></div>
-        </div>
-      </div>
-
-      <aside class="card photo" aria-labelledby="photo-title">
-        <div class="photo">
-          <div class="avatar-wrap" aria-hidden="true">
-            <div class="avatar">
-              <!-- Avatar image in repository. Replace with avatar.png if preferred. -->
-              <img src="avatar.png" alt="Vipul G Patil">
-            </div>
-          </div>
-          <div class="title" id="photo-title">Senior Systems Analyst — Altera Digital Health</div>
-        </div>
-      </aside>
+    <div class="skills-badges">
+      <span class="skill-badge">Power BI</span>
+      <span class="skill-badge">SQL Server</span>
+      <span class="skill-badge">SSIS / ETL</span>
+      <span class="skill-badge">Python</span>
     </div>
 
-    <!-- SKILLS SECTION (detailed with animated bars) -->
-    <section class="card" id="skills" tabindex="-1">
-      <div class="breadcrumb">About / Skills</div>
-      <h2 class="section-title">Technical Skills</h2>
-      <div class="two-col" style="margin-top:12px">
-        <div>
-          <h4>Core Competencies</h4>
-          <ul class="list">
-            <li>SQL Server: T-SQL, performance tuning, stored procedures</li>
-            <li>ETL: SSIS package design, scheduling & monitoring</li>
-            <li>Power BI: Data modeling, DAX, report design & deployment</li>
-          </ul>
-        </div>
-        <div>
-          <h4>Tools & Automation</h4>
-          <ul class="list">
-            <li>Python (pandas) for automation and data processing</li>
-            <li>Reporting tools: SSRS, Crystal Reports, Cognos</li>
-            <li>Source control (Git/GitHub), CI basics</li>
-          </ul>
-        </div>
-      </div>
-
-      <div style="margin-top:18px">
-        <h4>Skill Proficiency</h4>
-        <div style="margin-top:10px">
-          <div class="skill-row"><div class="skill-name">Power BI</div><div class="skill-bar"><div class="skill-fill" data-fill="92"></div></div></div>
-          <div class="skill-row"><div class="skill-name">SQL & Tuning</div><div class="skill-bar"><div class="skill-fill" data-fill="95"></div></div></div>
-          <div class="skill-row"><div class="skill-name">SSIS / ETL</div><div class="skill-bar"><div class="skill-fill" data-fill="90"></div></div></div>
-          <div class="skill-row"><div class="skill-name">Python</div><div class="skill-bar"><div class="skill-fill" data-fill="82"></div></div></div>
-          <div class="skill-row"><div class="skill-name">Reporting (SSRS)</div><div class="skill-bar"><div class="skill-fill" data-fill="88"></div></div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE with analytics timeline UI -->
-    <section class="card" id="experience" tabindex="-1">
-      <div class="breadcrumb">About / Experience</div>
-      <h2 class="section-title">Professional Experience</h2>
-
-      <div class="timeline" style="margin-top:12px">
-        <div class="timeline-item">
-          <strong>Senior Systems Analyst — Altera Digital Health</strong>
-          <div class="small">Feb 2024 — Present</div>
-          <ul class="list" style="margin-top:8px">
-            <li>Lead analytics & reporting programs for healthcare clients; ensure data integrity and SLA-driven delivery.</li>
-            <li>Architect and maintain ETL (SSIS) pipelines and SQL processes for high-volume clinical data.</li>
-            <li>Develop Power BI solutions to track clinical and operational KPIs and enable data-driven decisions.</li>
-          </ul>
-        </div>
-
-        <div class="timeline-item">
-          <strong>Systems Analyst — Altera Digital Health</strong>
-          <div class="small">Aug 2021 — Feb 2024</div>
-          <ul class="list" style="margin-top:8px">
-            <li>Managed data warehouses, automated ETL flows, and reduced incidents through monitoring and testing.</li>
-            <li>Supported BI architecture and optimized reporting frameworks (Cognos, SSRS).</li>
-          </ul>
-        </div>
-
-        <div class="timeline-item">
-          <strong>Associate Systems Analyst — Altera Digital Health</strong>
-          <div class="small">Oct 2019 — Aug 2021</div>
-          <ul class="list" style="margin-top:8px">
-            <li>Built SSIS packages and SQL Jobs for recurring reporting workloads and patient data processing.</li>
-          </ul>
-        </div>
-
-        <div class="timeline-item">
-          <strong>Data Analyst — Exxat Systems Pvt. Ltd.</strong>
-          <div class="small">Jun 2018 — Oct 2019</div>
-          <ul class="list" style="margin-top:8px">
-            <li>Prepared and transformed product data for integration and supported cross-functional teams during go-lives.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section class="card" id="education" tabindex="-1">
-      <div class="breadcrumb">About / Education</div>
-      <h2 class="section-title">Education</h2>
-      <div style="margin-top:12px">
-        <p class="small"><strong>Bachelor of Engineering — Electronics & Communication</strong><br>G H Patel College of Engineering & Technology, Vallabh Vidyanagar — 2015–2018</p>
-        <p class="small" style="margin-top:8px"><strong>Diploma — Electronics & Communication</strong><br>Bhailalbhai & Bhikhabhai Institute of Technology — 2011–2014</p>
-        <p class="small" style="margin-top:8px"><strong>High School</strong><br>D.N. High School — 2011</p>
-      </div>
-    </section>
-
-    <!-- CERTIFICATIONS -->
-    <section class="card" id="certifications" tabindex="-1">
-      <div class="breadcrumb">About / Certifications</div>
-      <h2 class="section-title">Certifications & Recognition</h2>
-      <ul class="list" style="margin-top:12px">
-        <li>Microsoft: Power BI Data Analyst (PL-300)</li>
-        <li>Azure Fundamentals (AZ-900)</li>
-        <li>Microsoft SQL Server Exams (70-761 & 70-762)</li>
-        <li>MCSA (Microsoft Certified Solutions Associate)</li>
-      </ul>
-
-      <div style="margin-top:12px">
-        <h4 style="margin:6px 0">Awards</h4>
-        <p class="small">Top Quarterly Performer — 2021, 2022, 2023, 2024</p>
-      </div>
-    </section>
-
-    <!-- PROJECTS (slideshow) -->
-    <section class="card" id="projects" tabindex="-1">
-      <div class="breadcrumb">Work / Projects</div>
-      <h2 class="section-title">Selected Projects</h2>
-
-      <div class="slideshow" style="margin-top:12px">
-        <div class="slides" id="slides">
-          <div class="slide">
-            <h4>TouchWorks BI Suite</h4>
-            <div class="meta">SSIS • SSRS • Power BI • Ongoing</div>
-            <p class="small" style="margin-top:8px">Designed ETL flows, created SSRS reports and Power BI dashboards for clinical KPIs, enabling real-time operational monitoring across multiple clients.</p>
-          </div>
-
-          <div class="slide">
-            <h4>Enterprise Data Migration</h4>
-            <div class="meta">Data Migration • Testing • Validation</div>
-            <p class="small" style="margin-top:8px">Led end-to-end data migration projects, validating and reconciling critical healthcare datasets across systems with zero critical defects at go-live.</p>
-          </div>
-
-          <div class="slide">
-            <h4>Reporting Automation & ETL Optimization</h4>
-            <div class="meta">Automation • SQL Optimization</div>
-            <p class="small" style="margin-top:8px">Automated recurrent reporting tasks, optimized SQL jobs and reduced manual report generation time by >70% for client teams.</p>
-          </div>
-        </div>
-
-        <div class="slide-controls" aria-hidden="true" style="margin-top:12px">
-          <div class="dot" data-index="0"></div>
-          <div class="dot" data-index="1"></div>
-          <div class="dot" data-index="2"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT + Custom Domain Setup Help -->
-    <section class="card" id="contact" tabindex="-1">
-      <div class="breadcrumb">Contact / Setup</div>
-      <h2 class="section-title">Contact</h2>
-      <div style="margin-top:12px">
-        <p class="small">I’m available for analytics, BI leadership and data engineering engagements. Please get in touch for collaborations or opportunities.</p>
-        <p style="margin-top:10px">
-          <strong>Email:</strong> <a href="mailto:contactvipulgpatil@gmail.com" style="color:var(--accent1); text-decoration:none">contactvipulgpatil@gmail.com</a><br>
-          <strong>Mobile:</strong> <a href="tel:+919601291584" style="color:var(--accent1); text-decoration:none">+91-96012-91584</a><br>
-          <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vipul-patil-a95349159" target="_blank" rel="noopener" style="color:var(--accent1); text-decoration:none">linkedin.com/in/vipul-patil-a95349159</a>
-        </p>
-        <p class="small" style="margin-top:10px">Resume: <a href="/mnt/data/resume.pdf" download style="color:var(--accent1)">Download PDF</a></p>
-      </div>
-
-      <hr style="margin:18px 0; border:none; border-top:1px solid rgba(255,255,255,0.03)">
-
-      
-    </section>
-
-    <footer class="small">© 2025 Vipul G Patil — Turning healthcare data into operational clarity.</footer>
-  </main>
-
-  <!-- Floating contact card -->
-  <div class="floating-contact" id="floatingContact" aria-hidden="false" role="region" aria-label="Quick contact">
-    <div class="mini">
-      <img src="/mnt/data/1b603ea4-67d7-48b0-b6d2-abc579c2d0a7.png" alt="Vipul G Patil">
-      <div>
-        <div class="me">Vipul G Patil</div>
-        <div class="small">Senior Data Engineer & Data Professional</div>
-      </div>
-    </div>
-    <div class="actions" style="margin-top:10px">
-      <a href="mailto:contactvipulgpatil@gmail.com">Email</a>
-      <a href="tel:+919601291584">Call</a>
-      <a href="/mnt/data/resume.pdf" download>Resume</a>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn">View Work</a>
+      <a href="/mnt/data/resume.pdf" class="btn ghost" download>Download Resume</a>
     </div>
   </div>
 
+  <!-- RIGHT PHOTO -->
+  <div class="photo-card card">
+    <div class="avatar-box">
+      <img src="avatar.png" alt="Vipul Patil">
+    </div>
+  </div>
+
+</section>
+
+<!-- ========================= PROJECTS ========================= -->
+<section id="projects" style="margin-top:40px;">
+  <h2 class="section-title">Featured Projects</h2>
+
+  <!-- PROJECT 1 -->
+  <div class="project-box">
+    <div class="project-title">TouchWorks Healthcare Analytics</div>
+    <div class="project-meta">Power BI • SSIS • SQL Server</div>
+    <p class="project-desc">
+      Built a full analytics suite for multi-site clinicians, including ETL pipelines,
+      automated workflows, SSRS reporting, and KPI dashboards. Improved reporting turnaround by 60%.
+    </p>
+  </div>
+
+  <!-- PROJECT 2 -->
+  <div class="project-box">
+    <div class="project-title">Enterprise Data Migration</div>
+    <div class="project-meta">Data Mapping • Validation • ETL</div>
+    <p class="project-desc">
+      Executed high-accuracy data migrations across healthcare systems. Designed validation scripts,
+      reconciliation pipelines, and automated test frameworks for smooth go-live transitions.
+    </p>
+  </div>
+
+  <!-- PROJECT 3 -->
+  <div class="project-box">
+    <div class="project-title">Reporting Automation Framework</div>
+    <div class="project-meta">Automation • Python • SQL Jobs</div>
+    <p class="project-desc">
+      Developed an automation engine that reduced manual reporting tasks by 70% and provided near
+      real-time patient activity analytics.
+    </p>
+  </div>
+
+</section>
+
+<!-- ========================= SKILL BARS ========================= -->
+<section id="skills" style="margin-top:40px;">
+  <h2 class="section-title">Technical Skills</h2>
+
+  <div class="skill-row">
+    <div class="skill-name">Power BI</div>
+    <div class="skill-bar"><div class="skill-fill" data-fill="92"></div></div>
+  </div>
+
+  <div class="skill-row">
+    <div class="skill-name">SQL + Tuning</div>
+    <div class="skill-bar"><div class="skill-fill" data-fill="95"></div></div>
+  </div>
+
+  <div class="skill-row">
+    <div class="skill-name">SSIS / ETL</div>
+    <div class="skill-bar"><div class="skill-fill" data-fill="90"></div></div>
+  </div>
+
+  <div class="skill-row">
+    <div class="skill-name">Python</div>
+    <div class="skill-bar"><div class="skill-fill" data-fill="82"></div></div>
+  </div>
+</section>
+
+<!-- ========================= TIMELINE ========================= -->
+<section id="timeline" style="margin-top:40px;">
+  <h2 class="section-title">Experience Timeline</h2>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <strong>Senior Systems Analyst — Altera Digital Health</strong>
+      <div class="project-meta">2024 — Present</div>
+      <p>Leading BI pipelines, ETL architecture and Power BI initiatives for enterprise healthcare clients.</p>
+    </div>
+
+    <div class="timeline-item">
+      <strong>Systems Analyst — Altera Digital Health</strong>
+      <div class="project-meta">2021 — 2024</div>
+      <p>Optimized SQL processes, automated reporting systems and ensured SLAs for mission-critical analytics.</p>
+    </div>
+
+    <div class="timeline-item">
+      <strong>Associate Systems Analyst — Altera Digital Health</strong>
+      <div class="project-meta">2019 — 2021</div>
+      <p>Developed SSIS packages, SQL jobs and healthcare datasets for rapid reporting workflows.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========================= CONTACT ========================= -->
+<section id="contact" style="margin-top:40px;">
+  <h2 class="section-title">Contact</h2>
+
+  <p class="contact-info">
+    <strong>Email:</strong> <a href="mailto:contactvipulgpatil@gmail.com">contactvipulgpatil@gmail.com</a><br>
+    <strong>Mobile:</strong> <a href="tel:+919601291584">+91-96012-91584</a><br>
+    <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vipul-patil-a95349159" target="_blank">linkedin.com/in/vipul-patil</a><br>
+  </p>
+
+</section>
+
+<footer>© 2025 Vipul G Patil — Turning healthcare data into clarity.</footer>
+</div>
+
+<!-- ========================= FLOATING CONTACT CARD ========================= -->
+<div class="floating-card">
+  <img src="avatar.png">
+  <div>
+    <div style="font-weight:700;">Vipul Patil</div>
+    <div style="font-size:13px; color:var(--muted);">Senior Systems Analyst</div>
+    <div style="margin-top:6px; display:flex; gap:6px;">
+      <a href="mailto:contactvipulgpatil@gmail.com" class="btn" style="padding:6px 10px; font-size:12px;">Email</a>
+      <a href="tel:+919601291584" class="btn" style="padding:6px 10px; font-size:12px;">Call</a>
+      <a href="/mnt/data/resume.pdf" class="btn" style="padding:6px 10px; font-size:12px;" download>Resume</a>
+    </div>
+  </div>
+</div>
+
+<!-- ========================= SCRIPT ========================= -->
 <script>
-/* ========= Utilities ========= */
-/* Theme toggle (Dark/Light) */
-(function(){
-  const root = document.documentElement;
-  const body = document.body;
-  const toggle = document.getElementById('themeToggle');
-  const stored = localStorage.getItem('site-theme');
-  function applyTheme(t){
-    if(t === 'light'){ body.classList.add('light'); toggle.setAttribute('aria-pressed','true'); }
-    else { body.classList.remove('light'); toggle.setAttribute('aria-pressed','false'); }
-  }
-  applyTheme(stored || 'dark');
-  function switchTheme(){
-    const isLight = body.classList.contains('light');
-    const next = isLight ? 'dark' : 'light';
-    applyTheme(next);
-    localStorage.setItem('site-theme', next);
-  }
-  toggle.addEventListener('click', switchTheme);
-  toggle.addEventListener('keydown', (e)=>{ if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); switchTheme(); } });
-})();
+// DARK/LIGHT THEME
+document.getElementById("themeToggle").onclick = () => {
+  document.body.classList.toggle("light");
+  document.querySelector(".knob").style.transform =
+    document.body.classList.contains("light")
+      ? "translateX(20px)" : "translateX(0)";
+};
 
-/* ===== Skill bar animation when visible ===== */
-(function(){
-  const fills = Array.from(document.querySelectorAll('.skill-fill'));
-  function animateSkills(){
-    fills.forEach(f => {
-      const val = +f.getAttribute('data-fill') || 0;
-      f.style.width = val + '%';
-    });
-  }
-  // animate on first load + when section becomes visible via IntersectionObserver
-  const skillsSection = document.getElementById('skills');
-  if(skillsSection){
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if(e.isIntersecting){ animateSkills(); io.disconnect(); }
-      });
-    }, {threshold:0.2});
-    io.observe(skillsSection);
-  } else { animateSkills(); }
-})();
+// SKILL BAR ANIMATION
+const skillFills = document.querySelectorAll(".skill-fill");
 
-/* ===== IntersectionObserver for fade-in elements ===== */
-(function(){
-  const fadeEls = Array.from(document.querySelectorAll('.card, .hero, .photo, section, .slide'));
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if(e.isIntersecting) {
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  fadeEls.forEach(el => io.observe(el));
-})();
-
-/* ===== Slideshow logic for Projects ===== */
-(function(){
-  const slidesWrap = document.getElementById('slides');
-  const dots = Array.from(document.querySelectorAll('.dot'));
-  let idx = 0;
-  function showSlide(i){
-    const total = slidesWrap.children.length;
-    if(i < 0) i = total - 1;
-    if(i >= total) i = 0;
-    idx = i;
-    slidesWrap.style.transform = `translateX(-${i * 100}%)`;
-    dots.forEach(d => d.classList.toggle('active', +d.getAttribute('data-index') === i));
-  }
-  dots.forEach(d => d.addEventListener('click', () => showSlide(+d.getAttribute('data-index'))));
-  // auto rotate
-  let slideTimer = setInterval(()=> showSlide(idx+1), 7000);
-  // pause on hover
-  slidesWrap.addEventListener('mouseenter', ()=> clearInterval(slideTimer));
-  slidesWrap.addEventListener('mouseleave', ()=> slideTimer = setInterval(()=> showSlide(idx+1), 7000));
-  // init
-  showSlide(0);
-})();
-
-/* ===== Active nav highlight and focus management ===== */
-(function(){
-  const sections = Array.from(document.querySelectorAll('main section, main .card#about'));
-  const links = Array.from(document.querySelectorAll('.nav-links a'));
-  function currentSection(){
-    const offset = window.scrollY + parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) + 12;
-    let current = 'about';
-    sections.forEach(s => {
-      if(s.offsetTop <= offset) current = s.id || current;
-    });
-    return current;
-  }
-  function updateNav(){
-    const id = currentSection();
-    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
-  }
-  window.addEventListener('scroll', updateNav, {passive:true});
-  window.addEventListener('resize', updateNav);
-  updateNav();
-
-  // accessibility: focus after anchor click
-  document.querySelectorAll('.nav-links a, .brand').forEach(el=>{
-    el.addEventListener('click', (e) => {
-      const href = el.getAttribute('href');
-      if(href && href.startsWith('#')){
-        const t = document.querySelector(href);
-        if(t) setTimeout(()=> { t.setAttribute('tabindex','-1'); t.focus(); }, 300);
-      }
-    });
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const target = entry.target;
+      target.style.width = target.getAttribute("data-fill") + "%";
+    }
   });
-})();
+}, { threshold: 0.4 });
 
-/* ===== Floating contact behavior: hide on scroll down, show on up ===== */
-(function(){
-  const fc = document.getElementById('floatingContact');
-  let lastY = window.scrollY;
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    if (Math.abs(y - lastY) < 10) return;
-    if (y > lastY && y > 200) { fc.style.transform = 'translateY(20px)'; fc.style.opacity = '0.0'; }
-    else { fc.style.transform = 'translateY(0)'; fc.style.opacity = '1'; }
-    lastY = y;
-  }, {passive:true});
-})();
-
-/* ===== Multi-page navigation modal (simple site map) ===== */
-(function(){
-  const btn = document.getElementById('multiPageBtn');
-  btn.addEventListener('click', () => {
-    const sitemap = `
-      Site map & multi-page guidance:
-
-      - Home (About)
-      - Skills
-      - Experience
-      - Education
-      - Certifications
-      - Projects
-      - Contact
-    alert(sitemap);
-  });
-})();
+skillFills.forEach(fill => observer.observe(fill));
 
 </script>
+
 </body>
 </html>
-
-
