@@ -19,8 +19,10 @@
     --text:#e8f6ff;
     --radius:14px;
     --nav-h:72px;
-    --card-pad:22px;
+    --card-pad:20px;
+    --glass: rgba(255,255,255,0.02);
   }
+
   body.light{
     --bg-1:#f5f8fb;
     --bg-2:#ffffff;
@@ -33,7 +35,7 @@
   html,body{height:100%}
   body{
     background:
-      radial-gradient(800px 400px at 6% 8%, rgba(124,92,255,0.08), transparent 12%),
+      radial-gradient(800px 400px at 6% 8%, rgba(124,92,255,0.06), transparent 12%),
       linear-gradient(180deg,var(--bg-1),var(--bg-2));
     font-family:Inter, system-ui, Arial, sans-serif;
     color:var(--text);
@@ -50,69 +52,36 @@
     backdrop-filter:blur(6px);
     border-bottom:1px solid rgba(255,255,255,0.03);
   }
-  .nav-inner{
-    max-width:1200px;margin:0 auto;padding:0 20px;display:flex;align-items:center;width:100%;
-  }
-  .brand{
-    font-size:18px;font-weight:800;text-decoration:none;
-    color:var(--text);display:flex;gap:10px;align-items:center
-  }
-  .brand .logo{
-    width:12px;height:12px;border-radius:4px;
-    background:linear-gradient(90deg,var(--accent-a),var(--accent-b))
-  }
+  .nav-inner{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;align-items:center;width:100%;}
+  .brand{font-size:18px;font-weight:800;text-decoration:none;color:var(--text);display:flex;gap:10px;align-items:center}
+  .brand .logo{width:12px;height:12px;border-radius:4px;background:linear-gradient(90deg,var(--accent-a),var(--accent-b))}
   .nav-links{margin-left:auto;display:flex;gap:10px;align-items:center}
-  .nav-links a{
-    color:var(--muted);padding:8px 10px;border-radius:8px;
-    text-decoration:none;font-weight:700;font-size:14px
-  }
-  .nav-links a.active,.nav-links a:hover{
-    background:rgba(255,255,255,0.03);color:var(--text)
-  }
+  .nav-links a{color:var(--muted);padding:8px 10px;border-radius:8px;text-decoration:none;font-weight:700;font-size:14px}
+  .nav-links a.active,.nav-links a:hover{background:rgba(255,255,255,0.03);color:var(--text)}
 
-  .toggle{
-    width:46px;height:24px;background:rgba(255,255,255,0.04);
-    padding:3px;border-radius:999px;cursor:pointer;display:flex;align-items:center;margin-left:12px
-  }
+  .toggle{width:46px;height:24px;background:rgba(255,255,255,0.04);padding:3px;border-radius:999px;cursor:pointer;display:flex;align-items:center;margin-left:12px}
   .knob{width:18px;height:18px;border-radius:50%;background:white;transition:transform .22s}
   body.light .knob{transform:translateX(20px)}
 
-  .wrap{max-width:1200px;margin:36px auto;padding:18px;}
+  .wrap{max-width:1150px;margin:36px auto;padding:18px;}
 
-  /* HERO title gradient for both themes */
+  /* HERO */
+  .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center}
+  .card{background:var(--panel);border-radius:var(--radius);padding:var(--card-pad);border:1px solid rgba(255,255,255,0.04);box-shadow:0 16px 36px rgba(0,0,0,0.45);}
+
   .hero-title{
-    font-size: 34px;
-    font-weight: 800;
-    line-height: 1.05;
+    font-size: 34px;font-weight:800;line-height:1.05;
     background: linear-gradient(90deg, #ff6b6b 0%, #7c5cff 52%, #00d4ff 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.35);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.35);
   }
-  body.light .hero-title{
-    background: linear-gradient(90deg, #ff4b4b 0%, #8458ff 52%, #0096ff 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 0 1px 2px rgba(255,255,255,0.25);
-  }
-
-  /* HERO & layout */
-  .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:26px;align-items:center}
-  .card{
-    background:var(--panel);
-    border-radius:var(--radius);
-    padding:var(--card-pad);
-    border:1px solid rgba(255,255,255,0.05);
-    box-shadow:0 18px 50px rgba(0,0,0,0.45);
-  }
+  body.light .hero-title{background: linear-gradient(90deg, #ff4b4b 0%, #8458ff 52%, #0096ff 100%);}
 
   .hero-lead{margin-top:12px;color:var(--muted);max-width:68ch}
   .badges{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
-  .badge{padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.05);font-weight:700;background:transparent;color:var(--text);font-size:13px}
+  .badge{padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.06);font-weight:700;background:transparent;color:var(--text);font-size:13px}
   .hero-cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
-  .btn-primary{background:linear-gradient(90deg,var(--accent-a),var(--accent-b));padding:12px 18px;border-radius:12px;color:#071022;font-weight:900;text-decoration:none;display:inline-block}
+  .btn-primary{background:linear-gradient(90deg,var(--accent-a),var(--accent-b));padding:12px 18px;border-radius:12px;color:#071022;font-weight:900;text-decoration:none;display:inline-block;box-shadow:0 6px 18px rgba(124,92,255,0.08)}
   .btn-outline{padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);font-weight:700;color:var(--text);text-decoration:none}
 
   .photo-panel{display:flex;justify-content:center;align-items:center}
@@ -120,80 +89,55 @@
   .avatar{width:100%;height:100%;border-radius:14px;overflow:hidden}
   .avatar img{width:100%;height:100%;object-fit:cover}
 
-  /* Projects (grid) */
-  .projects{margin-top:32px}
-  .projects .skills-title{margin-bottom:12px}
-  .project-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:14px}
-  .project h3{margin:0;font-size:18px}
-  .meta{font-size:13px;color:var(--muted);margin-top:6px}
-  .project p{margin-top:10px;color:var(--muted)}
+  /* Case studies (slider) */
+  .case-section{margin-top:28px}
+  .case-header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .case-wrapper{overflow:hidden;position:relative;margin-top:12px}
+  .case-track{display:flex;gap:16px;transition:transform .48s cubic-bezier(.2,.9,.2,1)}
+  .case-card{min-width:340px;max-width:340px;flex-shrink:0;border-radius:12px;padding:18px;background:linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.03);box-shadow:0 10px 30px rgba(0,0,0,0.35)}
+  .case-card h3{margin:0 0 6px 0}
+  .case-nav{display:flex;gap:8px;align-items:center}
+  .case-arrow{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04);color:var(--text);width:44px;height:44px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(6px)}
+  .case-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.05);opacity:0.5}
+  .case-dot.active{background:linear-gradient(90deg,var(--accent-a),var(--accent-b));opacity:1}
 
-  /* Skills Option C */
+  /* Skills */
   .skills-section{margin-top:32px}
   .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}
-  .skill-card{border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:12px;min-height:360px;border:1px solid rgba(255,255,255,0.03)}
-  .skill-card.left{background:linear-gradient(180deg,rgba(255,255,255,0.012),rgba(255,255,255,0.008))}
-  .skill-card.right{background:linear-gradient(180deg,rgba(0,212,255,0.022),rgba(124,92,255,0.01))}
+  .skill-card{border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:12px;min-height:300px;border:1px solid rgba(255,255,255,0.03)}
   .skill-row{display:flex;gap:12px;align-items:center;margin-bottom:12px}
   .skill-name{width:170px;color:var(--muted);font-weight:700}
   .skill-track{flex:1;height:14px;border-radius:999px;background:rgba(255,255,255,0.04);overflow:hidden}
   .skill-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent-b),var(--accent-c));transition:width 1.2s}
   .skill-val{width:56px;text-align:right;font-weight:800;color:var(--accent-c)}
-  .skill-card.right .skill-name{color:#d5eefc}
 
-  /* NEW: Featured Case Studies horizontal slider */
-  .case-section{margin-top:28px}
-  .case-header{display:flex;align-items:center;justify-content:space-between;gap:12px}
-  .case-header h2{margin:0}
-  .case-wrapper{overflow:hidden;position:relative;margin-top:12px}
-  .case-track{display:flex;gap:16px;transition:transform .48s cubic-bezier(.2,.9,.2,1)}
-  .case-card{min-width:340px;max-width:340px;flex-shrink:0;border-radius:12px;padding:18px;background:linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.03)}
-  .case-card h3{margin:0 0 6px 0}
-  .case-nav{display:flex;gap:8px;align-items:center}
-  .case-arrow{
-    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border:1px solid rgba(255,255,255,0.04);
-    color:var(--text);
-    width:44px;height:44px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;
-    cursor:pointer;backdrop-filter:blur(6px);
-  }
-  .case-arrow:active{transform:translateY(1px)}
-  .case-dots{display:flex;gap:8px;align-items:center}
-  .case-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.05);opacity:0.5}
-  .case-dot.active{background:linear-gradient(90deg,var(--accent-a),var(--accent-b));opacity:1}
+  /* Certifications */
+  .cert-list{margin-top:12px;padding-left:0;display:grid;gap:8px}
+  .cert-item{background:var(--glass);border-radius:10px;padding:10px 12px;border:1px solid rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:space-between}
+  .cert-item strong{font-size:14px}
+  .cert-item .meta{color:var(--muted);font-size:13px;margin-left:10px}
 
-  /* Slideshow (bottom) */
-  .slideshow{margin-top:22px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);position:relative}
-  .slides{display:flex;transition:transform .45s}
-  .slide{min-width:100%;padding:18px;box-sizing:border-box}
-  .color-box{height:200px;border-radius:10px;background:linear-gradient(120deg, rgba(124,92,255,0.2), rgba(0,212,255,0.18))}
+  /* Contact improvements */
+  .contact-grid{display:grid;grid-template-columns:1fr 380px;gap:16px;margin-top:20px}
+  .contact-card{display:flex;flex-direction:column;gap:12px}
+  .contact-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+  .contact-btn{padding:10px 12px;border-radius:10px;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;gap:8px}
+  .contact-primary{background:linear-gradient(90deg,var(--accent-c),var(--accent-b));color:#062021}
+  .contact-outline{border:1px solid rgba(255,255,255,0.06);color:var(--text);background:transparent}
 
-  .slide-dots{display:flex;gap:8px;justify-content:center;padding:12px}
-  .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.06);cursor:pointer;opacity:0.45}
-  .dot.active{opacity:1;background:linear-gradient(90deg,var(--accent-a),var(--accent-b))}
+  .copy-note{font-size:13px;color:var(--muted);margin-top:8px}
 
-  .slide-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;
-    background:rgba(0,0,0,0.35);backdrop-filter:blur(4px);cursor:pointer;border:1px solid rgba(255,255,255,0.04)}
-  .slide-arrow.left{left:12px}
-  .slide-arrow.right{right:12px}
-  .slide-arrow svg{width:18px;height:18px;fill:var(--text);opacity:0.95}
-
-  /* contact / footer */
-  .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:16px;margin-top:20px}
-  .small{color:var(--muted)}
-  .floating{position:fixed;right:18px;bottom:18px;display:flex;gap:10px;background:rgba(255,255,255,0.04);padding:12px;border-radius:12px;backdrop-filter:blur(6px)}
-  .floating img{width:48px;height:48px;border-radius:10px;object-fit:cover}
-  footer{text-align:center;color:var(--muted);margin:36px 0;font-size:14px}
-
+  /* small responsive */
   @media(max-width:980px){
     .hero-grid{grid-template-columns:1fr;}
     .skills-grid{grid-template-columns:1fr}
     .contact-grid{grid-template-columns:1fr}
     .nav-links{display:none}
-    .skill-name{width:140px}
     .avatar-frame{width:220px;height:220px}
     .case-card{min-width:86vw;max-width:86vw}
   }
+
+  footer{text-align:center;color:var(--muted);margin:36px 0;font-size:14px}
 </style>
 </head>
 <body>
@@ -201,8 +145,8 @@
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a class="brand" href="#home"><span class="logo"></span> Vipul G Patil</a>
-    <div class="nav-links">
+    <a class="brand" href="#home"><span class="logo" aria-hidden="true"></span> Vipul G Patil</a>
+    <div class="nav-links" role="navigation" aria-label="Primary">
       <a href="#home" class="active">Home</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
@@ -215,12 +159,10 @@
 </nav>
 
 <div class="wrap">
-
   <!-- HERO -->
   <section id="home" class="hero-grid">
     <div class="card">
       <div class="hero-title">Transforming complex data into actionable intelligence.</div>
-
       <div class="hero-lead">
         I'm Vipul G Patil — Senior Data Engineer & Data Professional specializing in Power BI, SQL, ETL and Python automation.
         I build high-impact dashboards, automate workflows, and optimize data systems for performance and accuracy.
@@ -231,7 +173,6 @@
         <span class="badge">SQL Server</span>
         <span class="badge">SSIS / ETL</span>
         <span class="badge">Python</span>
-        <span class="badge">DAX</span>
         <span class="badge">Azure Data Factory</span>
       </div>
 
@@ -241,64 +182,54 @@
       </div>
     </div>
 
-    <div class="card photo-panel">
+    <div class="card photo-panel" aria-hidden="false">
       <div class="avatar-frame">
         <div class="avatar"><img src="avatar.png" alt="Vipul G Patil"></div>
       </div>
     </div>
   </section>
 
-  <!-- Featured Case Studies (horizontal slider with arrows) -->
+  <!-- Featured Case Studies -->
   <section id="projects" class="case-section">
     <div class="case-header">
       <h2 class="skills-title">Featured Case Studies</h2>
-      <div class="case-nav">
+      <div class="case-nav" aria-hidden="false">
         <button class="case-arrow" id="casePrev" aria-label="Previous case">&#10094;</button>
         <button class="case-arrow" id="caseNext" aria-label="Next case">&#10095;</button>
       </div>
     </div>
 
-    <div class="case-wrapper">
+    <div class="case-wrapper" aria-live="polite">
       <div class="case-track" id="caseTrack">
         <div class="case-card card">
           <h3>TouchWorks Analytics — KPI & Workflow Dashboards</h3>
           <div class="meta">Power BI • SSIS • SQL</div>
           <p>Built interactive KPI dashboards with drill-through and row-level filters. Automated nightly ETL that reduced reporting latency by 60% and improved decision speed.</p>
         </div>
-
         <div class="case-card card">
           <h3>Enterprise Data Migration & Validation</h3>
           <div class="meta">ETL • Mapping • Data Quality</div>
           <p>Led migration of legacy datasets with validation pipelines and reconciliation reports. Introduced automated checks that caught 98% of inconsistent records before go-live.</p>
         </div>
-
         <div class="case-card card">
           <h3>Reporting Automation Framework</h3>
           <div class="meta">Python • SQL Jobs • Monitoring</div>
           <p>Designed scheduler & monitoring for recurring reporting jobs, including alerts and data-quality dashboards—cutting manual effort by 70%.</p>
         </div>
-
         <div class="case-card card">
           <h3>Sales Performance & Forecasting</h3>
           <div class="meta">Power BI • Time Series • SQL</div>
           <p>Developed a sales dashboard with month-over-month and rolling forecasts, enabling the business to identify underperforming regions and optimize inventory.</p>
         </div>
-
         <div class="case-card card">
           <h3>ETL Optimization & SQL Tuning</h3>
           <div class="meta">T-SQL • Indexing • Query Tuning</div>
           <p>Rewrote heavy queries, added targeted indexing, and parallelized ETL steps—improving ETL runtime by 55% and lowering DB CPU usage.</p>
         </div>
-
-        <div class="case-card card">
-          <h3>Casebook (PDF)</h3>
-          <div class="meta">Compiled deliverables • Reports</div>
-          <p>Download a consolidated casebook & sample deliverables (PDF). <a href="/mnt/data/resume.pdf" target="_blank" style="color:var(--accent-c)">Open PDF</a></p>
-        </div>
       </div>
     </div>
 
-    <div style="display:flex;justify-content:center;margin-top:12px;gap:8px" id="caseDots"></div>
+    <div style="display:flex;justify-content:center;margin-top:12px;gap:8px" id="caseDots" aria-hidden="false"></div>
   </section>
 
   <!-- Skills -->
@@ -329,65 +260,35 @@
     </div>
   </section>
 
-  <!-- Slideshow (kept for larger hero samples) -->
-  <section style="margin-top:32px;">
-    <h2 class="skills-title">Project Slideshow</h2>
-    <div class="slideshow card" id="slideshowWrap">
-      <div class="slides" id="slides">
-        <div class="slide">
-          <h4>TouchWorks — KPI Dashboards</h4>
-          <p class="small">Real-time insights and workflow tracking.</p>
-          <div class="color-box"></div>
-        </div>
-
-        <div class="slide">
-          <h4>Data Migration — Validation Suite</h4>
-          <p class="small">Automated data checks and reconciliation tools.</p>
-          <div class="color-box" style="background:linear-gradient(120deg, rgba(124,92,255,0.2), rgba(0,212,255,0.12))"></div>
-        </div>
-
-        <div class="slide">
-          <h4>Reporting Automation Engine</h4>
-          <p class="small">Scheduler, monitoring and alerting for recurring reports.</p>
-          <div class="color-box" style="background:linear-gradient(120deg, rgba(0,212,255,0.2), rgba(255,107,107,0.12))"></div>
-        </div>
-      </div>
-
-      <div class="slide-arrow left" id="slidePrev" title="Previous">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-      </div>
-      <div class="slide-arrow right" id="slideNext" title="Next">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
-      </div>
-
-      <div class="slide-dots" id="slideDots">
-        <div class="dot" data-i="0"></div>
-        <div class="dot" data-i="1"></div>
-        <div class="dot" data-i="2"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience -->
+  <!-- Experience Timeline (compact) -->
   <section id="timeline" style="margin-top:32px;">
     <h2 class="skills-title">Experience Timeline</h2>
-    <div class="timeline">
-      <div class="timeline-item">
+    <div class="timeline" style="margin-top:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px">
+      <div class="timeline-item card" style="padding:14px;">
         <h4>Senior Systems Analyst — Altera Digital Health</h4>
         <div class="date">2024 — Present</div>
-        <p class="small">Leading BI development, ETL pipelines, and enterprise analytics implementations.</p>
+        <p class="small">Lead BI and analytics initiatives; ownership of ETL pipelines and data platform enhancements. Architected dashboards and KPIs used by leadership for operational decision-making.</p>
       </div>
 
-      <div class="timeline-item">
+      <div class="timeline-item card" style="padding:14px;">
         <h4>Systems Analyst — Altera Digital Health</h4>
         <div class="date">2021 — 2024</div>
-        <p class="small">Optimized SQL systems, automated ETL workflows and maintained mission-critical reporting.</p>
+        <p class="small">Optimized SQL systems and automated ETL workflows for daily reporting. Built and maintained mission-critical reporting used by operational teams.</p>
       </div>
 
-      <div class="timeline-item">
+      <div class="timeline-item card" style="padding:14px;">
         <h4>Associate Systems Analyst — Altera Digital Health</h4>
         <div class="date">2019 — 2021</div>
-        <p class="small">Designed SSIS packages, SQL jobs and supported teams with data insights.</p>
+        <p class="small">Designed SSIS packages and scheduled SQL jobs to support regular reporting cycles. Supported stakeholders by delivering timely data insights and ad-hoc analysis.</p>
+      </div>
+
+      <div class="timeline-item card" style="padding:14px;">
+        <h4>Data Analyst — Exxat Systems Pvt. Ltd.</h4>
+        <div class="date">June 2018 — October 2019</div>
+        <ul style="margin-top:8px;color:var(--muted);line-height:1.6">
+          <li>Worked on data modules for multiple products (STEPS and CCS), handling data preparation and integration.</li>
+          <li>Analyzed and formatted Excel data for database integration using SQL queries, ensuring data quality for downstream reporting.</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -397,34 +298,90 @@
     <h2 class="skills-title">Certifications & Recognition</h2>
     <div class="card" style="margin-top:12px">
       <p class="small" style="color:var(--muted)">Professional certifications relevant to analytics, BI and cloud fundamentals:</p>
-      <div class="cert-list" style="margin-top:12px">
-        <span class="cert-badge">Microsoft Power BI Data Analyst (PL-300)</span>
-        <span class="cert-badge">Azure Fundamentals (AZ-900)</span>
-        <span class="cert-badge">SQL Server Exams (70-761 &amp; 70-762)</span>
-        <span class="cert-badge">MCSA</span>
+
+      <div class="cert-list" role="list">
+        <div class="cert-item" role="listitem">
+          <div>
+            <strong>Microsoft Power BI Data Analyst (PL-300)</strong>
+            <div class="meta">Power BI reporting & modelling</div>
+          </div>
+          <div style="color:var(--accent-c);font-weight:800">Verified</div>
+        </div>
+
+        <div class="cert-item" role="listitem">
+          <div>
+            <strong>Azure Fundamentals (AZ-900)</strong>
+            <div class="meta">Cloud basics & Azure services</div>
+          </div>
+          <div style="color:var(--accent-c);font-weight:800">Verified</div>
+        </div>
+
+        <div class="cert-item" role="listitem">
+          <div>
+            <strong>SQL Server Exams (70-761 &amp; 70-762)</strong>
+            <div class="meta">T-SQL and data engineering</div>
+          </div>
+          <div style="color:var(--accent-c);font-weight:800">Completed</div>
+        </div>
+
+        <div class="cert-item" role="listitem">
+          <div>
+            <strong>MCSA</strong>
+            <div class="meta">Microsoft Certified Solutions Associate</div>
+          </div>
+          <div style="color:var(--accent-c);font-weight:800">Completed</div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- Contact (enhanced) -->
   <section id="contact" style="margin-top:32px;">
     <h2 class="skills-title">Contact</h2>
     <div class="contact-grid">
-      <div class="card">
-        <p class="small">If you’d like to collaborate, hire, or discuss data challenges, feel free to reach out.</p>
-        <p style="margin-top:12px">
-          <strong>Email:</strong> <a href="mailto:contactvipulgpatil@gmail.com" style="color:var(--accent-c)">contactvipulgpatil@gmail.com</a><br>
-          <strong>Mobile:</strong> <a href="tel:+919601291584" style="color:var(--accent-c)">+91-96012-91584</a><br>
-          <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vipul-patil-a95349159" target="_blank" style="color:var(--accent-c)">linkedin.com/in/vipul-patil</a>
-        </p>
+      <div class="card contact-card">
+        <p class="small">If you’d like to collaborate, hire, or discuss data challenges, feel free to reach out. I typically respond within 24–48 hours.</p>
+
+        <div style="display:flex;gap:12px;align-items:center;margin-top:8px;flex-wrap:wrap">
+          <a class="contact-btn contact-primary" href="mailto:contactvipulgpatil@gmail.com?subject=Inquiry%20from%20Portfolio" aria-label="Email Vipul">
+            ✉️ Email
+          </a>
+          <a id="telLink" class="contact-btn contact-outline" href="tel:+919601291584" aria-label="Call Vipul">
+            📞 +91-96012-91584
+          </a>
+          <button id="copyPhone" class="contact-btn contact-outline" aria-label="Copy phone to clipboard">📋 Copy phone</button>
+          <a class="contact-btn contact-outline" href="https://www.linkedin.com/in/vipul-patil-a95349159" target="_blank" rel="noopener" aria-label="LinkedIn">🔗 LinkedIn</a>
+        </div>
+
+        <div class="copy-note" id="copyNote" aria-live="polite" style="display:none">Phone number copied to clipboard.</div>
+
+        <div style="margin-top:10px">
+          <form id="contactForm" action="mailto:contactvipulgpatil@gmail.com" method="post" enctype="text/plain" onsubmit="alert('This opens your email client to send a message.');">
+            <label class="small" for="name">Name</label><br>
+            <input id="name" name="name" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)"><br><br>
+            <label class="small" for="message">Message</label><br>
+            <textarea id="message" name="message" rows="4" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)"></textarea><br>
+            <div style="margin-top:8px">
+              <button type="submit" class="btn-primary" style="padding:10px 14px">Send Message</button>
+            </div>
+          </form>
+        </div>
+
       </div>
 
-      <div class="card">
+      <div class="card" aria-hidden="false">
         <h3 style="margin:0">Resume</h3>
-        <p class="small">Click below to download my resume.</p>
+        <p class="small">Click below to download my resume (PDF). If the download fails, upload <code>resume.pdf</code> to repo root.</p>
         <a id="downloadResume" class="btn-primary" href="resume.pdf" download style="display:inline-block;margin-top:12px">Download Resume</a>
-        <p class="small" style="margin-top:10px;color:var(--muted)">If download fails, ensure <code>resume.pdf</code> is uploaded to your repository root (same folder as index.html).</p>
+
+        <div style="margin-top:16px">
+          <strong class="small">Office hours</strong>
+          <div class="small" style="margin-top:6px;color:var(--muted)">Mon — Fri, 09:00 — 18:00 (IST). Replies outside these hours may take a bit longer.</div>
+        </div>
+
       </div>
+
     </div>
   </section>
 
@@ -433,7 +390,7 @@
 
 <!-- Floating contact -->
 <div class="floating" aria-hidden="false">
-  <img src="avatar.png" alt="Vipul">
+  <img src="avatar.png" alt="Vipul" width="48" height="48">
   <div>
     <strong>Vipul G Patil</strong><br>
     <span class="small">Senior Data Engineer & Data Professional</span><br>
@@ -445,7 +402,7 @@
 </div>
 
 <script>
-  /* ===== Theme toggle ===== */
+  /* Theme toggle */
   (function(){
     const toggle = document.getElementById('themeToggle');
     const knob = toggle && toggle.querySelector('.knob');
@@ -460,7 +417,7 @@
     toggle && toggle.addEventListener('keydown', (e) => { if(e.key === 'Enter') toggle.click(); });
   })();
 
-  /* ===== Skill bars animation ===== */
+  /* Skill bars animation */
   (function(){
     const fills = document.querySelectorAll('.skill-fill');
     const io = new IntersectionObserver(entries => {
@@ -476,7 +433,7 @@
     fills.forEach(f => io.observe(f));
   })();
 
-  /* ===== Case Studies slider (horizontal cards) ===== */
+  /* Case Studies slider */
   (function(){
     const track = document.getElementById('caseTrack');
     const cards = track ? Array.from(track.querySelectorAll('.case-card')) : [];
@@ -493,19 +450,16 @@
       else if (w < 980) visibleCount = 2;
       else visibleCount = 3;
       createDots();
-      // ensure index is in range
       index = Math.max(0, Math.min(index, Math.max(0, cards.length - visibleCount)));
       update();
     };
 
     let index = 0;
-    const cardGap = 16;
-    let cardWidth = cards[0].getBoundingClientRect().width;
-    function updateCardWidth(){ cardWidth = cards[0].getBoundingClientRect().width + cardGap; }
+    const gap = 16;
+    function cardWidth(){ return cards[0].getBoundingClientRect().width + gap; }
 
     function update(){
-      updateCardWidth();
-      const x = index * cardWidth;
+      const x = index * cardWidth();
       track.style.transform = `translateX(-${x}px)`;
       updateDots();
     }
@@ -533,159 +487,99 @@
       dots.forEach((d, i) => d.classList.toggle('active', i === index));
     }
 
-    prevBtn && prevBtn.addEventListener('click', ()=> {
-      index = Math.max(0, index - 1);
-      update();
-      restartAuto();
-    });
-    nextBtn && nextBtn.addEventListener('click', ()=> {
-      index = Math.min(cards.length - visibleCount, index + 1);
-      update();
-      restartAuto();
-    });
+    prevBtn && prevBtn.addEventListener('click', ()=> { index = Math.max(0, index - 1); update(); restartAuto(); });
+    nextBtn && nextBtn.addEventListener('click', ()=> { index = Math.min(cards.length - visibleCount, index + 1); update(); restartAuto(); });
 
     // swipe support
-    let startX = 0, currentX = 0, isDown = false;
+    let startX = 0, isDown = false;
     track.addEventListener('pointerdown', (e)=>{
-      isDown = true;
-      startX = e.clientX;
-      track.style.transition = 'none';
-      track.setPointerCapture && track.setPointerCapture(e.pointerId);
-      stopAuto();
+      isDown = true; startX = e.clientX; track.style.transition = 'none'; track.setPointerCapture && track.setPointerCapture(e.pointerId); stopAuto();
     });
-    track.addEventListener('pointermove', (e)=>{
-      if(!isDown) return;
-      currentX = e.clientX;
-      const dx = currentX - startX;
-      track.style.transform = `translateX(-${index * cardWidth - dx}px)`;
-    });
-    track.addEventListener('pointerup', (e)=>{
-      if(!isDown) return;
-      isDown = false;
-      const dx = e.clientX - startX;
-      track.style.transition = '';
-      if (Math.abs(dx) > 60) {
-        if (dx < 0) index = Math.min(cards.length - visibleCount, index + 1);
-        else index = Math.max(0, index - 1);
-      }
-      update();
-      startAuto();
-    });
-    track.addEventListener('pointercancel', ()=>{
-      isDown = false;
-      update();
-      startAuto();
-    });
+    track.addEventListener('pointermove', (e)=>{ if(!isDown) return; const dx = e.clientX - startX; track.style.transform = `translateX(-${index * cardWidth() - dx}px)`; });
+    track.addEventListener('pointerup', (e)=>{ if(!isDown) return; isDown=false; const dx = e.clientX - startX; track.style.transition=''; if (Math.abs(dx) > 60) { if (dx < 0) index = Math.min(cards.length - visibleCount, index + 1); else index = Math.max(0, index - 1); } update(); startAuto(); });
+    track.addEventListener('pointercancel', ()=>{ isDown=false; update(); startAuto(); });
 
     // autoplay
     let autoTimer;
-    function startAuto(){
-      stopAuto();
-      autoTimer = setInterval(()=> {
-        index = (index + 1) > (cards.length - visibleCount) ? 0 : index + 1;
-        update();
-      }, 5500);
-    }
+    function startAuto(){ stopAuto(); autoTimer = setInterval(()=> { index = (index + 1) > (cards.length - visibleCount) ? 0 : index + 1; update(); }, 5500); }
     function stopAuto(){ if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
     function restartAuto(){ stopAuto(); startAuto(); }
 
-    // init
     window.addEventListener('resize', resizeHandler);
-    resizeHandler();
-    update();
-    startAuto();
+    resizeHandler(); update(); startAuto();
   })();
 
-  /* ===== Slideshow (bottom) ===== */
+  /* Resume download robust behavior */
   (function(){
-    const slides = document.getElementById('slides');
-    const dots = Array.from(document.querySelectorAll('.dot'));
-    const prevBtn = document.getElementById('slidePrev');
-    const nextBtn = document.getElementById('slideNext');
-    let idx = 0;
-    const total = slides.children.length;
-    let timer;
-
-    function show(i){
-      idx = (i + total) % total;
-      slides.style.transform = `translateX(-${idx*100}%)`;
-      dots.forEach((d, j) => d.classList.toggle('active', j === idx));
-    }
-    function startTimer(){ timer = setInterval(()=> show(idx+1), 5000); }
-    function stopTimer(){ clearInterval(timer); }
-
-    dots.forEach((d, j) => d.addEventListener('click', ()=> { stopTimer(); show(j); startTimer(); }));
-    prevBtn && prevBtn.addEventListener('click', ()=> { stopTimer(); show(idx-1); startTimer(); });
-    nextBtn && nextBtn.addEventListener('click', ()=> { stopTimer(); show(idx+1); startTimer(); });
-    slides.addEventListener('mouseenter', stopTimer);
-    slides.addEventListener('mouseleave', startTimer);
-
-    show(0);
-    startTimer();
-  })();
-
-  /* ===== Active nav highlighting ===== */
-  (function(){
-    const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
-    const sections = Array.from(document.querySelectorAll('section[id]'));
-    function update(){
-      const offset = window.scrollY + 140;
-      let current = 'home';
-      sections.forEach(s => { if(s.offsetTop <= offset) current = s.id; });
-      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
-    }
-    window.addEventListener('scroll', update, {passive:true});
-    update();
-  })();
-
-  /* ===== Resume download robust behavior ===== */
-  (function(){
-    const primary = 'resume.pdf';
-    const btn = document.getElementById('downloadResume');
-    const fallbackHref = btn ? btn.getAttribute('href') : 'resume.pdf';
-
-    async function tryFetch(url){
+    const url = 'resume.pdf';
+    const btn = document.getElementById('downloadResume') || document.getElementById('resumeBtn');
+    async function tryFetch(u){
       try {
-        const resp = await fetch(url, { method: 'GET' });
-        if (!resp.ok) throw new Error('status ' + resp.status);
-        const blob = await resp.blob();
+        const r = await fetch(u, {method:'GET'});
+        if (!r.ok) throw new Error('status ' + r.status);
+        const b = await r.blob();
         const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
+        link.href = URL.createObjectURL(b);
         link.download = 'Vipul_Patil_Resume.pdf';
         document.body.appendChild(link);
         link.click();
         link.remove();
         return true;
-      } catch (e) {
+      } catch(e){
         return false;
       }
     }
-
     async function fetchAndDownload(){
-      if (await tryFetch(primary)) return;
-      alert('Resume not found on server. Attempting fallback link.');
-      window.open(fallbackHref, '_blank');
+      if (await tryFetch(url)) return;
+      alert('Resume not found on site path. Attempting to open direct link.');
+      window.open(url, '_blank');
     }
+    btn && btn.addEventListener('click', (e)=> { e.preventDefault(); fetchAndDownload(); });
+  })();
 
-    btn && btn.addEventListener('click', function(e){
-      e.preventDefault();
-      fetchAndDownload();
+  /* Copy phone button */
+  (function(){
+    const copyBtn = document.getElementById('copyPhone');
+    const phone = '+919601291584';
+    const note = document.getElementById('copyNote');
+    if (!copyBtn) return;
+    copyBtn.addEventListener('click', async ()=>{
+      try {
+        await navigator.clipboard.writeText(phone);
+        note.style.display = 'block';
+        note.textContent = 'Phone number copied to clipboard: ' + phone;
+        setTimeout(()=> note.style.display = 'none', 2500);
+      } catch(e){
+        // fallback
+        const tmp = document.createElement('input'); tmp.value = phone; document.body.appendChild(tmp); tmp.select();
+        try { document.execCommand('copy'); note.style.display='block'; note.textContent='Phone number copied to clipboard'; setTimeout(()=> note.style.display='none',2500); } finally { tmp.remove(); }
+      }
     });
   })();
 
-  /* ===== Smooth anchor scroll (offset for fixed nav) ===== */
+  /* Smooth anchor scroll */
   (function(){
     const anchors = document.querySelectorAll('a[href^="#"]');
     anchors.forEach(a=>{
       a.addEventListener('click', function(e){
         const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          const y = target.getBoundingClientRect().top + window.scrollY - 84;
-          window.scrollTo({ top: y, behavior: 'smooth' });
-        }
+        if (target) { e.preventDefault(); const y = target.getBoundingClientRect().top + window.scrollY - 84; window.scrollTo({ top: y, behavior: 'smooth' }); }
       });
     });
+  })();
+
+  /* Active nav highlight */
+  (function(){
+    const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+    const sections = Array.from(document.querySelectorAll('section[id], #home'));
+    function update(){
+      const offset = window.scrollY + 140;
+      let current = 'home';
+      sections.forEach(s => { if (s.offsetTop <= offset) current = s.id || 'home'; });
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+    }
+    window.addEventListener('scroll', update, {passive:true});
+    update();
   })();
 </script>
 </body>
