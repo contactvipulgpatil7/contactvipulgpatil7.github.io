@@ -50,7 +50,7 @@
   .nav-inner{
     max-width:1200px;margin:0 auto;padding:0 22px;display:flex;align-items:center;width:100%;
   }
-  .brand{font-size:19px;font-weight:800;text-decoration:none;color:var(--text);display:flex;gap:10px;}
+  .brand{font-size:19px;font-weight:800;text-decoration:none;color:var(--text);display:flex;gap:10px;align-items:center}
   .brand .logo{width:10px;height:10px;border-radius:50%;background:linear-gradient(90deg,var(--accent-a),var(--accent-b))}
   .nav-links{margin-left:auto;display:flex;gap:10px;}
   .nav-links a{color:var(--muted);padding:8px 11px;border-radius:10px;text-decoration:none;font-weight:700;}
@@ -77,9 +77,9 @@
   .hero-lead{margin-top:12px;color:var(--muted);max-width:70ch}
 
   .badges{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
-  .badge{padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.08);font-weight:700}
+  .badge{padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.08);font-weight:700;background:rgba(255,255,255,0.01)}
 
-  .hero-cta{margin-top:18px;display:flex;gap:12px}
+  .hero-cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
   .btn-primary{background:linear-gradient(90deg,var(--accent-a),var(--accent-b));padding:12px 18px;border-radius:12px;color:#071022;font-weight:900;text-decoration:none}
   .btn-outline{padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,0.08);font-weight:700;color:var(--text);text-decoration:none}
 
@@ -101,15 +101,16 @@
   .project p{margin-top:10px;color:var(--muted)}
 
   /* SKILLS */
-  .skills-grid{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:22px}
+  .skills-grid{display:grid;grid-template-columns:1fr 420px;gap:18px;margin-top:22px}
+  .skill-card{padding:18px;border-radius:12px;background:rgba(255,255,255,0.015);border:1px solid rgba(255,255,255,0.03)}
   .skill-row{
     display:flex;
     gap:12px;
     align-items:center;
-    margin-bottom:12px;
+    margin-bottom:14px;
   }
-  .skill-name{width:150px;color:var(--muted)}
-  .skill-track{flex:1;height:12px;border-radius:999px;background:rgba(255,255,255,0.06);overflow:hidden;position:relative}
+  .skill-name{width:160px;color:var(--muted);font-weight:700}
+  .skill-track{flex:1;height:14px;border-radius:999px;background:rgba(255,255,255,0.05);overflow:hidden;position:relative}
   .skill-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent-b),var(--accent-c));transition:width 1.2s}
   /* Percentage value at the right */
   .skill-val{
@@ -158,6 +159,7 @@
     .skills-grid{grid-template-columns:1fr}
     .contact-grid{grid-template-columns:1fr}
     .nav-links{display:none}
+    .skill-name{width:130px}
   }
 </style>
 </head>
@@ -198,11 +200,14 @@
         <span class="badge">SQL Server</span>
         <span class="badge">SSIS / ETL</span>
         <span class="badge">Python</span>
+        <span class="badge">DAX</span>
+        <span class="badge">SSRS</span>
+        <span class="badge">Azure Data Factory</span>
+        <span class="badge">Azure SQL</span>
       </div>
 
       <div class="hero-cta">
         <a class="btn-primary" href="#projects">View Work</a>
-        <!-- Primary resume download link triggers JS download which uses the uploaded file path -->
         <a id="resumeBtn" class="btn-outline" href="resume.pdf" download>Download Resume</a>
       </div>
     </div>
@@ -222,29 +227,30 @@
       <div class="project">
         <h3>TouchWorks Healthcare Analytics</h3>
         <div class="meta">Power BI • SSIS • SQL Server</div>
-        <p>Complete analytics suite for clinicians: automated reporting, KPI dashboards and drill-through insights. Reduced reporting latency by 60%.</p>
+        <p>Complete analytics suite: automated reporting, KPI dashboards and drill-through insights. Reduced reporting latency by 60% and improved decision speed across teams.</p>
       </div>
 
       <div class="project" style="background: linear-gradient(150deg, rgba(124,92,255,0.08), rgba(0,212,255,0.06));">
         <h3>Enterprise Data Migration</h3>
         <div class="meta">Mapping • Validation • ETL</div>
-        <p>Managed large-scale data conversions with automated validation and reconciliation processes ensuring zero major defects at go-live.</p>
+        <p>Led large-scale migrations with automated validation & reconciliation — ensured accurate go-live with zero critical issues.</p>
       </div>
 
       <div class="project" style="background: linear-gradient(150deg, rgba(0,212,255,0.06), rgba(255,107,107,0.03));">
         <h3>Reporting Automation Framework</h3>
         <div class="meta">Python • SQL Jobs</div>
-        <p>Automated recurring reporting cycles and created monitoring dashboards—reducing manual effort by more than 70%.</p>
+        <p>Built automation and monitoring for scheduled reports—reducing manual effort by 70% and improving SLA visibility.</p>
       </div>
     </div>
   </section>
 
   <!-- SKILLS -->
   <section id="skills" style="margin-top:32px;">
-    <h2 class="section-title">Skills & Proficiency</h2>
+    <h2 class="section-title">Skills & Tools (with proficiency)</h2>
 
     <div class="skills-grid">
-      <div class="card">
+      <!-- Left: primary skill bars -->
+      <div class="skill-card card">
         <div class="skill-row">
           <div class="skill-name">Power BI</div>
           <div class="skill-track"><div class="skill-fill" data-fill="92"></div></div>
@@ -258,33 +264,67 @@
         </div>
 
         <div class="skill-row">
+          <div class="skill-name">DAX (Power BI)</div>
+          <div class="skill-track"><div class="skill-fill" data-fill="89"></div></div>
+          <div class="skill-val">89%</div>
+        </div>
+
+        <div class="skill-row">
           <div class="skill-name">SSIS / ETL</div>
           <div class="skill-track"><div class="skill-fill" data-fill="90"></div></div>
           <div class="skill-val">90%</div>
         </div>
 
         <div class="skill-row">
-          <div class="skill-name">Python</div>
+          <div class="skill-name">SSRS (Reporting)</div>
+          <div class="skill-track"><div class="skill-fill" data-fill="85"></div></div>
+          <div class="skill-val">85%</div>
+        </div>
+      </div>
+
+      <!-- Right: additional tools & cloud skills -->
+      <div class="skill-card card">
+        <div class="skill-row">
+          <div class="skill-name">Azure Data Factory</div>
+          <div class="skill-track"><div class="skill-fill" data-fill="80"></div></div>
+          <div class="skill-val">80%</div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-name">Azure SQL / Synapse</div>
+          <div class="skill-track"><div class="skill-fill" data-fill="85"></div></div>
+          <div class="skill-val">85%</div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-name">Data Modeling</div>
+          <div class="skill-track"><div class="skill-fill" data-fill="90"></div></div>
+          <div class="skill-val">90%</div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-name">Python (Pandas)</div>
           <div class="skill-track"><div class="skill-fill" data-fill="82"></div></div>
           <div class="skill-val">82%</div>
         </div>
 
         <div class="skill-row">
-          <div class="skill-name">Automation</div>
-          <div class="skill-track"><div class="skill-fill" data-fill="88"></div></div>
-          <div class="skill-val">88%</div>
+          <div class="skill-name">Git & Version Control</div>
+          <div class="skill-track"><div class="skill-fill" data-fill="78"></div></div>
+          <div class="skill-val">78%</div>
         </div>
-      </div>
 
-      <div class="card">
-        <h3 style="margin:0 0 10px 0">How I Work</h3>
-        <p class="small">A simple process to deliver stable and scalable data solutions:</p>
-        <ul class="small" style="margin-top:10px; padding-left:18px; line-height:1.7">
-          <li><strong>Discover:</strong> Understand data and business goals</li>
-          <li><strong>Model:</strong> Build clean, reusable datasets</li>
-          <li><strong>Visualize:</strong> Deliver clear dashboards & KPIs</li>
-          <li><strong>Automate:</strong> Create scheduled workflows</li>
-        </ul>
+        <div class="skill-row">
+          <div class="skill-name">API Integration</div>
+          <div class="skill-track"><div class="skill-fill" data-fill="75"></div></div>
+          <div class="skill-val">75%</div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-name">Power Automate</div>
+          <div class="skill-track"><div class="skill-fill" data-fill="80"></div></div>
+          <div class="skill-val">80%</div>
+        </div>
       </div>
     </div>
   </section>
@@ -326,7 +366,7 @@
         <span class="cert-badge">Microsoft Power BI Data Analyst (PL-300)</span>
         <span class="cert-badge">Azure Fundamentals (AZ-900)</span>
         <span class="cert-badge">SQL Server Exams (70-761 &amp; 70-762)</span>
-        <span class="cert-badge">MCSA (Microsoft Certified Solutions Associate)</span>
+        <span class="cert-badge">MCSA</span>
       </div>
 
       <p class="small" style="margin-top:12px">Awards: <strong>Top Quarterly Performer — 2021, 2022, 2023, 2024</strong></p>
@@ -384,8 +424,9 @@
       <div class="card">
         <h3 style="margin:0">Resume</h3>
         <p class="small">Click below to download my resume.</p>
-        <!-- Use a JS-driven download to attempt fetching the uploaded file path and provide better error feedback -->
+        <!-- The script attempts resume.pdf first (working on GH Pages). It will then try the original local path if needed. -->
         <a id="downloadResume" class="btn-primary" href="resume.pdf" download style="display:inline-block;margin-top:12px">Download Resume</a>
+        <p class="small" style="margin-top:10px;color:var(--muted)">If download fails, confirm <code>resume.pdf</code> is in your repository root (same folder as index.html).</p>
       </div>
     </div>
   </section>
@@ -470,19 +511,22 @@
     update();
   })();
 
-  /* ===== Improved resume download behavior =====
-     Uses the uploaded file path: resume.pdf
-     Attempts to fetch and download via JS; if unavailable, falls back to href download.
+  /* ===== Resume download behavior =====
+     1) Try resume.pdf (works for GitHub Pages if resume.pdf is in repo root).
+     2) If not found, try the original local path used during development (/mnt/data/resume.pdf).
+     3) If both fail, fallback to opening the link so user sees server error.
+     Note: '/mnt/data/resume.pdf' will not work on GitHub Pages, but we probe it as a fallback per developer request.
   */
   (function(){
-    const url = 'resume.pdf'; // path to uploaded resume (repo root)
+    const primary = 'resume.pdf';               // correct path on GH Pages when resume.pdf is in repo root
+    const localFallback = '/mnt/data/resume.pdf'; // original uploaded file path (kept as fallback probe)
     const btn = document.getElementById('downloadResume');
     const fallbackHref = btn.getAttribute('href');
 
-    async function fetchAndDownload(){
+    async function tryFetch(url){
       try {
         const resp = await fetch(url, { method: 'GET' });
-        if (!resp.ok) throw new Error('File not found on server (status ' + resp.status + ')');
+        if (!resp.ok) throw new Error('status ' + resp.status);
         const blob = await resp.blob();
         const blobUrl = URL.createObjectURL(blob);
         const a = document.createElement('a');
@@ -492,11 +536,22 @@
         a.click();
         a.remove();
         URL.revokeObjectURL(blobUrl);
-      } catch (err) {
-        console.warn('Resume fetch failed:', err);
-        alert('Could not fetch resume from the site path. The page will try the direct download link — if that also fails, make sure "resume.pdf" is uploaded to your site root.');
-        window.open(fallbackHref, '_blank');
+        return true;
+      } catch (e) {
+        return false;
       }
+    }
+
+    async function fetchAndDownload(){
+      // Try primary (recommended for GitHub Pages)
+      let ok = await tryFetch(primary);
+      if (ok) return;
+      // Next try the local uploaded path (may only work in special hosting/dev envs)
+      ok = await tryFetch(localFallback);
+      if (ok) return;
+      // Fallback: open the href (browser attempt)
+      alert('Resume not found on server. Ensure resume.pdf is uploaded to the repository root (same folder as index.html). Opening direct link now.');
+      window.open(fallbackHref, '_blank');
     }
 
     btn.addEventListener('click', function(e){
