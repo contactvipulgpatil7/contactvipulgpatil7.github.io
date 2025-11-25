@@ -89,6 +89,26 @@
   .avatar{width:100%;height:100%;border-radius:14px;overflow:hidden}
   .avatar img{width:100%;height:100%;object-fit:cover}
 
+  /* Fixed right-side profile (desktop) */
+  .side-profile{
+    position: fixed;
+    right: 28px;
+    top: calc(var(--nav-h) + 28px);
+    width: 320px;
+    max-width: 34vw;
+    z-index: 1300;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+  }
+  .side-profile .avatar-frame{margin:0}
+
+  @media (min-width: 981px) {
+    .wrap{ padding-right: 380px; }
+  }
+  @media (max-width: 980px) {
+    .side-profile{ position: static; width: 100%; max-width: none; margin-top:12px; right:auto; top:auto; box-shadow:none; }
+    .wrap{ padding-right: 18px; }
+  }
+
   /* Case studies (slider) */
   .case-section{margin-top:28px}
   .case-header{display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -117,14 +137,13 @@
   .cert-item strong{font-size:14px}
   .cert-item .meta{color:var(--muted);font-size:13px;margin-left:10px}
 
-  /* Contact improvements */
+  /* Contact */
   .contact-grid{display:grid;grid-template-columns:1fr 380px;gap:16px;margin-top:20px}
   .contact-card{display:flex;flex-direction:column;gap:12px}
   .contact-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
   .contact-btn{padding:10px 12px;border-radius:10px;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;gap:8px}
   .contact-primary{background:linear-gradient(90deg,var(--accent-c),var(--accent-b));color:#062021}
   .contact-outline{border:1px solid rgba(255,255,255,0.06);color:var(--text);background:transparent}
-
   .copy-note{font-size:13px;color:var(--muted);margin-top:8px}
 
   /* small responsive */
@@ -138,6 +157,8 @@
   }
 
   footer{text-align:center;color:var(--muted);margin:36px 0;font-size:14px}
+  input, textarea { background: transparent; border:1px solid rgba(255,255,255,0.04); color:var(--text); padding:10px; border-radius:8px; width:100%; }
+  input:focus, textarea:focus { outline: 2px solid rgba(124,92,255,0.12); }
 </style>
 </head>
 <body>
@@ -178,15 +199,26 @@
 
       <div class="hero-cta">
         <a class="btn-primary" href="#projects">View Work</a>
-        <a class="btn-outline" id="resumeBtn" href="resume.pdf" download>Download Resume</a>
+        <a class="btn-outline" id="resumeBtn" href="/mnt/data/resume.pdf" download>Download Resume</a>
       </div>
     </div>
 
-    <div class="card photo-panel" aria-hidden="false">
+    <!-- Photo panel is fixed on desktop: add class side-profile -->
+    <aside class="card photo-panel side-profile" aria-hidden="false">
       <div class="avatar-frame">
-        <div class="avatar"><img src="avatar.png" alt="Vipul G Patil"></div>
+        <div style="display:flex;gap:12px;align-items:center">
+          <div class="avatar" style="width:96px;height:96px;border-radius:12px;overflow:hidden"><img src="/mnt/data/avatar.png" alt="Vipul G Patil"></div>
+          <div>
+            <div style="font-weight:800;font-size:18px">Vipul G Patil</div>
+            <div style="color:var(--muted);font-size:13px;margin-top:6px">Senior Data Engineer & Data Professional</div>
+            <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+              <a class="contact-btn contact-primary" href="mailto:contactvipulgpatil@gmail.com?subject=Website%20Contact" aria-label="Email Vipul" style="padding:8px 10px;font-size:13px">✉️ Email</a>
+              <a class="contact-btn contact-outline" href="/mnt/data/resume.pdf" download aria-label="Download Resume" style="padding:8px 10px;font-size:13px">📄 Resume</a>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </aside>
   </section>
 
   <!-- Featured Case Studies -->
@@ -260,7 +292,7 @@
     </div>
   </section>
 
-  <!-- Experience Timeline (compact) -->
+  <!-- Experience Timeline (compact cards) -->
   <section id="timeline" style="margin-top:32px;">
     <h2 class="skills-title">Experience Timeline</h2>
     <div class="timeline" style="margin-top:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px">
@@ -359,9 +391,9 @@
         <div style="margin-top:10px">
           <form id="contactForm" action="mailto:contactvipulgpatil@gmail.com" method="post" enctype="text/plain" onsubmit="alert('This opens your email client to send a message.');">
             <label class="small" for="name">Name</label><br>
-            <input id="name" name="name" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)"><br><br>
+            <input id="name" name="name" required><br><br>
             <label class="small" for="message">Message</label><br>
-            <textarea id="message" name="message" rows="4" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)"></textarea><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br>
             <div style="margin-top:8px">
               <button type="submit" class="btn-primary" style="padding:10px 14px">Send Message</button>
             </div>
@@ -372,8 +404,8 @@
 
       <div class="card" aria-hidden="false">
         <h3 style="margin:0">Resume</h3>
-        <p class="small">Click below to download my resume (PDF). If the download fails, upload <code>resume.pdf</code> to repo root.</p>
-        <a id="downloadResume" class="btn-primary" href="resume.pdf" download style="display:inline-block;margin-top:12px">Download Resume</a>
+        <p class="small">Click below to download my resume (PDF). If the download fails, ensure <code>resume.pdf</code> is uploaded to your repository root (same folder as index.html).</p>
+        <a id="downloadResume" class="btn-primary" href="/mnt/data/resume.pdf" download style="display:inline-block;margin-top:12px">Download Resume</a>
 
         <div style="margin-top:16px">
           <strong class="small">Office hours</strong>
@@ -389,14 +421,14 @@
 </div>
 
 <!-- Floating contact -->
-<div class="floating" aria-hidden="false">
-  <img src="avatar.png" alt="Vipul" width="48" height="48">
+<div class="floating" aria-hidden="false" style="position:fixed;right:18px;bottom:18px;display:flex;gap:10px;background:rgba(255,255,255,0.04);padding:12px;border-radius:12px;backdrop-filter:blur(6px)">
+  <img src="/mnt/data/avatar.png" alt="Vipul" width="48" height="48" style="border-radius:10px;object-fit:cover">
   <div>
     <strong>Vipul G Patil</strong><br>
     <span class="small">Senior Data Engineer & Data Professional</span><br>
     <div style="margin-top:8px;display:flex;gap:8px">
       <a class="btn-primary" href="mailto:contactvipulgpatil@gmail.com" style="padding:8px 10px;font-size:13px">Email</a>
-      <a class="btn-outline" href="resume.pdf" download style="padding:8px 10px;font-size:13px">Resume</a>
+      <a class="btn-outline" href="/mnt/data/resume.pdf" download style="padding:8px 10px;font-size:13px">Resume</a>
     </div>
   </div>
 </div>
@@ -511,7 +543,7 @@
 
   /* Resume download robust behavior */
   (function(){
-    const url = 'resume.pdf';
+    const url = '/mnt/data/resume.pdf';
     const btn = document.getElementById('downloadResume') || document.getElementById('resumeBtn');
     async function tryFetch(u){
       try {
@@ -550,7 +582,6 @@
         note.textContent = 'Phone number copied to clipboard: ' + phone;
         setTimeout(()=> note.style.display = 'none', 2500);
       } catch(e){
-        // fallback
         const tmp = document.createElement('input'); tmp.value = phone; document.body.appendChild(tmp); tmp.select();
         try { document.execCommand('copy'); note.style.display='block'; note.textContent='Phone number copied to clipboard'; setTimeout(()=> note.style.display='none',2500); } finally { tmp.remove(); }
       }
