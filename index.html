@@ -1,58 +1,132 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vipul Patil | Data Analyst Portfolio</title>
-  <style>
-    body { font-family: Arial, sans-serif; background: #f4f4f9; color: #333; margin: 0; padding: 0; }
-    header { background: #222; color: #fff; padding: 20px; text-align: center; }
-    section { padding: 20px; max-width: 800px; margin: auto; }
-    h1, h2 { color: #222; }
-    .skills, .projects { background: #fff; padding: 20px; margin-top: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    footer { text-align: center; padding: 10px; background: #222; color: #fff; margin-top: 30px; }
-    a { color: #007acc; text-decoration: none; }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Vipul Patil — Data Analyst</title>
+<meta name="description" content="Vipul Patil | Data Analyst — Power BI, SQL, Python. Portfolio & Projects." />
+<style>
+  :root{
+    --bg:#0f1724; --card:#0b1220; --muted:#94a3b8; --accent:#06b6d4;
+    --glass: rgba(255,255,255,0.03);
+    --maxw:1100px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; font-family:Inter, system-ui, Arial;
+    background: linear-gradient(180deg,#071023 0%, #071827 60%);
+    color:#e6eef6; line-height:1.5;
+  }
+  .wrap{max-width:var(--maxw); margin:40px auto; padding:28px;}
+  .top{
+    display:grid; grid-template-columns: 1fr 320px; gap:24px; align-items:center;
+  }
+  .card{
+    background: rgba(255,255,255,0.02);
+    border:1px solid rgba(255,255,255,0.05);
+    padding:22px; border-radius:12px;
+  }
+  .hero h1{margin:0; font-size:30px}
+  .hero p{color:var(--muted); margin:10px 0 16px}
+  .chips{display:flex; gap:8px; flex-wrap:wrap}
+  .chip{background:var(--glass); color:var(--accent); padding:6px 10px; border-radius:999px; font-size:13px; border:1px solid rgba(6,182,212,0.1)}
+  .cta{display:flex; gap:10px; margin-top:14px}
+  .btn{background:var(--accent); color:#062021; padding:10px 14px; border-radius:10px; font-weight:700; text-decoration:none}
+  .btn.ghost{background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted)}
+
+  .photo{text-align:center}
+  .avatar{
+    width:140px; height:140px; border-radius:12px; overflow:hidden; margin:0 auto;
+    border:2px solid rgba(255,255,255,0.05);
+  }
+  .avatar img{width:100%; height:100%; object-fit:cover}
+
+  section{margin-top:20px}
+  .projects-grid{display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap:12px}
+  .project{background:rgba(255,255,255,0.03); padding:12px; border-radius:10px; border:1px solid rgba(255,255,255,0.05)}
+  .project h4{margin:6px 0 4px}
+  .meta{color:var(--muted); font-size:13px}
+
+  footer{margin-top:26px; color:var(--muted); text-align:center; font-size:14px}
+
+  @media(max-width:880px){
+    .top{grid-template-columns:1fr}
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>👋 Hi, I'm Vipul Patil</h1>
-    <p>Data Analyst | SQL | Power BI | Python | Machine Learning</p>
-  </header>
+  <div class="wrap">
+    <div class="top">
+      <div class="card hero">
+        <h1>👋 Hi, I'm <strong>Vipul Patil</strong></h1>
+        <p>Data Analyst — SQL · Power BI · Python · DAX · SSRS. I build dashboards & reports for healthcare and business analytics.</p>
 
-  <section class="about">
-    <h2>About Me</h2>
-    <p>I’m a passionate Data Analyst with hands-on experience in Power BI, SQL, and Python. 
-    I love turning data into meaningful insights and creating automation solutions for healthcare analytics.</p>
-  </section>
+        <div class="chips">
+          <span class="chip">Power BI</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Python</span>
+          <span class="chip">DAX</span>
+          <span class="chip">Excel</span>
+        </div>
 
-  <section class="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>SQL, Power BI, Python</li>
-      <li>SSRS, Excel, DAX</li>
-      <li>Data Cleaning & Visualization</li>
-    </ul>
-  </section>
+        <div class="cta">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn ghost" href="#contact">Contact / Hire</a>
+        </div>
+      </div>
 
-  <section class="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li><b>AI-Powered TouchWorks Dashboard:</b> Real-time patient data analytics using Power BI + AI</li>
-      <li><b>SQL Query Assistant:</b> LangChain-based AI SQL generator for team use</li>
-      <li><b>Healthcare Insights:</b> Python-based predictive analytics project</li>
-    </ul>
-  </section>
+      <aside class="card photo">
+        <div class="avatar">
+          <img src="avatar.png" alt="Vipul Patil">
+        </div>
+        <p style="color:#94a3b8; margin-top:10px;">Data Analyst</p>
+      </aside>
+    </div>
 
-  <section class="contact">
-    <h2>Contact</h2>
-    <p>📧 Email: <a href="mailto:vipulpatil@email.com">vipulpatil@email.com</a></p>
-    <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/vipulpatil">linkedin.com/in/vipulpatil</a></p>
-    <p>💻 GitHub: <a href="https://github.com/vipulpatil">github.com/vipulpatil</a></p>
-  </section>
+    <section class="card" id="about">
+      <h3>About Me</h3>
+      <p style="color:#94a3b8">
+        I design interactive dashboards, write SQL queries, automate reports and build insights
+        for data-driven decisions. Specialized in healthcare & business analytics.
+      </p>
+    </section>
 
-  <footer>
-    <p>© 2025 Vipul Patil | Built with ❤️ using HTML & GitHub Pages</p>
-  </footer>
+    <section class="card" id="projects">
+      <h3>Projects</h3>
+      <div class="projects-grid">
+
+        <div class="project">
+          <h4>TouchWorks EHR Dashboard</h4>
+          <div class="meta">Power BI • Healthcare Analytics</div>
+          <p style="color:#94a3b8">Patient flow insights, drill-through & KPI monitoring.</p>
+        </div>
+
+        <div class="project">
+          <h4>Sales Analytics Dashboard</h4>
+          <div class="meta">SQL • Power BI</div>
+          <p style="color:#94a3b8">Sales forecasting and performance tracking.</p>
+        </div>
+
+        <div class="project">
+          <h4>SQL Automation Tool</h4>
+          <div class="meta">Python • SQL</div>
+          <p style="color:#94a3b8">Automated ETL & data cleaning pipeline.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="card" id="contact">
+      <h3>Contact</h3>
+      <p style="color:#94a3b8">Feel free to reach out for work or collaboration.</p>
+      <p>
+        <strong>Email:</strong> vipul@example.com<br>
+        <strong>LinkedIn:</strong> linkedin.com/in/vipulpatil
+      </p>
+    </section>
+
+    <footer>© 2025 Vipul Patil — Built with ❤️ using GitHub Pages</footer>
+  </div>
 </body>
 </html>
