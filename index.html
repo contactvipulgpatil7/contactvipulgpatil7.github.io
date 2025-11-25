@@ -165,7 +165,7 @@
       <div class="hero-title">Transforming complex data into actionable intelligence.</div>
       <div class="hero-lead">
         I'm Vipul G Patil — Senior Data Engineer & Data Professional specializing in Power BI, SQL, ETL and Python automation.
-        As a Senior Data Engineer, I focus on designing analytics solutions that drive measurable outcomes — faster reporting, cleaner pipelines and smarter decisions. I specialize in building automated ETL frameworks, optimizing SQL workloads, crafting intuitive Power BI dashboards and ensuring data quality at scale. My work has reduced reporting latency, eliminated manual processes and provided leaders with real-time visibility into performance trends. I believe in building systems that are efficient, transparent and dependable.
+        I build high-impact dashboards, automate workflows, and optimize data systems for performance and accuracy.
       </div>
 
       <div class="badges" aria-hidden="false">
@@ -202,7 +202,7 @@
     <div class="case-wrapper" aria-live="polite">
       <div class="case-track" id="caseTrack">
         <div class="case-card card">
-          <h3>Healthcare Analytics — KPI & Workflow Dashboards</h3>
+          <h3>TouchWorks Analytics — KPI & Workflow Dashboards</h3>
           <div class="meta">Power BI • SSIS • SQL</div>
           <p>Built interactive KPI dashboards with drill-through and row-level filters. Automated nightly ETL that reduced reporting latency by 60% and improved decision speed.</p>
         </div>
@@ -321,7 +321,7 @@
             <strong>SQL Server Exams (70-761 &amp; 70-762)</strong>
             <div class="meta">T-SQL and data engineering</div>
           </div>
-          <div style="color:var(--accent-c);font-weight:800">Verified</div>
+          <div style="color:var(--accent-c);font-weight:800">Completed</div>
         </div>
 
         <div class="cert-item" role="listitem">
@@ -329,7 +329,7 @@
             <strong>MCSA</strong>
             <div class="meta">Microsoft Certified Solutions Associate</div>
           </div>
-          <div style="color:var(--accent-c);font-weight:800">Verified</div>
+          <div style="color:var(--accent-c);font-weight:800">Completed</div>
         </div>
 
       </div>
@@ -372,12 +372,12 @@
 
       <div class="card" aria-hidden="false">
         <h3 style="margin:0">Resume</h3>
-        <p class="small">Click below to download my resume (PDF).</code> to repo root.</p>
+        <p class="small">Click below to download my resume (PDF). If the download fails, upload <code>resume.pdf</code> to repo root.</p>
         <a id="downloadResume" class="btn-primary" href="resume.pdf" download style="display:inline-block;margin-top:12px">Download Resume</a>
 
         <div style="margin-top:16px">
           <strong class="small">Office hours</strong>
-          <div class="small" style="margin-top:6px;color:var(--muted)">Mon — Fri, 09:00 — 18:00 (IST).</div>
+          <div class="small" style="margin-top:6px;color:var(--muted)">Mon — Fri, 09:00 — 18:00 (IST). Replies outside these hours may take a bit longer.</div>
         </div>
 
       </div>
@@ -387,3 +387,200 @@
 
   <footer>© 2025 Vipul G Patil — Transforming complex data into actionable intelligence.</footer>
 </div>
+
+<!-- Floating contact -->
+<div class="floating" aria-hidden="false">
+  <img src="avatar.png" alt="Vipul" width="48" height="48">
+  <div>
+    <strong>Vipul G Patil</strong><br>
+    <span class="small">Senior Data Engineer & Data Professional</span><br>
+    <div style="margin-top:8px;display:flex;gap:8px">
+      <a class="btn-primary" href="mailto:contactvipulgpatil@gmail.com" style="padding:8px 10px;font-size:13px">Email</a>
+      <a class="btn-outline" href="resume.pdf" download style="padding:8px 10px;font-size:13px">Resume</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* Theme toggle */
+  (function(){
+    const toggle = document.getElementById('themeToggle');
+    const knob = toggle && toggle.querySelector('.knob');
+    const saved = localStorage.getItem('site-theme');
+    if (saved === 'light') document.body.classList.add('light'), knob && (knob.style.transform='translateX(20px)');
+    toggle && toggle.addEventListener('click', () => {
+      document.body.classList.toggle('light');
+      const isLight = document.body.classList.contains('light');
+      knob && (knob.style.transform = isLight ? 'translateX(20px)' : 'translateX(0)');
+      localStorage.setItem('site-theme', isLight ? 'light' : 'dark');
+    });
+    toggle && toggle.addEventListener('keydown', (e) => { if(e.key === 'Enter') toggle.click(); });
+  })();
+
+  /* Skill bars animation */
+  (function(){
+    const fills = document.querySelectorAll('.skill-fill');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          const el = en.target;
+          const val = el.dataset.fill || '0';
+          el.style.width = val + '%';
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.25 });
+    fills.forEach(f => io.observe(f));
+  })();
+
+  /* Case Studies slider */
+  (function(){
+    const track = document.getElementById('caseTrack');
+    const cards = track ? Array.from(track.querySelectorAll('.case-card')) : [];
+    const prevBtn = document.getElementById('casePrev');
+    const nextBtn = document.getElementById('caseNext');
+    const dotsWrap = document.getElementById('caseDots');
+
+    if (!track || !cards.length) return;
+
+    let visibleCount = 3;
+    const resizeHandler = () => {
+      const w = window.innerWidth;
+      if (w < 600) visibleCount = 1;
+      else if (w < 980) visibleCount = 2;
+      else visibleCount = 3;
+      createDots();
+      index = Math.max(0, Math.min(index, Math.max(0, cards.length - visibleCount)));
+      update();
+    };
+
+    let index = 0;
+    const gap = 16;
+    function cardWidth(){ return cards[0].getBoundingClientRect().width + gap; }
+
+    function update(){
+      const x = index * cardWidth();
+      track.style.transform = `translateX(-${x}px)`;
+      updateDots();
+    }
+
+    function createDots(){
+      if (!dotsWrap) return;
+      dotsWrap.innerHTML = '';
+      const pages = Math.max(1, Math.ceil(cards.length - (visibleCount - 1)));
+      for (let i=0;i<pages;i++){
+        const d = document.createElement('div');
+        d.className = 'case-dot';
+        d.dataset.i = i;
+        d.style.cursor = 'pointer';
+        d.addEventListener('click', ()=> {
+          index = i;
+          update();
+        });
+        dotsWrap.appendChild(d);
+      }
+    }
+
+    function updateDots(){
+      if (!dotsWrap) return;
+      const dots = Array.from(dotsWrap.children);
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    }
+
+    prevBtn && prevBtn.addEventListener('click', ()=> { index = Math.max(0, index - 1); update(); restartAuto(); });
+    nextBtn && nextBtn.addEventListener('click', ()=> { index = Math.min(cards.length - visibleCount, index + 1); update(); restartAuto(); });
+
+    // swipe support
+    let startX = 0, isDown = false;
+    track.addEventListener('pointerdown', (e)=>{
+      isDown = true; startX = e.clientX; track.style.transition = 'none'; track.setPointerCapture && track.setPointerCapture(e.pointerId); stopAuto();
+    });
+    track.addEventListener('pointermove', (e)=>{ if(!isDown) return; const dx = e.clientX - startX; track.style.transform = `translateX(-${index * cardWidth() - dx}px)`; });
+    track.addEventListener('pointerup', (e)=>{ if(!isDown) return; isDown=false; const dx = e.clientX - startX; track.style.transition=''; if (Math.abs(dx) > 60) { if (dx < 0) index = Math.min(cards.length - visibleCount, index + 1); else index = Math.max(0, index - 1); } update(); startAuto(); });
+    track.addEventListener('pointercancel', ()=>{ isDown=false; update(); startAuto(); });
+
+    // autoplay
+    let autoTimer;
+    function startAuto(){ stopAuto(); autoTimer = setInterval(()=> { index = (index + 1) > (cards.length - visibleCount) ? 0 : index + 1; update(); }, 5500); }
+    function stopAuto(){ if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
+    function restartAuto(){ stopAuto(); startAuto(); }
+
+    window.addEventListener('resize', resizeHandler);
+    resizeHandler(); update(); startAuto();
+  })();
+
+  /* Resume download robust behavior */
+  (function(){
+    const url = 'resume.pdf';
+    const btn = document.getElementById('downloadResume') || document.getElementById('resumeBtn');
+    async function tryFetch(u){
+      try {
+        const r = await fetch(u, {method:'GET'});
+        if (!r.ok) throw new Error('status ' + r.status);
+        const b = await r.blob();
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(b);
+        link.download = 'Vipul_Patil_Resume.pdf';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        return true;
+      } catch(e){
+        return false;
+      }
+    }
+    async function fetchAndDownload(){
+      if (await tryFetch(url)) return;
+      alert('Resume not found on site path. Attempting to open direct link.');
+      window.open(url, '_blank');
+    }
+    btn && btn.addEventListener('click', (e)=> { e.preventDefault(); fetchAndDownload(); });
+  })();
+
+  /* Copy phone button */
+  (function(){
+    const copyBtn = document.getElementById('copyPhone');
+    const phone = '+919601291584';
+    const note = document.getElementById('copyNote');
+    if (!copyBtn) return;
+    copyBtn.addEventListener('click', async ()=>{
+      try {
+        await navigator.clipboard.writeText(phone);
+        note.style.display = 'block';
+        note.textContent = 'Phone number copied to clipboard: ' + phone;
+        setTimeout(()=> note.style.display = 'none', 2500);
+      } catch(e){
+        // fallback
+        const tmp = document.createElement('input'); tmp.value = phone; document.body.appendChild(tmp); tmp.select();
+        try { document.execCommand('copy'); note.style.display='block'; note.textContent='Phone number copied to clipboard'; setTimeout(()=> note.style.display='none',2500); } finally { tmp.remove(); }
+      }
+    });
+  })();
+
+  /* Smooth anchor scroll */
+  (function(){
+    const anchors = document.querySelectorAll('a[href^="#"]');
+    anchors.forEach(a=>{
+      a.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) { e.preventDefault(); const y = target.getBoundingClientRect().top + window.scrollY - 84; window.scrollTo({ top: y, behavior: 'smooth' }); }
+      });
+    });
+  })();
+
+  /* Active nav highlight */
+  (function(){
+    const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+    const sections = Array.from(document.querySelectorAll('section[id], #home'));
+    function update(){
+      const offset = window.scrollY + 140;
+      let current = 'home';
+      sections.forEach(s => { if (s.offsetTop <= offset) current = s.id || 'home'; });
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+    }
+    window.addEventListener('scroll', update, {passive:true});
+    update();
+  })();
+</script>
+</body>
+</html>
