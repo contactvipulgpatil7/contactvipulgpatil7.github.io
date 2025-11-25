@@ -12,7 +12,7 @@
   :root{
     --bg-1:#0f1724;
     --bg-2:#071b2e;
-    --panel:rgba(255,255,255,0.04);
+    --panel:rgba(255,255,255,0.03);
     --muted:#9fb4c5;
     --accent-a:#ff6b6b;
     --accent-b:#7c5cff;
@@ -20,6 +20,7 @@
     --text:#e8f6ff;
     --radius:16px;
     --nav-h:72px;
+    --card-padding:22px;
   }
   body.light{
     --bg-1:#f5f8fb;
@@ -31,33 +32,33 @@
 
   *{box-sizing:border-box;margin:0;padding:0}
   body{
-    background: radial-gradient(800px 400px at 6% 8%, rgba(124,92,255,0.12), transparent 12%), 
-                linear-gradient(180deg,var(--bg-1),var(--bg-2));
+    background:
+      radial-gradient(800px 400px at 6% 8%, rgba(124,92,255,0.10), transparent 12%),
+      linear-gradient(180deg,var(--bg-1),var(--bg-2));
     font-family:Inter, sans-serif;
     color:var(--text);
     padding-top:var(--nav-h);
     transition:all .3s ease;
-    line-height:1.5;
+    line-height:1.48;
   }
 
   /* NAV */
   nav{
     position:fixed;top:0;left:0;right:0;height:var(--nav-h);
     display:flex;align-items:center;z-index:1000;
-    background:rgba(10,15,30,.55); backdrop-filter:blur(8px);
-    border-bottom:1px solid rgba(255,255,255,0.04);
+    background:rgba(10,15,30,0.6); backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(255,255,255,0.03);
   }
   .nav-inner{
     max-width:1200px;margin:0 auto;padding:0 22px;display:flex;align-items:center;width:100%;
   }
-  .brand{font-size:19px;font-weight:800;text-decoration:none;color:var(--text);display:flex;gap:10px;align-items:center}
-  .brand .logo{width:10px;height:10px;border-radius:50%;background:linear-gradient(90deg,var(--accent-a),var(--accent-b))}
+  .brand{font-size:18px;font-weight:800;text-decoration:none;color:var(--text);display:flex;gap:10px;align-items:center}
+  .brand .logo{width:11px;height:11px;border-radius:50%;background:linear-gradient(90deg,var(--accent-a),var(--accent-b))}
   .nav-links{margin-left:auto;display:flex;gap:10px;}
   .nav-links a{color:var(--muted);padding:8px 11px;border-radius:10px;text-decoration:none;font-weight:700;}
-  .nav-links a.active,.nav-links a:hover{background:rgba(255,255,255,0.05);color:white;}
+  .nav-links a.active,.nav-links a:hover{background:rgba(255,255,255,0.04);color:white;}
 
-  /* Theme Toggle */
-  .toggle{width:46px;height:24px;background:rgba(255,255,255,0.06);padding:3px;border-radius:999px;cursor:pointer;display:flex;align-items:center;margin-left:12px}
+  .toggle{width:46px;height:24px;background:rgba(255,255,255,0.05);padding:3px;border-radius:999px;cursor:pointer;display:flex;align-items:center;margin-left:12px}
   .knob{width:18px;height:18px;border-radius:50%;background:white;transition:transform .25s}
   body.light .knob{transform:translateX(20px)}
 
@@ -66,89 +67,88 @@
   .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:26px;}
 
   .card{
-    background:rgba(255,255,255,0.03);
+    background:var(--panel);
     border-radius:var(--radius);
-    padding:26px;
+    padding:var(--card-padding);
     border:1px solid rgba(255,255,255,0.04);
     box-shadow:0 18px 50px rgba(0,0,0,0.4);
   }
 
-  .hero-title{font-size:34px;font-weight:800;line-height:1.05}
-  .hero-lead{margin-top:12px;color:var(--muted);max-width:70ch}
+  .hero-title{font-size:32px;font-weight:800;line-height:1.05}
+  .hero-lead{margin-top:12px;color:var(--muted);max-width:68ch}
 
   .badges{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
-  .badge{padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.08);font-weight:700;background:rgba(255,255,255,0.01)}
+  .badge{padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.06);font-weight:700;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent)}
 
   .hero-cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
-  .btn-primary{background:linear-gradient(90deg,var(--accent-a),var(--accent-b));padding:12px 18px;border-radius:12px;color:#071022;font-weight:900;text-decoration:none}
-  .btn-outline{padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,0.08);font-weight:700;color:var(--text);text-decoration:none}
+  .btn-primary{background:linear-gradient(90deg,var(--accent-a),var(--accent-b));padding:12px 18px;border-radius:12px;color:#071022;font-weight:900;text-decoration:none;box-shadow:0 6px 18px rgba(124,92,255,0.15)}
+  .btn-outline{padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);font-weight:700;color:var(--text);text-decoration:none}
 
   /* PHOTO */
   .photo-panel{display:flex;justify-content:center;align-items:center}
-  .avatar-frame{width:320px;height:320px;padding:12px;border-radius:20px;background:linear-gradient(135deg,rgba(255,107,107,0.08),rgba(124,92,255,0.14));box-shadow:0 20px 60px rgba(0,0,0,0.55)}
+  .avatar-frame{width:320px;height:320px;padding:12px;border-radius:20px;background:linear-gradient(135deg,rgba(255,107,107,0.06),rgba(124,92,255,0.08));box-shadow:0 20px 60px rgba(0,0,0,0.55)}
   .avatar{width:100%;height:100%;border-radius:14px;overflow:hidden}
   .avatar img{width:100%;height:100%;object-fit:cover}
 
   /* PROJECTS */
   .projects{margin-top:32px}
   .project-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px}
-  .project{
-    padding:18px;border-radius:16px;border:1px solid rgba(255,255,255,0.05);overflow:hidden;
-    background:linear-gradient(150deg,rgba(255,107,107,0.08),rgba(124,92,255,0.12));
-  }
   .project h3{margin:0;font-size:18px}
   .project .meta{font-size:13px;color:var(--muted);margin-top:6px}
   .project p{margin-top:10px;color:var(--muted)}
 
-  /* SKILLS */
-  .skills-grid{display:grid;grid-template-columns:1fr 420px;gap:18px;margin-top:22px}
-  .skill-card{padding:18px;border-radius:12px;background:rgba(255,255,255,0.015);border:1px solid rgba(255,255,255,0.03)}
-  .skill-row{
+  /* SKILLS UPGRADED */
+  .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px;align-items:stretch}
+  .skill-card{
     display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:20px;
+    border-radius:12px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.015));
+    border:1px solid rgba(255,255,255,0.03);
+    min-height:360px; /* ensure matched height */
+  }
+
+  .skill-card h3{margin:0 0 12px 0;color:var(--text)}
+  .skill-row{
+    display:grid;
+    grid-template-columns: 170px 1fr 56px;
     gap:12px;
     align-items:center;
     margin-bottom:14px;
   }
-  .skill-name{width:160px;color:var(--muted);font-weight:700}
-  .skill-track{flex:1;height:14px;border-radius:999px;background:rgba(255,255,255,0.05);overflow:hidden;position:relative}
+  .skill-name{color:var(--muted);font-weight:700}
+  .skill-track{height:14px;border-radius:999px;background:rgba(255,255,255,0.04);overflow:hidden;position:relative}
   .skill-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent-b),var(--accent-c));transition:width 1.2s}
-  /* Percentage value at the right */
-  .skill-val{
-    width:56px;
-    text-align:right;
-    font-weight:800;
-    color:var(--accent-c);
-    font-size:13px;
-  }
+  .skill-val{text-align:right;font-weight:800;color:var(--accent-c)}
 
-  /* TIMELINE */
-  .timeline{margin-top:22px;padding-left:16px;border-left:4px solid rgba(255,255,255,0.08)}
+  /* show % inside the bar as small bubble (optional) */
+  .inside-bubble{
+    position:absolute; right:6px; top:50%; transform:translateY(-50%); font-weight:700; font-size:12px; color:#062021;
+    background:rgba(255,255,255,0.92); padding:4px 8px; border-radius:999px; display:none;
+  }
+  .skill-track.show-bubble .inside-bubble{display:block}
+
+  /* legend & extra tools list */
+  .tools-list{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+  .tool-pill{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:6px 10px;border-radius:8px;color:var(--muted);font-weight:700}
+
+  /* TIMELINE, CERTS, etc */
+  .timeline{margin-top:22px;padding-left:16px;border-left:4px solid rgba(255,255,255,0.06)}
   .timeline-item{padding:12px;margin-bottom:12px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
-  .timeline-item h4{margin:0}
   .timeline-item .date{font-size:13px;color:var(--muted)}
 
-  /* CERTIFICATIONS */
-  .cert-list{margin-top:12px;padding-left:18px;color:var(--muted);line-height:1.8}
+  .cert-list{margin-top:12px;padding-left:0;color:var(--muted);line-height:1.8}
   .cert-badge{display:inline-block;margin-top:8px;padding:6px 10px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);font-weight:700;color:var(--text);margin-right:8px}
 
-  /* SLIDESHOW (NO IMAGES) */
+  /* SLIDESHOW */
   .slideshow{margin-top:26px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.05);;}
-  .slides{display:flex;transition:transform .5s}
-  .slide{min-width:100%;padding:22px;background:linear-gradient(135deg,rgba(255,107,107,0.08),rgba(124,92,255,0.14))}
-  .slide h4{margin:0 0 6px 0}
-  .slide p{color:var(--muted)}
+  .slide{min-width:100%;padding:22px}
 
-  .color-box{margin-top:12px;height:220px;border-radius:12px;background:linear-gradient(120deg,rgba(255,107,107,0.35),rgba(124,92,255,0.35))}
-
-  .slide-dots{display:flex;gap:8px;justify-content:center;padding:12px}
-  .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.08);cursor:pointer}
-  .dot.active{background:linear-gradient(90deg,var(--accent-a),var(--accent-b));}
-
-  /* CONTACT */
   .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:16px;margin-top:26px}
   .small{color:var(--muted)}
 
-  /* FLOATING CARD */
   .floating{position:fixed;right:18px;bottom:18px;display:flex;gap:10px;background:rgba(255,255,255,0.06);padding:12px;border-radius:14px;backdrop-filter:blur(6px)}
   .floating img{width:48px;height:48px;border-radius:10px;object-fit:cover}
 
@@ -159,7 +159,8 @@
     .skills-grid{grid-template-columns:1fr}
     .contact-grid{grid-template-columns:1fr}
     .nav-links{display:none}
-    .skill-name{width:130px}
+    .skill-row{grid-template-columns:140px 1fr 48px}
+    .skill-card{min-height:unset}
   }
 </style>
 </head>
@@ -169,9 +170,9 @@
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a class="brand" href="#home"><span class="logo"></span> Vipul G Patil</a>
+    <a class="brand" href="#home"><span class="logo" aria-hidden="true"></span> Vipul G Patil</a>
 
-    <div class="nav-links">
+    <div class="nav-links" role="navigation" aria-label="Main navigation">
       <a href="#home" class="active">Home</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
@@ -212,8 +213,8 @@
       </div>
     </div>
 
-    <div class="card photo-panel">
-      <div class="avatar-frame">
+    <div class="card photo-panel" aria-hidden="false">
+      <div class="avatar-frame" role="img" aria-label="Vipul Patil photo">
         <div class="avatar"><img src="avatar.png" alt="Vipul G Patil"></div>
       </div>
     </div>
@@ -224,108 +225,139 @@
     <h2 class="section-title">Featured Case Studies</h2>
 
     <div class="project-row">
-      <div class="project">
-        <h3>TouchWorks Healthcare Analytics</h3>
-        <div class="meta">Power BI • SSIS • SQL Server</div>
-        <p>Complete analytics suite: automated reporting, KPI dashboards and drill-through insights. Reduced reporting latency by 60% and improved decision speed across teams.</p>
+      <div class="project card">
+        <h3>TouchWorks Analytics</h3>
+        <div class="meta">Power BI • SSIS • SQL</div>
+        <p>Delivered KPI dashboards, automated reporting and drill-through analytics that accelerated decisions and reduced reporting time by 60%.</p>
       </div>
 
-      <div class="project" style="background: linear-gradient(150deg, rgba(124,92,255,0.08), rgba(0,212,255,0.06));">
+      <div class="project card">
         <h3>Enterprise Data Migration</h3>
-        <div class="meta">Mapping • Validation • ETL</div>
-        <p>Led large-scale migrations with automated validation & reconciliation — ensured accurate go-live with zero critical issues.</p>
+        <div class="meta">ETL • Validation • Reconciliation</div>
+        <p>Led large migrations with automated validation checks to ensure clean go-lives and minimal downtime.</p>
       </div>
 
-      <div class="project" style="background: linear-gradient(150deg, rgba(0,212,255,0.06), rgba(255,107,107,0.03));">
+      <div class="project card">
         <h3>Reporting Automation Framework</h3>
         <div class="meta">Python • SQL Jobs</div>
-        <p>Built automation and monitoring for scheduled reports—reducing manual effort by 70% and improving SLA visibility.</p>
+        <p>Automated recurring reporting cycles and created monitoring dashboards that improved SLA visibility.</p>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
+  <!-- SKILLS — UPGRADED -->
   <section id="skills" style="margin-top:32px;">
     <h2 class="section-title">Skills & Tools (with proficiency)</h2>
 
-    <div class="skills-grid">
-      <!-- Left: primary skill bars -->
-      <div class="skill-card card">
-        <div class="skill-row">
-          <div class="skill-name">Power BI</div>
-          <div class="skill-track"><div class="skill-fill" data-fill="92"></div></div>
-          <div class="skill-val">92%</div>
+    <div class="skills-grid" role="region" aria-label="Skills and proficiency">
+
+      <!-- Left -->
+      <div class="skill-card" aria-hidden="false">
+        <div>
+          <h3>Core Analytics & BI</h3>
+
+          <div class="skill-row">
+            <div class="skill-name">Power BI</div>
+            <div class="skill-track show-bubble"><div class="skill-fill" data-fill="92"></div><div class="inside-bubble">92%</div></div>
+            <div class="skill-val">92%</div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-name">SQL & Optimization</div>
+            <div class="skill-track show-bubble"><div class="skill-fill" data-fill="95"></div><div class="inside-bubble">95%</div></div>
+            <div class="skill-val">95%</div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-name">DAX (Power BI)</div>
+            <div class="skill-track show-bubble"><div class="skill-fill" data-fill="89"></div><div class="inside-bubble">89%</div></div>
+            <div class="skill-val">89%</div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-name">SSIS / ETL</div>
+            <div class="skill-track show-bubble"><div class="skill-fill" data-fill="90"></div><div class="inside-bubble">90%</div></div>
+            <div class="skill-val">90%</div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-name">SSRS (Reporting)</div>
+            <div class="skill-track show-bubble"><div class="skill-fill" data-fill="85"></div><div class="inside-bubble">85%</div></div>
+            <div class="skill-val">85%</div>
+          </div>
         </div>
 
-        <div class="skill-row">
-          <div class="skill-name">SQL & Optimization</div>
-          <div class="skill-track"><div class="skill-fill" data-fill="95"></div></div>
-          <div class="skill-val">95%</div>
-        </div>
-
-        <div class="skill-row">
-          <div class="skill-name">DAX (Power BI)</div>
-          <div class="skill-track"><div class="skill-fill" data-fill="89"></div></div>
-          <div class="skill-val">89%</div>
-        </div>
-
-        <div class="skill-row">
-          <div class="skill-name">SSIS / ETL</div>
-          <div class="skill-track"><div class="skill-fill" data-fill="90"></div></div>
-          <div class="skill-val">90%</div>
-        </div>
-
-        <div class="skill-row">
-          <div class="skill-name">SSRS (Reporting)</div>
-          <div class="skill-track"><div class="skill-fill" data-fill="85"></div></div>
-          <div class="skill-val">85%</div>
+        <div style="margin-top:10px">
+          <div style="font-weight:800;color:var(--muted);margin-bottom:8px">Other notable</div>
+          <div class="tools-list" aria-hidden="false">
+            <span class="tool-pill">ETL Design</span>
+            <span class="tool-pill">Query Tuning</span>
+            <span class="tool-pill">Reporting Automation</span>
+            <span class="tool-pill">SSMS / Azure Data Studio</span>
+          </div>
         </div>
       </div>
 
-      <!-- Right: additional tools & cloud skills -->
-      <div class="skill-card card">
-        <div class="skill-row">
-          <div class="skill-name">Azure Data Factory</div>
-          <div class="skill-track"><div class="skill-fill" data-fill="80"></div></div>
-          <div class="skill-val">80%</div>
+      <!-- Right -->
+      <div class="skill-card" aria-hidden="false">
+        <div>
+          <h3>Cloud, Automation & Engineering</h3>
+
+          <div class="skill-row">
+            <div class="skill-name">Azure Data Factory</div>
+            <div class="skill-track show-bubble"><div class="skill-fill" data-fill="80"></div><div class="inside-bubble">80%</div></div>
+            <div class="skill-val">80%</div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-name">Azure SQL / Synapse</div>
+            <div class="skill-track show-bubble"><div class="skill-fill" data-fill="85"></div><div class="inside-bubble">85%</div></div>
+            <div class="skill-val">85%</div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-name">Data Modeling</div>
+            <div class="skill-track show-bubble"><div class="skill-fill" data-fill="90"></div><div class="inside-bubble">90%</div></div>
+            <div class="skill-val">90%</div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-name">Python (Pandas)</div>
+            <div class="skill-track show-bubble"><div class="skill-fill" data-fill="82"></div><div class="inside-bubble">82%</div></div>
+            <div class="skill-val">82%</div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-name">Git & Version Control</div>
+            <div class="skill-track show-bubble"><div class="skill-fill" data-fill="78"></div><div class="inside-bubble">78%</div></div>
+            <div class="skill-val">78%</div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-name">API Integration</div>
+            <div class="skill-track show-bubble"><div class="skill-fill" data-fill="75"></div><div class="inside-bubble">75%</div></div>
+            <div class="skill-val">75%</div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-name">Power Automate</div>
+            <div class="skill-track show-bubble"><div class="skill-fill" data-fill="80"></div><div class="inside-bubble">80%</div></div>
+            <div class="skill-val">80%</div>
+          </div>
         </div>
 
-        <div class="skill-row">
-          <div class="skill-name">Azure SQL / Synapse</div>
-          <div class="skill-track"><div class="skill-fill" data-fill="85"></div></div>
-          <div class="skill-val">85%</div>
-        </div>
-
-        <div class="skill-row">
-          <div class="skill-name">Data Modeling</div>
-          <div class="skill-track"><div class="skill-fill" data-fill="90"></div></div>
-          <div class="skill-val">90%</div>
-        </div>
-
-        <div class="skill-row">
-          <div class="skill-name">Python (Pandas)</div>
-          <div class="skill-track"><div class="skill-fill" data-fill="82"></div></div>
-          <div class="skill-val">82%</div>
-        </div>
-
-        <div class="skill-row">
-          <div class="skill-name">Git & Version Control</div>
-          <div class="skill-track"><div class="skill-fill" data-fill="78"></div></div>
-          <div class="skill-val">78%</div>
-        </div>
-
-        <div class="skill-row">
-          <div class="skill-name">API Integration</div>
-          <div class="skill-track"><div class="skill-fill" data-fill="75"></div></div>
-          <div class="skill-val">75%</div>
-        </div>
-
-        <div class="skill-row">
-          <div class="skill-name">Power Automate</div>
-          <div class="skill-track"><div class="skill-fill" data-fill="80"></div></div>
-          <div class="skill-val">80%</div>
+        <div style="margin-top:10px">
+          <div style="font-weight:800;color:var(--muted);margin-bottom:8px">Tools & Libraries</div>
+          <div class="tools-list" aria-hidden="false">
+            <span class="tool-pill">Pandas</span>
+            <span class="tool-pill">NumPy</span>
+            <span class="tool-pill">Azure DevOps</span>
+            <span class="tool-pill">Power Automate</span>
+            <span class="tool-pill">REST / JSON</span>
+          </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -381,26 +413,26 @@
         <div class="slide">
           <h4>TouchWorks — KPI Dashboards</h4>
           <p class="small">Real-time insights and workflow tracking.</p>
-          <div class="color-box"></div>
+          <div class="color-box" style="height:140px;border-radius:10px;background:linear-gradient(120deg,#7c5cff,#00d4ff)"></div>
         </div>
 
         <div class="slide">
           <h4>Data Migration — Validation Suite</h4>
           <p class="small">Automated data checks and reconciliation tools.</p>
-          <div class="color-box" style="background:linear-gradient(120deg, rgba(124,92,255,0.35), rgba(0,212,255,0.25))"></div>
+          <div class="color-box" style="height:140px;border-radius:10px;background:linear-gradient(120deg,#00d4ff,#ff6b6b)"></div>
         </div>
 
         <div class="slide">
           <h4>Automation Engine — Scheduler</h4>
           <p class="small">Job monitoring, alerts and health checks.</p>
-          <div class="color-box" style="background:linear-gradient(120deg, rgba(0,212,255,0.35), rgba(255,107,107,0.22))"></div>
+          <div class="color-box" style="height:140px;border-radius:10px;background:linear-gradient(120deg,#ff6b6b,#7c5cff)"></div>
         </div>
       </div>
 
-      <div class="slide-dots" id="slideDots">
-        <div class="dot" data-i="0"></div>
-        <div class="dot" data-i="1"></div>
-        <div class="dot" data-i="2"></div>
+      <div class="slide-dots" id="slideDots" style="margin-top:12px;display:flex;gap:8px;justify-content:center">
+        <div class="dot" data-i="0" style="width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.06);cursor:pointer"></div>
+        <div class="dot" data-i="1" style="width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.06);cursor:pointer"></div>
+        <div class="dot" data-i="2" style="width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.06);cursor:pointer"></div>
       </div>
     </div>
   </section>
@@ -424,7 +456,6 @@
       <div class="card">
         <h3 style="margin:0">Resume</h3>
         <p class="small">Click below to download my resume.</p>
-        <!-- The script attempts resume.pdf first (working on GH Pages). It will then try the original local path if needed. -->
         <a id="downloadResume" class="btn-primary" href="resume.pdf" download style="display:inline-block;margin-top:12px">Download Resume</a>
         <p class="small" style="margin-top:10px;color:var(--muted)">If download fails, confirm <code>resume.pdf</code> is in your repository root (same folder as index.html).</p>
       </div>
@@ -463,7 +494,7 @@
     toggle.addEventListener('keydown', (e) => { if(e.key === 'Enter') toggle.click(); });
   })();
 
-  /* ===== Skill bars animation ===== */
+  /* ===== Skill bars animation (with equalized cards) ===== */
   (function(){
     const fills = document.querySelectorAll('.skill-fill');
     const io = new IntersectionObserver(entries => {
@@ -471,7 +502,11 @@
         if (en.isIntersecting) {
           const el = en.target;
           const val = el.dataset.fill || '0';
+          // animate width
           el.style.width = val + '%';
+          // also set bubble text
+          const bubble = el.parentElement.querySelector('.inside-bubble');
+          if (bubble) bubble.textContent = val + '%';
           io.unobserve(el);
         }
       });
@@ -488,7 +523,7 @@
       const total = slides.children.length;
       idx = (i + total) % total;
       slides.style.transform = `translateX(-${idx*100}%)`;
-      dots.forEach(d => d.classList.toggle('active', +d.dataset.i === idx));
+      dots.forEach(d => d.style.background = ( +d.dataset.i === idx ? 'linear-gradient(90deg,var(--accent-a),var(--accent-b))' : 'rgba(255,255,255,0.06)'));
     }
     dots.forEach(d => d.addEventListener('click', () => show(+d.dataset.i)));
     let timer = setInterval(() => show(idx+1), 6000);
@@ -513,13 +548,12 @@
 
   /* ===== Resume download behavior =====
      1) Try resume.pdf (works for GitHub Pages if resume.pdf is in repo root).
-     2) If not found, try the original local path used during development (/mnt/data/resume.pdf).
-     3) If both fail, fallback to opening the link so user sees server error.
-     Note: '/mnt/data/resume.pdf' will not work on GitHub Pages, but we probe it as a fallback per developer request.
+     2) If not found, try the original uploaded path: /mnt/data/resume.pdf (developer tool path).
+     3) If both fail, fallback to opening the link so the user sees server response.
   */
   (function(){
-    const primary = 'resume.pdf';               // correct path on GH Pages when resume.pdf is in repo root
-    const localFallback = '/mnt/data/resume.pdf'; // original uploaded file path (kept as fallback probe)
+    const primary = 'resume.pdf';               // path on GH Pages (repo root)
+    const localFallback = '/mnt/data/resume.pdf'; // uploaded file path (kept for dev/devtools)
     const btn = document.getElementById('downloadResume');
     const fallbackHref = btn.getAttribute('href');
 
@@ -543,14 +577,11 @@
     }
 
     async function fetchAndDownload(){
-      // Try primary (recommended for GitHub Pages)
       let ok = await tryFetch(primary);
       if (ok) return;
-      // Next try the local uploaded path (may only work in special hosting/dev envs)
       ok = await tryFetch(localFallback);
       if (ok) return;
-      // Fallback: open the href (browser attempt)
-      alert('Resume not found on server. Ensure resume.pdf is uploaded to the repository root (same folder as index.html). Opening direct link now.');
+      alert('Resume not found on the server. Please ensure resume.pdf is uploaded to the repository root (same folder as index.html). Attempting direct link now.');
       window.open(fallbackHref, '_blank');
     }
 
