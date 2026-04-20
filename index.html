@@ -238,8 +238,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 3re
 .footer-links a:hover{color:var(--teal)}
 .footer-copy{max-width:1200px;margin:.2rem auto 0;text-align:center;font-size:.72rem;color:var(--text3);padding-top:2rem;border-top:1px solid var(--border);margin-top:2rem;opacity:.5}
 
-
-
 /* CENTER PIPELINE COLUMN */
 .hero-center{padding-top:1rem;display:flex;flex-direction:column;gap:1.25rem}
 .pipeline-title{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--text3);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.25rem}
@@ -297,7 +295,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 3re
 .tp-dbt2{background:rgba(249,115,22,.08);border-color:rgba(249,115,22,.18);color:#fb923c;animation-delay:.9s}
 @keyframes float-pill{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 
-
 /* FLOATING ACTION BUTTONS */
 .fab-container{
   position:fixed;bottom:2rem;right:1.5rem;z-index:999;
@@ -333,8 +330,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 3re
   50%{transform:scale(1.05);opacity:0}
 }
 
-@media(max-width:768px){
-  .fab-container{bottom:1.2rem;right:1rem}
   .fab-btn{padding:.65rem 1rem;font-size:.78rem}
 }
 
@@ -342,15 +337,150 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 3re
 .fade-in{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
 .fade-in.visible{opacity:1;transform:none}
 
-@media(max-width:1000px){
-  #hero{flex-direction:column-reverse;padding:6rem 2rem 3rem;gap:2.5rem}
   .hero-right{width:100%}.profile-wrap{width:210px;height:210px;margin:0 auto}
 }
-@media(max-width:768px){
-  nav{padding:0 1.5rem}.nav-links,.nav-cta{display:none}
   .section-wrap{padding:4rem 1.5rem}
   .about-grid,.edu-grid{grid-template-columns:1fr;gap:2rem}
   .footer-inner{flex-direction:column;text-align:center}
+}
+
+
+.nav-hamburger{display:none;background:none;border:1px solid var(--border);color:var(--text2);width:36px;height:36px;border-radius:7px;font-size:1.1rem;cursor:pointer;align-items:center;justify-content:center;transition:all .2s}
+.nav-hamburger:hover{border-color:var(--teal);color:var(--teal)}
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(5,7,15,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:1.2rem;z-index:99;flex-direction:column;gap:.3rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:.9rem;color:var(--text2);text-decoration:none;padding:.7rem 1rem;border-radius:8px;transition:all .2s;border:1px solid transparent}
+.mobile-menu a:hover{color:var(--teal);background:rgba(0,229,195,.06);border-color:rgba(0,229,195,.15)}
+@media(max-width:768px){
+  .nav-hamburger{display:flex}
+}
+
+/* ===================== RESPONSIVE ===================== */
+
+/* Tablet */
+@media(max-width:1100px){
+  #hero{
+    grid-template-columns:1fr 1fr;
+    gap:2rem;
+    padding:5rem 2rem 3rem;
+  }
+  .hero-center{display:none}
+  .hero-right{grid-column:2;grid-row:1;}
+  .hero-left{grid-column:1;grid-row:1;}
+  .profile-wrap{width:230px;height:230px}
+  .tech-stack{width:230px}
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+  /* NAV */
+  nav{padding:0 1.2rem;height:60px}
+  .nav-links{display:none}
+  .nav-availability{display:none}
+  .nav-right{gap:.6rem}
+  .nav-cta{padding:.4rem .9rem;font-size:.75rem}
+  .nav-logo-title{display:none}
+
+  /* HERO — single column, photo first then text */
+  #hero{
+    grid-template-columns:1fr;
+    padding:4.5rem 1.2rem 2.5rem;
+    gap:1.5rem;
+    min-height:auto;
+  }
+  .hero-center{display:none}
+  .hero-right{
+    grid-column:1;grid-row:1;
+    position:static;
+    display:flex;flex-direction:column;align-items:center;
+    padding-top:0;
+  }
+  .hero-left{grid-column:1;grid-row:2;}
+
+  .profile-wrap{width:160px;height:160px;margin:0 auto}
+  .profile-badge{font-size:.55rem;padding:.28rem .6rem;bottom:8px;right:0px}
+
+  .tech-stack{width:100%;margin-top:.75rem}
+  .tech-row{justify-content:center;margin-left:0 !important}
+  .tech-pill{font-size:.65rem;padding:.32rem .65rem}
+  .tech-pill .ticon{font-size:.75rem}
+
+  .hero-eyebrow{font-size:.65rem;padding:.28rem .75rem;margin-bottom:1rem}
+  .hero-name{font-size:clamp(2.5rem,12vw,4rem);margin-bottom:.6rem}
+  .hero-role{font-size:.78rem;margin-bottom:1rem}
+  .hero-desc{font-size:.92rem;margin-bottom:1.2rem}
+
+  .hero-contacts{gap:.5rem;margin-bottom:1.2rem}
+  .cpill{font-size:.68rem;padding:.3rem .65rem}
+
+  .badges-wrap{margin-bottom:1.2rem}
+  .badge-link{width:52px;height:52px}
+  .badges-row{gap:.55rem}
+
+  .stats-row{border-radius:10px}
+  .stat-box{padding:.9rem .6rem;min-width:70px}
+  .stat-val{font-size:1.3rem}
+  .stat-lbl{font-size:.6rem}
+
+  /* SECTIONS */
+  .section-wrap{padding:3rem 1.2rem}
+  .sec-title{font-size:1.7rem}
+
+  /* ABOUT */
+  .about-grid{grid-template-columns:1fr;gap:2rem}
+
+  /* SKILLS */
+  .skills-grid{grid-template-columns:1fr;gap:1rem}
+  .skill-card{padding:1.2rem}
+
+  /* EXPERIENCE */
+  .timeline{padding-left:28px}
+  .timeline::before{left:12px}
+  .exp-item{padding-left:32px;padding-bottom:2rem}
+  .exp-dot{left:5px;top:12px;width:12px;height:12px}
+  .exp-head{flex-direction:column;gap:.4rem}
+  .exp-title{font-size:1rem}
+  .exp-date{font-size:.65rem;align-self:flex-start}
+  .exp-bullets li{font-size:.82rem}
+
+  /* ACHIEVEMENTS */
+  .achieve-grid{grid-template-columns:1fr;gap:1rem}
+  .achieve-card{padding:1.1rem}
+  .anum{font-size:1.6rem;min-width:2rem}
+  .ahigh{font-size:1.2rem}
+  .adesc{font-size:.8rem}
+
+  /* EDUCATION */
+  .edu-grid{grid-template-columns:1fr;gap:1rem}
+  .edu-card{padding:1.3rem}
+
+  /* FOOTER */
+  .footer-inner{flex-direction:column;text-align:center;gap:1.2rem}
+  footer{padding:2.5rem 1.2rem}
+  .footer-links{justify-content:center;gap:1rem}
+  .footer-links a{font-size:.75rem}
+
+  /* FLOATING BUTTONS */
+  .fab-container{bottom:1rem;right:.9rem;gap:.6rem}
+  .fab-btn{padding:.6rem .9rem;font-size:.75rem;border-radius:40px}
+  .fab-icon{font-size:.95rem}
+  .fab-label{font-size:.72rem}
+
+  /* CERT CARDS */
+  .cert-card{padding:.65rem .85rem}
+  .cert-name{font-size:.78rem}
+}
+
+/* Small mobile */
+@media(max-width:400px){
+  .hero-name{font-size:2.4rem}
+  .stats-row{flex-wrap:wrap}
+  .stat-box{min-width:calc(50% - 1px);border-right:none;border-bottom:1px solid var(--border)}
+  .stat-box:nth-child(odd){border-right:1px solid var(--border)}
+  .fab-label{display:none}
+  .fab-btn{width:46px;height:46px;padding:0;justify-content:center;border-radius:50%}
+  .fab-icon{font-size:1.1rem}
 }
 </style>
 </head>
@@ -374,6 +504,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 3re
     <li><a href="#education">Education</a></li>
   </ul>
 
+  <button class="nav-hamburger" id="navToggle" aria-label="Menu">&#9776;</button>
   <div class="nav-right">
     <div class="nav-availability">
       <span class="nav-avail-dot"></span>
